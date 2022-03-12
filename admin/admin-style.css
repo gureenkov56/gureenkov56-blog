@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+}
+
+#app {
+    position: absolute;
+    background-image: url(../img/admin/windows-wallpaper.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+
+    width: 100%;
+    height: 100%;
+}
+
+.direction__wrapper {
+    display: flex;
+    margin: 20px;
+}
+
+.direction-item {
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    margin: 10px;
+}
+
+.bottom__menu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: blue;
+}
