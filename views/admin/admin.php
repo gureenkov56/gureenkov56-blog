@@ -16,14 +16,36 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
 <body>
     <div id="app">
         <div class="direction__wrapper">
-            <div class="direction-item">1</div>
-            <div class="direction-item">2</div>
-            <div class="direction-item">3</div>
-            <div class="direction-item">4</div>
+            <div class="direction-item">
+                <img src="../img/admin/dir-icon.png" alt="Direction">
+                <span>Posts</span>
+            </div>
+            <div class="direction-item">
+                <img src="../img/admin/dir-icon.png" alt="Direction">
+                <span>Categories</span>
+            </div>
+            <div class="direction-item">
+                <img src="../img/admin/dir-icon.png" alt="Direction">
+                <span>Users</span>
+            </div>
+            <div class="direction-item">
+                <img src="../img/admin/dir-icon.png" alt="Direction">
+                <span>Other</span>
+            </div>
         </div>
 
         <div class="bottom__menu">
-            Bottom menu
+            <button class='bottom__menu__start-btn'>
+                <img src="../img/admin/start-btn-icon.png" alt="start">
+                <span>ПУСК</span>
+            </button>
+
+            <div class="bottom__menu__right-block">
+                <span>RU</span>
+                <div class="bottom__menu__right-block__time">
+                    13:00
+                </div>
+            </div>
         </div>
     </div>
 </body>
