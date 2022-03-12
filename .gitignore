@@ -2,3 +2,5 @@
 /.DS_Store
 /php/login-and-pass-for-prod.php
 /.vscode
+/img/.DS_Store
+/img/admin/.DS_Store
