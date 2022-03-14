@@ -34,6 +34,32 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             </div>
         </div>
 
+        <div class="start-menu">
+            <div class="start-menu__header">
+                <img src="../img/admin/user-icon.jpeg" alt="user">
+                <span>ADMIN</span>
+            </div>
+
+            <div class="start-menu__orange-line"></div>
+
+            <div class="start_menu__body">
+                BODY
+            </div>
+
+            <div class="start-menu__bottom">
+                <div class="start-menu__bottom__btn">
+                    <img src="../img/admin/log-off-icon.jpg" alt="Log off">
+                    <span>Log Off</span>
+                </div>
+                <div class="start-menu__bottom__btn">
+                <img src="../img/admin/go-home-btn.jpg" alt="Go home">
+                    <span>Home page</span>
+                </div>
+            </div>
+
+        </div>
+
+
         <div class="bottom__menu">
             <button class='bottom__menu__start-btn'>
                 <img src="../img/admin/start-btn-icon.png" alt="start">
