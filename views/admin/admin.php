@@ -11,6 +11,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN PANEL</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vuex@4.0.2/dist/vuex.global.js"></script>
+    <!-- <script src="/views/admin/store.js"></script> -->
     <link href="../../styles/admin-style.css" rel="stylesheet">
 </head>
 <body>
@@ -34,7 +36,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             </div>
         </div>
 
-        <div class="start-menu">
+        <div class="start-menu" :class="{show: showStartMenu}">
             <div class="start-menu__header">
                 <img src="../img/admin/user-icon.jpeg" alt="user">
                 <span>ADMIN</span>
@@ -43,7 +45,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             <div class="start-menu__orange-line"></div>
 
             <div class="start_menu__body">
-                BODY
+                <div class="start_menu__body__first_half">{{message}}</div>
+                <div class="start_menu__body__second_half"></div>
             </div>
 
             <div class="start-menu__bottom">
@@ -51,17 +54,19 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
                     <img src="../img/admin/log-off-icon.jpg" alt="Log off">
                     <span>Log Off</span>
                 </div>
-                <div class="start-menu__bottom__btn">
-                <img src="../img/admin/go-home-btn.jpg" alt="Go home">
-                    <span>Home page</span>
-                </div>
+                <a href="/">
+                    <div class="start-menu__bottom__btn">
+                        <img src="../img/admin/go-home-btn.jpg" alt="Go home">
+                        <span>Home page</span>
+                    </div>
+                </a>
             </div>
 
         </div>
 
 
         <div class="bottom__menu">
-            <button class='bottom__menu__start-btn'>
+            <button class='bottom__menu__start-btn' @click="showStartMenu = !showStartMenu">
                 <img src="../img/admin/start-btn-icon.png" alt="start">
                 <span>ПУСК</span>
             </button>
@@ -84,6 +89,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
         data() {
             return {
                 message: 'Hello Vue!',
+                showStartMenu: false,
             }
         }
     }).mount('#app')

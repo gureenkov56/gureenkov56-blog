@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-
+.show {
+    display: block !important;
+}
 
 body {
     margin: 0;
@@ -48,6 +50,8 @@ body {
     border-radius: 5px 5px 0 0;
 
     box-shadow: 3px 3px 5px black;
+
+    display: none;
 }
 
 .start-menu__header {
@@ -85,8 +89,22 @@ body {
 }
 
 .start_menu__body {
-    height: 200px;
-    background-color: #fac;
+    position: relative;
+    height: 75%;
+}
+
+.start_menu__body {
+    display: flex;
+}
+
+.start_menu__body__first_half {
+    flex: 1;
+    border-right: 1px solid #a8bad0;
+}
+
+.start_menu__body__second_half {
+    background-color: #d3e5fb;
+    flex: 1;
 }
 
 .start-menu__bottom {
@@ -101,7 +119,10 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
+}
 
+.start-menu__bottom > a{
+    text-decoration: none;
 }
 
 .start-menu__bottom__btn {
@@ -113,11 +134,17 @@ body {
     color: white;
 }
 
+.start-menu__bottom__btn:hover {
+    filter: brightness(1.1);
+}
+
 .start-menu__bottom__btn > img {
     border: 1px solid white;
     border-radius: 3px;
     margin-right: 10px;
 }
+
+
 
 
 .bottom__menu {
