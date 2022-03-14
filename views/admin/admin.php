@@ -11,7 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN PANEL</title>
     <script src="https://unpkg.com/vue@3"></script>
-    <link href="admin-style.css" rel="stylesheet">
+    <link href="../../styles/admin-style.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">

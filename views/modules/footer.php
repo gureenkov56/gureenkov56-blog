@@ -3,7 +3,7 @@
     <p>Показалось, что какой-то сюжет про вас? Не стоит себе льстить.<br />
         Все персонажи выдуманы, совпадения случайны.</p>
     <?php if (empty($_SESSION)) : ?>
-        <a href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/login.php">
+        <a href="/login">
             <button class="footer__login-btn">Войти</button>
         </a>
     <?php else: ?>
@@ -17,9 +17,9 @@
     </div>
     <p>На связи:</p>
     <a href="https://www.instagram.com/gureenkov56/">
-        <img src="img/icons/instagam-icon.png" alt="instagram" class="footer__icons">
+        <img src="../../img/icons/instagam-icon.png" alt="instagram" class="footer__icons">
     </a>
 </footer>
-<script src="js/main.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>
