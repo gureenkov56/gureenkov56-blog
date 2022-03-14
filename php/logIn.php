@@ -4,8 +4,7 @@ require_once 'functions.php';
 $res = pdo_prepare_execute(['login' => $_POST['login']], '*', 'users');
 
 if (empty($res)) {
-    echo "NOUSER";
-    header('Location: /login.php?result=NOUSER');
+    header('Location: /login?result=NOUSER');
     $_SESSION = [];
     exit();
 }

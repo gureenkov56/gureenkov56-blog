@@ -32,8 +32,9 @@
                 </a>
                 <button type="submit">Log in</button>
             </div>
-            <?php echo $_GET['result'];?>
-            <?php ?>
+            <?php if (!empty($_GET['result'])){
+                echo $_GET['result'];
+            }?>
         </form>
     </div>
 </div>
