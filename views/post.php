@@ -2,7 +2,7 @@
 include_once "modules/header-post.php";
 
 $res = $pdo->prepare("SELECT * FROM `posts` WHERE `id` = ? LIMIT 1");
-$res->execute([settype($_GET['id'], 'integer')]);
+$res->execute([$_GET['id']]);
 $post = $res->fetch(PDO::FETCH_ASSOC);
 ?>
 

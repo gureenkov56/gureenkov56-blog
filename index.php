@@ -12,13 +12,13 @@ $res = explode('/', $request);
 // for route with GET params
 if (count($res) > 2 || !empty($_GET)) {
     if (strpos($request, 'post') !== false) {
-        $_GET['id']= settype($res[2], 'integer');
+        $_GET['id']= $res[2];
         require __DIR__ . '/views/post.php';
         die();
     }
 
     if (strpos($request, 'category') !== false) {
-        $_GET['id']= settype($res[2], 'integer');
+        $_GET['id'] = $res[2];
         require __DIR__ . '/views/category.php';
         die();
     }
