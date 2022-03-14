@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+
+
 body {
     margin: 0;
 }
@@ -35,6 +37,89 @@ body {
     cursor: pointer;
 }
 
+.start-menu {
+    position: absolute;
+    bottom: 35px;
+
+    height: 500px;
+    width: 400px;
+    background-color: #fff;
+
+    border-radius: 5px 5px 0 0;
+
+    box-shadow: 3px 3px 5px black;
+}
+
+.start-menu__header {
+    background-color: #ccc;
+    height: 70px;
+    border-radius: 5px 5px 0 0;
+    background: rgb(108,172,233);
+    background: linear-gradient(180deg, rgba(108,172,233,1) 3%, rgba(14,95,203,1) 15%, rgba(67,142,233,1) 100%);
+    padding: 3px;
+
+    display: flex;
+    align-items: center;
+}
+
+.start-menu__header > img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid white;
+    margin: 0 10px 0 10px;
+}
+
+.start-menu__header > span {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.start-menu__orange-line {
+    height: 3px;
+    background: black;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 10%, rgba(253,135,37,1) 50%, rgba(255,255,255,1) 90%);
+}
+
+.start_menu__body {
+    height: 200px;
+    background-color: #fac;
+}
+
+.start-menu__bottom {
+    position: absolute;
+    bottom: 0;
+
+    height: 50px;
+    width: 100%;
+    background: rgb(43,103,189);
+    background: linear-gradient(180deg, rgba(43,103,189,1) 2%, rgba(72,134,235,1) 6%, rgba(13,98,207,1) 95%, rgba(29,72,138,1) 98%);
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+
+.start-menu__bottom__btn {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+
+    color: white;
+}
+
+.start-menu__bottom__btn > img {
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+
 .bottom__menu {
     position: absolute;
     bottom: 0;
@@ -66,7 +151,11 @@ body {
 }
 
 .bottom__menu__start-btn:active {
-    filter: brightness(0.9);
+    filter: brightness(0.9) !important;
+}
+
+.bottom__menu__start-btn:hover {
+    filter: brightness(1.1);
 }
 
 .bottom__menu__start-btn > span {
