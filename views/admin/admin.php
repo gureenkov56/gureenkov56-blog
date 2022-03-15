@@ -11,12 +11,21 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN PANEL</title>
     <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://unpkg.com/vuex@4.0.2/dist/vuex.global.js"></script>
-    <!-- <script src="/views/admin/store.js"></script> -->
     <link href="../../styles/admin-style.css" rel="stylesheet">
+
+    <script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
 </head>
 <body>
     <div id="app">
+        {{ message }}
+        <mycomponent></mycomponent>
         <div class="direction__wrapper">
             <div class="direction-item">
                 <img src="../img/admin/dir-icon.png" alt="Direction">
@@ -79,18 +88,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             </div>
         </div>
     </div>
+
+    <script src="/views/admin/main.js" type='module'></script>
+
+
 </body>
 </html>
-
-
-
-<script>
-    Vue.createApp({
-        data() {
-            return {
-                message: 'Hello Vue!',
-                showStartMenu: false,
-            }
-        }
-    }).mount('#app')
-</script>
