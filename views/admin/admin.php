@@ -1,5 +1,9 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
+
+if ($_SESSION['access_level'] !== 'admin') {
+    header('Location: /');
+}
 ?>
 
 <!doctype html>
@@ -33,7 +37,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             </div>
         </div>
 
-        <div class="start-menu" :class="{show: showStartMenu}">
+        <div class="start-menu" id="startMenu">
             <div class="start-menu__header">
                 <img src="../img/admin/user-icon.jpeg" alt="user">
                 <span>ADMIN</span>
@@ -42,7 +46,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             <div class="start-menu__orange-line"></div>
 
             <div class="start_menu__body">
-                <div class="start_menu__body__first_half">{{message}}</div>
+                <div class="start_menu__body__first_half"></div>
                 <div class="start_menu__body__second_half"></div>
             </div>
 
@@ -63,7 +67,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
 
 
         <div class="bottom__menu">
-            <button class='bottom__menu__start-btn' @click="showStartMenu = !showStartMenu">
+            <button class='bottom__menu__start-btn' @click="showStartMenu = !showStartMenu" id="startBtn">
                 <img src="../img/admin/start-btn-icon.png" alt="start">
                 <span>ПУСК</span>
             </button>
@@ -76,6 +80,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
             </div>
         </div>
     </div>
-
+    <script src="../../js/admin.js"></script>
 </body>
 </html>
