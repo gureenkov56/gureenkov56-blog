@@ -64,3 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 })
+
+// fetch('http://localhost:8888/api')
+//     .then(data => data.json())
+//     .then(res => console.log(res))
