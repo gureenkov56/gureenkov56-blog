@@ -14,10 +14,15 @@ if ($_SESSION['access_level'] !== 'admin') {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN PANEL</title>
-    <link href="../../styles/admin-style.css" rel="stylesheet">
+    <link href="../../styles/admin.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
+    <?php 
+        include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/folder.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/text-editor.php';        
+    ?>
+
         <div class="direction__wrapper">
             <div class="direction-item">
                 <img src="../img/admin/dir-icon.png" alt="Direction">
@@ -67,7 +72,7 @@ if ($_SESSION['access_level'] !== 'admin') {
 
 
         <div class="bottom__menu">
-            <button class='bottom__menu__start-btn' @click="showStartMenu = !showStartMenu" id="startBtn">
+            <button class='bottom__menu__start-btn hover_light active_darker' id="startBtn">
                 <img src="../img/admin/start-btn-icon.png" alt="start">
                 <span>ПУСК</span>
             </button>

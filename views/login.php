@@ -14,7 +14,7 @@
         <div class="login__form__header">
             <h1 class="login__h1">Log in</h1>
             <a href="/">
-                <button class="login__form__header__btn">×</button>
+                <button class="login__form__header__btn hover_light active_darker">×</button>
             </a>
         </div>
         <form method="POST" action="php/logIn.php">

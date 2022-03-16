@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('common.css');
 
 .show {
     display: block !important;
@@ -134,15 +135,77 @@ body {
     color: white;
 }
 
-.start-menu__bottom__btn:hover {
-    filter: brightness(1.1);
-}
-
 .start-menu__bottom__btn > img {
     border: 1px solid white;
     border-radius: 3px;
     margin-right: 10px;
 }
+
+
+.folder {
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+
+    background-color: white;
+    border: 3px solid #003ddc;
+    border-radius: 8px 8px 0 0;
+}
+
+
+.windows__folder__second_header {
+    height: 80px;
+    background-color: #eeebd8;
+}
+
+.windows__folder__body {
+    display: flex;
+    width: 100%;
+    height: 82%;
+}
+
+.windows__folder__body__left {
+    height: 100%;
+    width: 250px;
+    background: linear-gradient(180deg, rgba(122,161,230,1) 19%, rgba(99,118,214,1) 70%);
+}
+
+.windows__folder__body__left__menuWrapper {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #d6dff7;
+
+    border: 1px solid white;
+    border-radius: 4px 4px 0 0;
+
+    color: #215dc6;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.windows__folder__body__left__menuWrapper__header {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 19%, rgba(199,212,247,1) 70%);
+    padding: 5px 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.windows__folder__body__left__menuWrapper__header:hover {
+    cursor: pointer;
+}
+
+.windows__folder__body__left__menuWrapper__body > ul > li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
 
 
@@ -177,14 +240,6 @@ body {
     align-items: center;
 }
 
-.bottom__menu__start-btn:active {
-    filter: brightness(0.9) !important;
-}
-
-.bottom__menu__start-btn:hover {
-    filter: brightness(1.1);
-}
-
 .bottom__menu__start-btn > span {
     margin: 3px 0 0 6px;
 }
@@ -208,3 +263,13 @@ body {
     margin-left: 20px;
 }
 
+@media screen and (max-width: 400px) {
+    .start-menu {
+        width: 100%;
+        height: 80%;
+    }
+
+    .start_menu__body__second_half {
+        display: none;
+    }
+}
