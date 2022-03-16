@@ -10,6 +10,12 @@
         <form action="<?php $_SERVER['DOCUMENT_ROOT'] ?>/php/logOut.php">
             <button class="footer__login-btn">Выйти</button>
         </form>
+        <?php if($_SESSION['access_level'] === 'admin') : ?>
+            <a href="/admin">
+                <button class="footer__login-btn">Админ панель</button>
+            </a>
+        <?php endif;?>
+
     <?php endif; ?>
 
     <div class="footer__title">
