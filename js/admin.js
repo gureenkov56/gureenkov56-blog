@@ -7,9 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let lastZIndex = 1;
 
+    document.addEventListener('click', (event) => {
+        const clickedElement = event.composedPath();
+
+        if (!clickedElement.includes(startMenu) && !clickedElement.includes((startBtn))) {
+            startMenu.classList.remove('show');
+        }
+    })
+
     // show and hide start menu
     startBtn.addEventListener('click', () => {
+        startMenu.style.zIndex = lastZIndex;
         startMenu.classList.toggle('show');
+        lastZIndex++;
     })
 
     windowsRedBtn.forEach(redBtn => {
@@ -62,5 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
     }
+
+
 
 })
