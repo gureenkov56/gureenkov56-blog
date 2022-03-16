@@ -24,19 +24,19 @@ if ($_SESSION['access_level'] !== 'admin') {
     ?>
 
         <div class="direction__wrapper">
-            <div class="direction-item">
+            <div class="direction-item" data-link='Posts'>
                 <img src="../img/admin/dir-icon.png" alt="Direction">
                 <span>Posts</span>
             </div>
-            <div class="direction-item">
+            <div class="direction-item" data-link='Categories'>
                 <img src="../img/admin/dir-icon.png" alt="Direction">
                 <span>Categories</span>
             </div>
-            <div class="direction-item">
+            <div class="direction-item" data-link='Users'>
                 <img src="../img/admin/dir-icon.png" alt="Direction">
                 <span>Users</span>
             </div>
-            <div class="direction-item">
+            <div class="direction-item" data-link="Other">
                 <img src="../img/admin/dir-icon.png" alt="Direction">
                 <span>Other</span>
             </div>

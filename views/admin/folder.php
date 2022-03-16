@@ -1,9 +1,9 @@
-<div class="folder">
+<div class="folder hide" id="folderTemplate">
 
     <div class="windows__header">
         <span class="windows__header__name">
             <img src="../../img/admin/folder-icon.png" alt="folder-icon">
-            Posts
+            <span id="windowName">Posts</span>
         </span>
         <div class="windows__header__btn_wrapper">
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">_</button>

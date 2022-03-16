@@ -13,6 +13,10 @@
     display: block;
 }
 
+.hide {
+    display: none;
+}
+
 
 /* Class for components */
 .windows__header {
@@ -27,7 +31,7 @@
 }
 
 .windows__header__name {
-    margin-top: -3px;
+    margin-top: -6px;
     font-size: .6rem;
     padding: 10px 3px 5px 5px;
     font-family: 'Press Start 2P', cursive;   
