@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('common.css');
+
+.show {
+    display: block !important;
+}
+
+body {
+    margin: 0;
+}
+
+#app {
+    position: absolute;
+    background-image: url(../img/admin/windows-wallpaper.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+
+    width: 100%;
+    height: 100%;
+}
+
+.direction__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 20px;
+}
+
+.direction-item {
+    width: 80px;
+    height: 80px;
+    margin: 3px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .8rem;
+
+    cursor: pointer;
+}
+
+.start-menu {
+    position: absolute;
+    bottom: 35px;
+
+    height: 500px;
+    width: 400px;
+    background-color: #fff;
+
+    border-radius: 5px 5px 0 0;
+
+    box-shadow: 3px 3px 5px black;
+
+    display: none;
+}
+
+.start-menu__header {
+    background-color: #ccc;
+    height: 70px;
+    border-radius: 5px 5px 0 0;
+    background: rgb(108,172,233);
+    background: linear-gradient(180deg, rgba(108,172,233,1) 3%, rgba(14,95,203,1) 15%, rgba(67,142,233,1) 100%);
+    padding: 3px;
+
+    display: flex;
+    align-items: center;
+}
+
+.start-menu__header > img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 5px;
+    border: 2px solid white;
+    margin: 0 10px 0 10px;
+}
+
+.start-menu__header > span {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.start-menu__orange-line {
+    height: 3px;
+    background: black;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 10%, rgba(253,135,37,1) 50%, rgba(255,255,255,1) 90%);
+}
+
+.start_menu__body {
+    position: relative;
+    height: 75%;
+}
+
+.start_menu__body {
+    display: flex;
+}
+
+.start_menu__body__first_half {
+    flex: 1;
+    border-right: 1px solid #a8bad0;
+}
+
+.start_menu__body__second_half {
+    background-color: #d3e5fb;
+    flex: 1;
+}
+
+.start-menu__bottom {
+    position: absolute;
+    bottom: 0;
+
+    height: 50px;
+    width: 100%;
+    background: rgb(43,103,189);
+    background: linear-gradient(180deg, rgba(43,103,189,1) 2%, rgba(72,134,235,1) 6%, rgba(13,98,207,1) 95%, rgba(29,72,138,1) 98%);
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.start-menu__bottom > a{
+    text-decoration: none;
+}
+
+.start-menu__bottom__btn {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+
+    color: white;
+}
+
+.start-menu__bottom__btn > img {
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+
+.folder {
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+
+    background-color: white;
+    border: 3px solid #003ddc;
+    border-radius: 8px 8px 0 0;
+}
+
+
+.windows__folder__second_header {
+    height: 80px;
+    background-color: #eeebd8;
+}
+
+.windows__folder__body {
+    position: absolute;
+    display: flex;
+
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    margin-top: 114px;
+
+    font-family: 'Open Sans', sans-serif;
+}
+
+.windows__folder__body__left {
+    height: 100%;
+    min-width: 250px;
+    background: linear-gradient(180deg, rgba(122,161,230,1) 19%, rgba(99,118,214,1) 70%);
+}
+
+.windows__folder__body__right {
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.windows__folder__body__right__wrapper {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.windows__folder__body__left__menuWrapper {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #d6dff7;
+
+    border: 1px solid white;
+    border-radius: 4px 4px 0 0;
+
+    color: #215dc6;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.windows__folder__body__left__menuWrapper__header {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 19%, rgba(199,212,247,1) 70%);
+    padding: 5px 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.windows__folder__body__left__menuWrapper__header > img {
+    width: 19px;
+}
+
+.windows__folder__body__left__menuWrapper__header:hover {
+    cursor: pointer;
+}
+
+.windows__folder__body__left__menuWrapper__body > ul > li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.windows__folder__body__right__file {
+    width: 250px;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+}
+
+.windows__folder__body__right__file > img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.fileinfo__title {
+    font-size: .8rem;
+    white-space: nowrap;
+    max-width: 182px;
+    overflow: hidden;
+}
+
+.fileinfo__status_pub,
+.fileinfo__views {
+    color: grey;
+    font-size: .7rem;
+}
+
+.text_editor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}
+
+
+.bottom__menu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(180deg, rgba(80,126,237,1) 7%, rgba(31,88,193,1) 22%, rgb(69, 120, 230) 100%);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom__menu__start-btn {
+    width: 100px;
+    height: 100%;
+
+    border-radius: 90% 10% 10% 90% / 0 50% 50% 0;
+    border: none;
+    background: linear-gradient(180deg, rgba(125,204,123,1) 7%, rgba(67,174,70,1) 22%, rgba(59,192,51,1) 100%);
+    box-shadow: inset 0 0 10px -3px #000000;
+
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+
+.bottom__menu__start-btn > span {
+    margin: 3px 0 0 6px;
+}
+
+.bottom__menu__right-block {
+    display: flex;
+    color: white;
+
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bottom__menu__right-block > span {
+    padding-top: 5px;
+}
+
+.bottom__menu__right-block__time {
+    width: 70px;
+    background: linear-gradient(180deg, rgba(17,173,234,1) 7%, rgba(20,130,228,1) 22%, rgba(15,149,236,1) 100%);
+    text-align: center;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 400px) {
+    .start-menu {
+        width: 100%;
+        height: 80%;
+    }
+
+    .start_menu__body__second_half {
+        display: none;
+    }
+}

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Class for mixing */
+.hover_light:hover {
+    filter: brightness(1.1);
+}
+
+.active_darker:active {
+    filter: brightness(0.9) !important;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* Class for components */
+.windows__header {
+    background: linear-gradient(180deg, rgba(45,137,251,1) 10%, rgba(0,85,235,1) 60%, rgba(4,104,251,1) 100%);;
+    border-radius: 5px 5px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    padding: 3px;
+}
+
+.windows__header__name {
+    margin-top: -6px;
+    font-size: .6rem;
+    padding: 10px 3px 5px 5px;
+    font-family: 'Press Start 2P', cursive;   
+}
+
+.windows__header__btn {
+    border: 1px solid white;
+    border-radius: 4px;
+
+    color: white;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+    
+
+    margin: 1px;
+
+    cursor: pointer;
+}
+
+.windows_red_btn {
+    font-size: 1.3rem;
+    background: linear-gradient(167deg, rgba(244,167,139,1) 10%, rgba(209,68,40,1) 60%);
+}
+
+.windows_blue_btn {
+    font-size: 1.3rem;
+    padding-bottom: 8px;
+    background: linear-gradient(180deg, rgba(95,140,247,1) 7%, rgba(59,119,245,1) 33%, rgba(16,69,190,1) 95%);
+}
+
+.windows__header__btn_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
