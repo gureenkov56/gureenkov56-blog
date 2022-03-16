@@ -164,15 +164,32 @@ body {
 }
 
 .windows__folder__body {
+    position: absolute;
     display: flex;
+
     width: 100%;
-    height: 82%;
+    bottom: 0;
+    top: 0;
+    margin-top: 114px;
+
+    font-family: 'Open Sans', sans-serif;
 }
 
 .windows__folder__body__left {
     height: 100%;
-    width: 250px;
+    min-width: 250px;
     background: linear-gradient(180deg, rgba(122,161,230,1) 19%, rgba(99,118,214,1) 70%);
+}
+
+.windows__folder__body__right {
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.windows__folder__body__right__wrapper {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .windows__folder__body__left__menuWrapper {
@@ -184,7 +201,6 @@ body {
     border-radius: 4px 4px 0 0;
 
     color: #215dc6;
-    font-family: 'Open Sans', sans-serif;
     font-size: .8rem;
     font-weight: bold;
 }
@@ -197,6 +213,10 @@ body {
     justify-content: space-between;
 }
 
+.windows__folder__body__left__menuWrapper__header > img {
+    width: 19px;
+}
+
 .windows__folder__body__left__menuWrapper__header:hover {
     cursor: pointer;
 }
@@ -206,8 +226,39 @@ body {
     text-decoration: underline;
 }
 
+.windows__folder__body__right__file {
+    width: 250px;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+}
 
+.windows__folder__body__right__file > img {
+    height: 50px;
+    margin-right: 10px;
+}
 
+.fileinfo__title {
+    font-size: .8rem;
+    white-space: nowrap;
+    max-width: 182px;
+    overflow: hidden;
+}
+
+.fileinfo__status_pub,
+.fileinfo__views {
+    color: grey;
+    font-size: .7rem;
+}
+
+.text_editor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}
 
 
 .bottom__menu {

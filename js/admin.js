@@ -13,6 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
             redBtn.parentElement.parentElement.classList.remove('show');
         })
     })
-
-
 })

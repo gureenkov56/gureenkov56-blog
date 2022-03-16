@@ -12,8 +12,7 @@
         </div>
     </div>
 
-    <div class="windows__folder__second_header">
-    </div>
+    <div class="windows__folder__second_header"></div>
 
     <div class="windows__folder__body">
         <div class="windows__folder__body__left">
@@ -31,6 +30,181 @@
                 </div>
             </div>
         </div>
-        <div class="windows__folder__body__right">right</div>
+        <div class="windows__folder__body__right">
+
+            <div class="windows__folder__body__right__wrapper">
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+                <div class="windows__folder__body__right__file">
+                    <img src="../../img/admin/textfile-icon.png" alt="text-file">
+                    <div class="fileinfo__wrapper">
+                        <div class="fileinfo__title">Первый тестовый пост.txt</div>
+                        <div class="fileinfo__status_pub">25.05.2008</div>
+                        <div class="fileinfo__views">Просмотры: 566</div>
+                    </div>
+                </div>
+
+            </div>    
+        </div>
     </div>
 </div>
