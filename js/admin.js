@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app'),
-    startMenu = document.getElementById('startMenu'),
-    startBtn = document.getElementById('startBtn'),
-    directionItem = document.querySelectorAll('.direction-item'),
-    windowsRedBtn = document.querySelectorAll('.windows_red_btn');
+        startMenu = document.getElementById('startMenu'),
+        startBtn = document.getElementById('startBtn'),
+        directionItem = document.querySelectorAll('.direction-item'),
+        windowsRedBtn = document.querySelectorAll('.windows_red_btn');
 
     let lastZIndex = 1;
 
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
     }
+}
 
 // fetch('http://localhost:8888/api')
 //     .then(data => data.json())
