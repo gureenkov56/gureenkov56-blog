@@ -6,6 +6,12 @@ ini_set('display_startup_errors', 1);
 
 $request = $_SERVER['REQUEST_URI'];
 
+// for exact direction
+if (strpos($request, '/api/posts') !== false) {
+    require __DIR__ . '/php/api/get-posts.php';
+    die();
+}
+
 // separate string to array
 $res = explode('/', $request);
 
@@ -40,9 +46,6 @@ switch ($request) {
         break;
     case '/admin':
         require __DIR__ . '/views/admin/admin.php';
-        break;
-    case '/api':
-        require  __DIR__ . '/php/api/get-posts.php';
         break;
     default:
         require __DIR__ . '/views/404.php';

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let lastZIndex = 1;
 
+    // listener for click out of some blocks
     document.addEventListener('click', (event) => {
         const clickedElement = event.composedPath();
 
@@ -42,16 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const newWindow = document.querySelector('#folderTemplate').cloneNode(true);
+
             newWindow.querySelector('#windowName').innerHTML = ID;
             newWindow.id = ID;
             newWindow.classList.remove('hide');
             newWindow.style.zIndex = lastZIndex;
 
-            //random coordinates
+            // random coordinates
             let mt = Math.random() * 30 + 'px',
                 ml = Math.random() * 30 + '%';
-
-            console.log(mt, "mt");
 
             newWindow.style.marginTop = mt;
             newWindow.style.marginLeft = ml;
@@ -60,6 +60,34 @@ document.addEventListener('DOMContentLoaded', () => {
             app.appendChild(newWindow);
             lastZIndex++;
             refreshBtnOnScreen();
+
+            if (ID === 'Posts') {
+                let windowsFolderBodyRightWrapper = newWindow.querySelector('.windows__folder__body__right__wrapper');
+                let contentItemTemplate = newWindow.querySelector('.windows__folder__body__right__file');
+
+                windowsFolderBodyRightWrapper.innerHTML = '';
+
+                fetch(`${window.location.origin}/api/posts?` + new URLSearchParams({
+                    select: '*',
+                    from: 'posts',
+                    orderBy: 'pub_date',
+                    order: 'DESC',
+                    limit: '5',
+                })
+                )
+                    .then(res => res.json())
+                    .then(data => {
+                        data.forEach(contentItem => {
+                            let newContentDOM = contentItemTemplate.cloneNode(true);
+                            newContentDOM.querySelector('.fileinfo__title').innerHTML = contentItem.h1;
+                            newContentDOM.querySelector('.fileinfo__status_pub').innerHTML = contentItem.pub_date;
+
+
+                            windowsFolderBodyRightWrapper.appendChild(newContentDOM);
+                        })
+                    })
+
+            }
         })
     })
 
@@ -74,6 +102,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
-// fetch('http://localhost:8888/api')
-//     .then(data => data.json())
-//     .then(res => console.log(res))
+
+
