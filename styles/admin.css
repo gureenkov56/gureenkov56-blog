@@ -226,6 +226,13 @@ body {
     text-decoration: underline;
 }
 
+.windows__folder__body__right__wrapper__counter {
+    margin: 10px 20px;
+    text-align: center;
+    font-size: .7rem;
+    color: rgb(128, 128, 128);
+}
+
 .windows__folder__body__right__file {
     width: 250px;
     height: 80px;
