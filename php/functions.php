@@ -8,7 +8,7 @@ function pre($var) {
 }
 
 // for getting one or some string WITHOUT ARGUMENTS
-function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '') {
+function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '10') {
     $query_string = "SELECT $select FROM $from";
     if ($order_by) $query_string .= " ORDER BY $order_by";
     if ($order) $query_string .= " $order";
