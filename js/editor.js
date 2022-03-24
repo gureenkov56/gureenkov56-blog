@@ -11,7 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
     contentEditables = document.querySelectorAll('[contenteditable]'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
-  let lasdActiveContentEditable = null;
+  let lastActiveContentEditable = null;
+
+  // class 'last-focus' allow find active block
+  contentEditables.forEach(item => {
+    item.addEventListener('focus', () => {
+      lastActiveContentEditable = item;
+    })
+
+    item.addEventListener('change', () => {
+      if (item.innerHTML === '') {
+        item.remove();
+      }
+    })
+  })
 
 
   /***************************************
@@ -35,29 +48,31 @@ document.addEventListener("DOMContentLoaded", () => {
   /*************************
    * 3. Create new element *
    *************************/
-
-  // class 'last-focus' allow find active block
-  contentEditables.forEach(item => {
-    item.addEventListener('focus', () => {
-      lasdActiveContentEditable = item;
-    })
-  })
-
-
-
   btnsForCreateElement.forEach(btn => {
     btn.addEventListener('click', event => {
-      let newElement = document.createElement(event.target.dataset.element);
-      newElement.setAttribute("contenteditable", "true");
-      newElement.innerHTML = 'new';
 
-      if (lasdActiveContentEditable === null) {
+      let newElement = null;
+
+      if (event.target.dataset.element != 'img') {
+        // text blocks
+        newElement = document.createElement(event.target.dataset.element);
+        newElement.setAttribute("contenteditable", "true");
+        newElement.innerHTML = 'new';
+      } else {
+        // img upload
+        newElement = document.createElement('input');
+        newElement.setAttribute('type', 'file');
+        newElement.setAttribute('accept', 'image/*');
+      }
+
+      if (lastActiveContentEditable === null) {
         editor.append(newElement);
       } else {
-        lasdActiveContentEditable.after(newElement);
-        newElement.focus();
-        lasdActiveContentEditable = newElement;
+        lastActiveContentEditable.after(newElement);
       }
+
+      newElement.focus();
+      lastActiveContentEditable = newElement;
 
 
     })

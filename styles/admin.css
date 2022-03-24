@@ -330,7 +330,8 @@ body {
   height: 100px;
   background-color: rgb(241, 241, 241);
   text-align: center;
-  color: #808080;
+  color: #fff;
+  text-shadow: 0 0 10px black;
   cursor: pointer;
   border-radius: 4px;
 
@@ -431,6 +432,11 @@ body {
 #editor blockquote {
   background-color: #fff1b4;
   color: #383838;
+}
+
+#editor > img {
+  width: 95%;
+  object-fit: contain;
 }
 
 #addElement > span:hover {

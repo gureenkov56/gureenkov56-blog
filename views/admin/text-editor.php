@@ -52,6 +52,7 @@
         <div id="editor">
             <h1 contenteditable='true'>Заголовок</h1>
             <p contenteditable='true'>Start</p>
+            <img src="https://gureenkov56.ru/img/post/thailand.jpeg" alt="">
 
             <blockquote contenteditable='true'>Blockquote</Blockquote></blockquote>
 
