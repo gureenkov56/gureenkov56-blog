@@ -325,6 +325,29 @@ body {
   background-color: rgb(243, 243, 243);
 }
 
+.add_title_img {
+  width: 150px;
+  height: 100px;
+  background-color: rgb(241, 241, 241);
+  text-align: center;
+  color: #808080;
+  cursor: pointer;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(https://gureenkov56.ru/img/post/thailand.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.add_title_img:hover {
+  text-decoration: underline;
+}
+
 .cat_select {
     border: none;
     padding: 3px;

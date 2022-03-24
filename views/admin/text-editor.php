@@ -29,6 +29,10 @@
                 </div>
             </div>
 
+            <div class="add_title_img">
+                Загрузить картинку поста
+            </div>
+
             <div class="finish_btn">
                 <select name="category" id="category" class='cat_select'>
                     <option value="" selected disabled hidden>Категория</option>
