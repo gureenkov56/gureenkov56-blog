@@ -393,6 +393,21 @@ body {
 #editor h5,
 #editor h6 {
   font-family: "Montserrat", sans-serif;
+  color: white;
+  background-color: #000;
+}
+
+#editor p {
+  color: #595b5b;
+}
+
+#editor p:focus {
+  color: #222222;
+}
+
+#editor blockquote {
+  background-color: #fff1b4;
+  color: #383838;
 }
 
 #addElement > span:hover {

@@ -46,12 +46,10 @@
         </div>
 
         <div id="editor">
-            <h1 contenteditable='true' title='h1'>Заголовок</h1>
-            <p contenteditable='true' title="p">Параграф</p>
-            <p contenteditable='true' title="p">Параграф</p>
+            <h1 contenteditable='true'>Заголовок</h1>
+            <p contenteditable='true'>Start</p>
 
-            <p contenteditable='true' title="p">Параграф</p>
-            <p contenteditable='true' title="p">Параграф</p>
+            <blockquote contenteditable='true'>Blockquote</Blockquote></blockquote>
 
         </div>
     </div>
