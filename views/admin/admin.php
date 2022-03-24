@@ -18,9 +18,9 @@ if ($_SESSION['access_level'] !== 'admin') {
 </head>
 <body>
     <div id="app">
-    <?php 
+    <?php
         include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/folder.php';
-        include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/text-editor.php';        
+        include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/text-editor.php';
     ?>
 
         <div class="direction__wrapper">
@@ -86,5 +86,6 @@ if ($_SESSION['access_level'] !== 'admin') {
         </div>
     </div>
     <script src="../../js/admin.js"></script>
+    <script src="../../js/editor.js"></script>
 </body>
 </html>
