@@ -2,6 +2,7 @@
   1. Create constants
   2. Create new paragraph after ENTER
   3. Create new element
+  4. Adding new img and close modal
 
 
 */
@@ -9,6 +10,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const editor = document.getElementById("editor"),
     contentEditables = document.querySelectorAll('[contenteditable]'),
+    modalImgWrapper = document.querySelector('.modal-img-wrapper'),
+    closeImgModal = document.querySelector('.close-img-modal'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
   let lastActiveContentEditable = null;
@@ -60,9 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
         newElement.innerHTML = 'new';
       } else {
         // img upload
-        newElement = document.createElement('input');
-        newElement.setAttribute('type', 'file');
-        newElement.setAttribute('accept', 'image/*');
+        newElement = document.createElement('img');
+        newElement.setAttribute('src', '../../img/admin/new-img.jpg');
+
+        addListenerForEditorImg();
       }
 
       if (lastActiveContentEditable === null) {
@@ -73,8 +77,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
       newElement.focus();
       lastActiveContentEditable = newElement;
-
-
     })
+  })
+
+  /*********************
+   * 4. Adding new img *
+   *********************/
+
+  function addListenerForEditorImg() {
+    let allImg = document.querySelectorAll('#editor > img');
+    allImg.forEach(el => {
+      el.addEventListener('click', () => {
+        modalImgWrapper.style.display = 'flex';
+      })
+    })
+  }
+
+  addListenerForEditorImg();
+
+  closeImgModal.addEventListener('click', () => {
+    modalImgWrapper.style.display = 'none';
   })
 });

@@ -52,10 +52,46 @@
         <div id="editor">
             <h1 contenteditable='true'>Заголовок</h1>
             <p contenteditable='true'>Start</p>
-            <img src="https://gureenkov56.ru/img/post/thailand.jpeg" alt="">
+            <img src="../../img/admin/new-img.jpg" alt="">
 
-            <blockquote contenteditable='true'>Blockquote</Blockquote></blockquote>
+            <blockquote contenteditable='true'>Blockquote</Blockquote>
+            </blockquote>
 
         </div>
     </div>
+
+    <div class="modal-img-wrapper">
+        <div id="imgModal">
+            <div class="windows__header">
+                <span class="windows__header__name">
+                    <img src="../../img/admin/folder-icon.png" alt="folder-icon">
+                    Изменить картинку
+                </span>
+                <div class="windows__header__btn_wrapper">
+                    <button class="windows__header__btn windows_red_btn hover_light active_darker close-img-modal">×</button>
+                </div>
+            </div>
+
+            <div class="imgModal-inner-wrapper">
+
+                <input type="file" name="new-img" id="uploadImg">
+
+                <div>
+                    <label for="alt">alt*</label>
+                    <input type="text" id="alt">
+                </div>
+
+                <div>
+                    <label for="description">Описание</label>
+                    <input type="text" id="description">
+                </div>
+
+                <button>Сохранить</button>
+                <button>Отменить</button>
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
