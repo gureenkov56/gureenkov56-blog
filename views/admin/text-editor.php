@@ -52,7 +52,6 @@
         <div id="editor">
             <h1 contenteditable='true'>Заголовок</h1>
             <p contenteditable='true'>Start</p>
-            <img src="../../img/admin/new-img.jpg" alt="">
 
             <blockquote contenteditable='true'>Blockquote</Blockquote>
             </blockquote>
@@ -82,12 +81,12 @@
                 </div>
 
                 <div>
-                    <label for="description">Описание</label>
+                    <label for="description">Подпись</label>
                     <input type="text" id="description">
                 </div>
 
-                <button>Сохранить</button>
-                <button>Отменить</button>
+                <button id="saveNewImg">Сохранить</button>
+                <button class="close-img-modal">Отменить</button>
 
             </div>
 

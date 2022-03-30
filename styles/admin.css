@@ -434,10 +434,24 @@ body {
   color: #383838;
 }
 
-#editor > img {
-  width: 95%;
-  object-fit: contain;
+#editor > figure {
+  background-color: #acc;
+  text-align: center;
   cursor: pointer;
+  color: #595b5b;
+  text-align: center;
+}
+
+#editor img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+#editor figcaption{
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 #addElement > span:hover {
@@ -549,6 +563,12 @@ body {
 
 .imgModal-inner-wrapper > * {
   padding: 5px;
+}
+
+
+
+#imgModal button {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {

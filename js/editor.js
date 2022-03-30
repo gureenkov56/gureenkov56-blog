@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const editor = document.getElementById("editor"),
     contentEditables = document.querySelectorAll('[contenteditable]'),
     modalImgWrapper = document.querySelector('.modal-img-wrapper'),
-    closeImgModal = document.querySelector('.close-img-modal'),
+    closeImgModal = document.querySelectorAll('.close-img-modal'),
+    saveNewImg = document.getElementById('saveNewImg'),
+    alt = document.getElementById('alt'),
+    description = document.getElementById('description'),
+    uploadImg = document.getElementById('uploadImg')
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
   let lastActiveContentEditable = null;
@@ -63,10 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         newElement.innerHTML = 'new';
       } else {
         // img upload
-        newElement = document.createElement('img');
-        newElement.setAttribute('src', '../../img/admin/new-img.jpg');
+        newElement = document.createElement('figure');
+        newElement.classList.add('post__full_width_img');
 
-        addListenerForEditorImg();
+        const imgNew = document.createElement('img');
+        imgNew.setAttribute('src', '../../img/admin/new-img.jpg');
+
+        newElement.append(imgNew);
       }
 
       if (lastActiveContentEditable === null) {
@@ -74,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         lastActiveContentEditable.after(newElement);
       }
+
+      addListenerForEditorImg();
 
       newElement.focus();
       lastActiveContentEditable = newElement;
@@ -84,18 +93,43 @@ document.addEventListener("DOMContentLoaded", () => {
    * 4. Adding new img *
    *********************/
 
+  let clickedFigure = null;
+
   function addListenerForEditorImg() {
-    let allImg = document.querySelectorAll('#editor > img');
+    let allImg = document.querySelectorAll('#editor > figure');
+    console.log(allImg);
     allImg.forEach(el => {
       el.addEventListener('click', () => {
         modalImgWrapper.style.display = 'flex';
+        clickedFigure = el;
       })
     })
   }
 
   addListenerForEditorImg();
 
-  closeImgModal.addEventListener('click', () => {
+  closeImgModal.forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+      modalImgWrapper.style.display = 'none';
+    })
+  });
+
+  saveNewImg.addEventListener('click', () => {
+    const img = clickedFigure.querySelector('img');
+    img.setAttribute('alt', alt.value);
+
+    if (description.value) {
+      const descriptionUnderImg = document.createElement('figcaption');
+      descriptionUnderImg.innerHTML = description.value;
+      img.after(descriptionUnderImg);
+    }
+
+    fetch('../php/api/upload-img.php', {
+      method: 'POST',
+    })
+
     modalImgWrapper.style.display = 'none';
   })
+
+
 });
