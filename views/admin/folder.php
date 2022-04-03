@@ -51,8 +51,8 @@
             </div>
 
             <div class="windows__folder__body__right__wrapper">
-                
 
+                <p>В процессе разработки...</p>
                 <!--post template-->
                 <div class="windows__folder__body__right__file">
                     <img src="../../img/admin/textfile-icon.png" alt="text-file">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-            </div>    
+            </div>
         </div>
     </div>
 </div>

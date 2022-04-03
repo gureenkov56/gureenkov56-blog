@@ -417,8 +417,9 @@ p{
     margin: 5px 0;
 }
 
-.post__full_width_img > caption{
+.post__full_width_img > figcaption{
     max-width: 700px;
+    margin: 0 auto;
 }
 
 /* category */

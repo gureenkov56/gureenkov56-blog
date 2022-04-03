@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const app = document.getElementById("app"),
     startMenu = document.getElementById("startMenu"),
     startBtn = document.getElementById("startBtn"),
