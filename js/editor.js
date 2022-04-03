@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveNewImg = document.getElementById('saveNewImg'),
     alt = document.getElementById('alt'),
     description = document.getElementById('description'),
-    uploadImg = document.getElementById('uploadImg')
+    uploadImgForm = document.getElementById('uploadImgForm'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
   let lastActiveContentEditable = null;
@@ -71,9 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
         newElement.classList.add('post__full_width_img');
 
         const imgNew = document.createElement('img');
+        const descriptionUnderImg = document.createElement('figcaption');
         imgNew.setAttribute('src', '../../img/admin/new-img.jpg');
 
         newElement.append(imgNew);
+        newElement.append(descriptionUnderImg);
+
       }
 
       if (lastActiveContentEditable === null) {
@@ -119,14 +122,20 @@ document.addEventListener("DOMContentLoaded", () => {
     img.setAttribute('alt', alt.value);
 
     if (description.value) {
-      const descriptionUnderImg = document.createElement('figcaption');
-      descriptionUnderImg.innerHTML = description.value;
-      img.after(descriptionUnderImg);
+      let figcaption = clickedFigure.querySelector('figcaption');
+      figcaption.innerHTML = description.value;
     }
 
+    // upload new img
     fetch('../php/api/upload-img.php', {
-      method: 'POST',
+      method: "POST",
+      body: new FormData(uploadImgForm),
     })
+    .then(res => res.json())
+    .then(imgname => {
+      console.log(imgname);
+      img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
+    });
 
     modalImgWrapper.style.display = 'none';
   })

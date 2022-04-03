@@ -73,7 +73,9 @@
 
             <div class="imgModal-inner-wrapper">
 
-                <input type="file" name="new-img" id="uploadImg">
+                <form enctype="multipart/form-data" method="POST" id="uploadImgForm">
+                    <input type="file" name="uploadimg" id="uploadImg">
+                </form>
 
                 <div>
                     <label for="alt">alt*</label>
