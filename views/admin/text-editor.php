@@ -74,7 +74,7 @@
             <div class="imgModal-inner-wrapper">
 
                 <form enctype="multipart/form-data" method="POST" id="uploadImgForm">
-                    <input type="file" name="uploadimg" id="uploadImg">
+                    <input type="file" name="uploadimg" id="uploadImg" accept=".jpg, .jpeg, .png">
                 </form>
 
                 <div>

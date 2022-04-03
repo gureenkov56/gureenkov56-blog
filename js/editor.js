@@ -8,8 +8,11 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  /***********************
+   * 1. Create constants *
+   ***********************/
   const editor = document.getElementById("editor"),
-    contentEditables = document.querySelectorAll('[contenteditable]'),
     modalImgWrapper = document.querySelector('.modal-img-wrapper'),
     closeImgModal = document.querySelectorAll('.close-img-modal'),
     saveNewImg = document.getElementById('saveNewImg'),
@@ -18,21 +21,30 @@ document.addEventListener("DOMContentLoaded", () => {
     uploadImgForm = document.getElementById('uploadImgForm'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
-  let lastActiveContentEditable = null;
+  let lastActiveContentEditable = null,
+    contentEditables = document.querySelectorAll('[contenteditable]');
 
-  // class 'last-focus' allow find active block
-  contentEditables.forEach(item => {
-    item.addEventListener('focus', () => {
-      lastActiveContentEditable = item;
+  function refreshContentEditablesListeners() {
+    contentEditables = document.querySelectorAll('[contenteditable]');
+    console.log("contentEditables", contentEditables);
+
+    contentEditables.forEach(item => {
+      item.addEventListener('focus', () => {
+        contentEditables.forEach(el => el.classList.remove('active'));
+        item.classList.add('active');
+      })
+
+      item.addEventListener('keyup', (event) => {
+        console.log(event.key);
+        if (item.innerHTML === '' && event.key === "Backspace") {
+          item.previousElementSibling.focus();
+          item.remove();
+        }
+      })
     })
+  }
 
-    item.addEventListener('change', () => {
-      if (item.innerHTML === '') {
-        item.remove();
-      }
-    })
-  })
-
+  refreshContentEditablesListeners();
 
   /***************************************
    * 1. Create new paragraph after ENTER *
@@ -45,7 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // create new paragrapsh
       const newP = document.createElement("p");
       newP.setAttribute("contenteditable", "true");
+      contentEditables = document.querySelectorAll('[contenteditable]');
       event.target.after(newP);
+
+      refreshContentEditablesListeners();
       newP.focus();
     }
   })
@@ -58,13 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
   btnsForCreateElement.forEach(btn => {
     btn.addEventListener('click', event => {
 
-      let newElement = null;
+      const activeBlock = editor.querySelector('.active');
+      let newElement = null,
+        removeTarget = false;
 
       if (event.target.dataset.element != 'img') {
-        // text blocks
+        // text blocks replace other
+
         newElement = document.createElement(event.target.dataset.element);
         newElement.setAttribute("contenteditable", "true");
-        newElement.innerHTML = 'new';
+        newElement.innerHTML = activeBlock.innerHTML;
+        removeTarget = true;
       } else {
         // img upload
         newElement = document.createElement('figure');
@@ -76,19 +95,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         newElement.append(imgNew);
         newElement.append(descriptionUnderImg);
-
       }
 
-      if (lastActiveContentEditable === null) {
-        editor.append(newElement);
+      if (activeBlock) {
+        activeBlock.after(newElement);
       } else {
-        lastActiveContentEditable.after(newElement);
+        editor.append(newElement);
+      }
+
+      if (removeTarget) {
+        activeBlock.remove();
       }
 
       addListenerForEditorImg();
+      refreshContentEditablesListeners();
 
       newElement.focus();
-      lastActiveContentEditable = newElement;
     })
   })
 
