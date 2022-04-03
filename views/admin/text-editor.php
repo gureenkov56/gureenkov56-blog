@@ -1,4 +1,4 @@
-<div class="text_editor">
+<div class="text_editor hide">
     <div class="windows__header">
         <span class="windows__header__name">
             <img src="../../img/admin/folder-icon.png" alt="folder-icon">
