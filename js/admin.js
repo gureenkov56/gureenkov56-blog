@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   windowsRedBtn.forEach((redBtn) => {
     redBtn.addEventListener("click", () => {
       redBtn.parentElement.parentElement.classList.remove("show");
-      console.log('click');
     });
   });
 

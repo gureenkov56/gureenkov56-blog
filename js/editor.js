@@ -21,12 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     uploadImgForm = document.getElementById('uploadImgForm'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
-  let lastActiveContentEditable = null,
-    contentEditables = document.querySelectorAll('[contenteditable]');
+  let contentEditables = document.querySelectorAll('[contenteditable]');
 
   function refreshContentEditablesListeners() {
     contentEditables = document.querySelectorAll('[contenteditable]');
-    console.log("contentEditables", contentEditables);
 
     contentEditables.forEach(item => {
       item.addEventListener('focus', () => {
@@ -35,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
       item.addEventListener('keyup', (event) => {
-        console.log(event.key);
         if (item.innerHTML === '' && event.key === "Backspace") {
           item.previousElementSibling.focus();
           item.remove();
@@ -47,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   refreshContentEditablesListeners();
 
   /***************************************
-   * 1. Create new paragraph after ENTER *
+   * 2. Create new paragraph after ENTER *
    ***************************************/
   editor.addEventListener('keyup', event => {
     if (event.key == "Enter") {
@@ -79,11 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (event.target.dataset.element != 'img') {
         // text blocks replace other
-
         newElement = document.createElement(event.target.dataset.element);
         newElement.setAttribute("contenteditable", "true");
-        newElement.innerHTML = activeBlock.innerHTML;
-        removeTarget = true;
+        if (activeBlock) {
+          newElement.innerHTML = activeBlock.innerHTML;
+          removeTarget = true;
+        }
       } else {
         // img upload
         newElement = document.createElement('figure');
@@ -95,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         newElement.append(imgNew);
         newElement.append(descriptionUnderImg);
+        activeBlock.classList.remove('active');
       }
 
       if (activeBlock) {
@@ -122,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addListenerForEditorImg() {
     let allImg = document.querySelectorAll('#editor > figure');
-    console.log(allImg);
     allImg.forEach(el => {
       el.addEventListener('click', () => {
         modalImgWrapper.style.display = 'flex';
@@ -155,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(res => res.json())
     .then(imgname => {
-      console.log(imgname);
       img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
     });
 
