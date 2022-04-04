@@ -1,4 +1,4 @@
-<div class="text_editor hide">
+<div class="text_editor">
     <div class="windows__header">
         <span class="windows__header__name">
             <img src="../../img/admin/folder-icon.png" alt="folder-icon">
@@ -29,8 +29,8 @@
                 </div>
             </div>
 
-            <div class="add_title_img">
-                Загрузить картинку поста
+            <div id="addTitleImg">
+                <img src="../../img/admin/new-img.jpg" alt="">
             </div>
 
             <div class="finish_btn">

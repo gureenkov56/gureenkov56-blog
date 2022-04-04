@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alt = document.getElementById('alt'),
     description = document.getElementById('description'),
     uploadImgForm = document.getElementById('uploadImgForm'),
+    addTitleImg = document.getElementById('addTitleImg'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
   let contentEditables = document.querySelectorAll('[contenteditable]');
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         newElement.append(imgNew);
         newElement.append(descriptionUnderImg);
-        activeBlock.classList.remove('active');
+        if (activeBlock) activeBlock.classList.remove('active');
       }
 
       if (activeBlock) {
@@ -157,6 +158,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     modalImgWrapper.style.display = 'none';
+  })
+
+  /******************
+   * 5. Title image *
+   ******************/
+
+  addTitleImg.addEventListener('click', () => {
+    modalImgWrapper.style.display = 'flex';
+    clickedFigure = addTitleImg;
   })
 
 
