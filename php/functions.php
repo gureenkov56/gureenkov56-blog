@@ -34,6 +34,24 @@ function pdo_prepare_execute($params, $select = '*', $table = 'posts') {
     return $stmt->fetchAll();
 }
 
+// for update data without prepare (no params by user)
+function pdo_update($table = 'posts', $params = [], $where = []) {
+    $query_string = "UPDATE `$table` SET ";
+
+    foreach ($params as $key => $value) {
+        $query_string .= "`$key` = $value ";
+    }
+
+    $query_string .= "WHERE ";
+
+    foreach ($where as $key => $value) {
+        $query_string .= "`$key` = $value ";
+    }
+
+    global $pdo;
+    $pdo->query($query_string);
+}
+
 // for header-main and header-post
 $categories = [];
 $gettedCategories = pdo_query('*', 'categories');
