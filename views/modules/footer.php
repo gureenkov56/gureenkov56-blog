@@ -7,7 +7,6 @@
             <button class="footer__reg-btn">Reg</button>
         </a>
     <?php else : ?>
-        <p class='footer__username'><?= $_SESSION['login'] ?></p>
         <?php
         if($_SESSION['avatar']) {
             $avatar = $_SESSION['avatar'];
@@ -19,18 +18,21 @@
             <img class="footer__avatar" src="../../img/users/<?= $avatar ?>" alt="avatar">
         </div>
 
+        <p class='footer__username'><?= $_SESSION['login'] ?></p>
+
         <?php if ($_SESSION['access_level'] !== 'all') : ?>
         <div class="footer__access-msg">⭐  Доступен дополнительный контент</div>
         <?php endif; ?>
 
-        <form action="<?php $_SERVER['DOCUMENT_ROOT'] ?>/php/logOut.php">
-            <button class="footer__login-btn">Выйти</button>
-        </form>
         <?php if ($_SESSION['access_level'] === 'admin') : ?>
             <a href="/admin">
                 <button class="footer__login-btn">Админ панель</button>
             </a>
         <?php endif; ?>
+
+        <form action="<?php $_SERVER['DOCUMENT_ROOT'] ?>/php/logOut.php">
+            <button class="footer__login-btn">Выйти</button>
+        </form>
 
     <?php endif; ?>
 
