@@ -298,7 +298,7 @@ body {
 .editor__controllers {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   padding: 20px 10px;
   max-width: 1000px;
   margin: 0 auto;
@@ -355,38 +355,36 @@ body {
     border-radius: 3px;
     padding: 3px;
     margin: 3px;
-    width: 150px;
+    width: 98%;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .save_btn:hover {
     background-color: rgb(85, 116, 255);
 }
 
-.pub_btn {
-    border: none;
-    background-color: rgb(125, 207, 136);
-    color: white;
-    border-radius: 3px;
-    padding: 3px;
-    margin: 3px;
-    width: 150px;
-    cursor: pointer;
-}
-
-.pub_btn:hover {
-    background-color: rgb(69, 206, 87);
-}
-
 .editor__wrapper {
-    height: 85%;
+    height: 88%;
     padding: 10px;
+    overflow-y: scroll;
+}
+
+#h1 {
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 10px;
+  max-width: 800px;
+  margin: 10px auto;
 }
 
 #editor {
   max-width: 800px;
   max-height: 75%;
+  min-height: 400px;
   margin: 0 auto;
+  margin-bottom: 40px;
   overflow-y: scroll;
   border: 1px solid rgb(226, 226, 226);
   border-radius: 4px;
@@ -398,7 +396,10 @@ body {
   padding: 10px;
 }
 
-#editor h1,
+#editor .active {
+  outline: none;
+}
+
 #editor h2,
 #editor h3,
 #editor h4,
@@ -558,6 +559,14 @@ body {
 #imgModal button {
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  .editor__controllers {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
 
 @media screen and (max-width: 400px) {
   .start-menu {

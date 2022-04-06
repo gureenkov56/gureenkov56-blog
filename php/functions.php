@@ -62,7 +62,7 @@ function pdo_update($table = 'posts', $params = [], $where = []) {
 }
 
 // insert with params by user
-// INSERT INTO `users` (`id`, `login`, `password`, `access_level`, `avatar`) VALUES (NULL, 'new', 'new', 'standart', '');
+
 function pdo_insert_prepare($table, $params) {
     $query_string = "INSERT INTO `$table` (";
 
@@ -87,6 +87,8 @@ function pdo_insert_prepare($table, $params) {
     global $pdo;
     $stmt = $pdo->prepare($query_string);
     $stmt->execute($params);
+
+    echo json_encode($query_string);
 }
 
 // for header-main and header-post

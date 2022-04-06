@@ -12,6 +12,11 @@ if (strpos($request, '/api/posts') !== false) {
     die();
 }
 
+if (strpos($request, '/api/upload-post') !== false) {
+    require __DIR__ . '/php/api/upload-posts.php';
+    die();
+}
+
 // separate string to array
 $res = explode('/', $request);
 

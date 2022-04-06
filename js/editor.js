@@ -20,12 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
     description = document.getElementById('description'),
     uploadImgForm = document.getElementById('uploadImgForm'),
     addTitleImg = document.getElementById('addTitleImg'),
+    savePostBtn = document.getElementById('savePostBtn'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
 
-  let contentEditables = document.querySelectorAll('[contenteditable]');
+  let contentEditables = editor.querySelectorAll('[contenteditable]');
 
   function refreshContentEditablesListeners() {
-    contentEditables = document.querySelectorAll('[contenteditable]');
+    contentEditables = editor.querySelectorAll('[contenteditable]');
 
     contentEditables.forEach(item => {
       item.addEventListener('focus', () => {
@@ -34,9 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
       item.addEventListener('keyup', (event) => {
-        if (item.innerHTML === '' && event.key === "Backspace") {
-          item.previousElementSibling.focus();
+        if (item.innerHTML === '' && event.key === "Backspace" && item.classList.contains('oneStepBeforeRemove')) {
+          if(item.previousElementSibling) {
+            item.previousElementSibling.focus();
+          }
           item.remove();
+        } else if (item.innerHTML === '' && event.key === "Backspace") {
+          item.classList.add('oneStepBeforeRemove');
+        } else {
+          item.classList.remove('oneStepBeforeRemove');
         }
       })
     })
@@ -55,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // create new paragrapsh
       const newP = document.createElement("p");
       newP.setAttribute("contenteditable", "true");
-      contentEditables = document.querySelectorAll('[contenteditable]');
+      contentEditables = editor.querySelectorAll('[contenteditable]');
       event.target.after(newP);
 
       refreshContentEditablesListeners();
@@ -152,10 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       body: new FormData(uploadImgForm),
     })
-    .then(res => res.json())
-    .then(imgname => {
-      img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
-    });
+      .then(res => res.json())
+      .then(imgname => {
+        img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
+      });
 
     modalImgWrapper.style.display = 'none';
   })
@@ -169,5 +176,40 @@ document.addEventListener("DOMContentLoaded", () => {
     clickedFigure = addTitleImg;
   })
 
+  /****************
+   * 6. Save post *
+   ****************/
+
+  savePostBtn.addEventListener('click', () => {
+    let text = '';
+    contentEditables.forEach(el => {
+      el.removeAttribute('contenteditable');
+      text += el.outerHTML;
+    })
+    text = text.replace('active', '');
+    text = text.replaceAll('oneStepBeforeRemove', '');
+    text = text.replaceAll('class=""', '');
+
+    console.log(text);
+
+
+    let formData = new FormData();
+    formData.append('h1', document.querySelector('#h1').innerHTML);
+    formData.append('text', text);
+    formData.append('pub_status', document.getElementById('pubStatus').value);
+    formData.append('in_category', document.getElementById('category').value);
+    formData.append('preview_img', addTitleImg.querySelector('img').getAttribute('src').split('/post/').pop());
+    formData.append('level_access', document.getElementById('accessLevel').value);
+
+    fetch(`${window.location.origin}/api/upload-post`, {
+      method: 'post',
+      body: formData
+    })
+      .then(res => res.json())
+      .then(res => console.log(res))
+  })
+
+  // TODO:
+  // Открытие поста, обновление поста, показ постов для разных доступов, показ фрагментов для разных доступов
 
 });

@@ -428,6 +428,8 @@ p{
 
 .post__titleBlock{
     position: relative;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 .post__titleBlock > img{

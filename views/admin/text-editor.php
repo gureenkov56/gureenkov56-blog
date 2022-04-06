@@ -34,23 +34,34 @@
             </div>
 
             <div class="finish_btn">
-                <select name="category" id="category" class='cat_select'>
-                    <option value="" selected disabled hidden>Категория</option>
-                    <option value="1">Путешествия</option>
-                    <option value="2">Коддинг</option>
-                    <option value="3">Другое</option>
-                </select>
                 <div>
-                    <button class='save_btn'>Сохранить</button>
+                    <select name="access-level" id="accessLevel" class='cat_select'>
+                        <option value="all" selected>All</option>
+                        <option value="middle">middle</option>
+                        <option value="closest">Closest</option>
+                    </select>
                 </div>
                 <div>
-                    <button class='pub_btn'>Опубликовать</button>
+                    <select name="pub-status" id="pubStatus" class='cat_select'>
+                        <option value="draft" selected>Draft</option>
+                        <option value="pub">Pub</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="category" id="category" class='cat_select'>
+                        <option value="1" selected>Путешествия</option>
+                        <option value="2">Коддинг</option>
+                        <option value="3">Другое</option>
+                    </select>
+                </div>
+                <div>
+                    <button class='save_btn' id='savePostBtn'>Save</button>
                 </div>
             </div>
         </div>
 
+        <h1 id="h1" contenteditable='true'>Заголовок</h1>
         <div id="editor">
-            <h1 contenteditable='true'>Заголовок</h1>
             <p contenteditable='true'>Start</p>
 
             <blockquote contenteditable='true'>Blockquote</Blockquote>
