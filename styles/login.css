@@ -104,6 +104,7 @@ body {
 .login__form__error {
     text-align: center;
     color: red;
+    padding-bottom: 10px;
 }
 
 .windows-standart-btn {
