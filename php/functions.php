@@ -52,6 +52,34 @@ function pdo_update($table = 'posts', $params = [], $where = []) {
     $pdo->query($query_string);
 }
 
+// insert with params by user
+// INSERT INTO `users` (`id`, `login`, `password`, `access_level`, `avatar`) VALUES (NULL, 'new', 'new', 'standart', '');
+function pdo_insert_prepare($table, $params) {
+    $query_string = "INSERT INTO `$table` (";
+
+    foreach ($params as $key => $value) {
+        $query_string .= "`$key`, ";
+    }
+
+    // remove "," on the end
+    $query_string = substr($query_string, 0, -2);
+
+    $query_string .= ") VALUES (";
+
+    foreach ($params as $key => $value) {
+        $query_string .= ":$key, ";
+    }
+
+    // remove "," on the end
+    $query_string = substr($query_string, 0, -2);
+
+    $query_string .= ")";
+    
+    global $pdo;
+    $stmt = $pdo->prepare($query_string);
+    $stmt->execute($params);
+}
+
 // for header-main and header-post
 $categories = [];
 $gettedCategories = pdo_query('*', 'categories');
