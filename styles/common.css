@@ -34,7 +34,7 @@
     margin-top: -6px;
     font-size: .6rem;
     padding: 10px 3px 5px 5px;
-    font-family: 'Press Start 2P', cursive;   
+    font-family: 'Press Start 2P', cursive;
 }
 
 .windows__header__btn {
@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     padding-top: 3px;
-    
+
 
     margin: 1px;
 
@@ -71,5 +71,15 @@
 .windows__header__btn_wrapper {
     display: flex;
     justify-content: space-between;
+}
+
+.windows-standart-btn {
+    background-color: #F7F3EF;
+    border: 1px solid rgb(74, 74, 74);
+    border-radius: 3px;
+}
+
+.windows-standart-btn.priority {
+    border: 2px solid blue;
 }
 

@@ -101,11 +101,6 @@ body {
     margin-right: 10px;
 }
 
-.login__form__btn-wrapper > button {
-    border: 2px solid blue;
-    border-radius: 3px;
-}
-
 .login__form__error {
     text-align: center;
     color: red;
