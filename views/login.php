@@ -26,15 +26,15 @@
                 <label for="pass">Password:</label>
                 <input type="password" name="pass" id="pass" required>
             </div>
+            <?php if (!empty($_GET['result'])){
+                echo '<div class="login__form__error">' . $_GET['result'] . '</div>';
+            }?>
             <div class="login__form__btn-wrapper">
                 <a href="/">
                     <button type="button" class='windows-standart-btn'>Home</button>
                 </a>
                 <button type="submit" class='windows-standart-btn priority'>Log in</button>
             </div>
-            <?php if (!empty($_GET['result'])){
-                echo '<div class="login__form__error">' . $_GET['result'] . '</div>';
-            }?>
         </form>
     </div>
 </div>

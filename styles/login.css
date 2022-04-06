@@ -104,7 +104,8 @@ body {
 .login__form__error {
     text-align: center;
     color: red;
-    padding-bottom: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: .8rem;
 }
 
 .windows-standart-btn {

@@ -18,9 +18,11 @@
         <div>
             <img class="footer__avatar" src="../../img/users/<?= $avatar ?>" alt="avatar">
         </div>
-        <div class="footer__access-msg">
-            <?php if ($_SESSION['access_level'] !== 'all') echo '⭐  Доступен дополнительный контент';  ?>
-        </div>
+
+        <?php if ($_SESSION['access_level'] !== 'all') : ?>
+        <div class="footer__access-msg">⭐  Доступен дополнительный контент</div>
+        <?php endif; ?>
+
         <form action="<?php $_SERVER['DOCUMENT_ROOT'] ?>/php/logOut.php">
             <button class="footer__login-btn">Выйти</button>
         </form>
