@@ -8,7 +8,7 @@ if (empty($res)) {
     $_SESSION = [];
     exit();
 }
-elseif ($res[0]['password'] === $_POST['pass']) {
+elseif ( password_verify($_POST['pass'], $res[0]['password']) ) {
     $_SESSION['login'] = $res[0]['login'];
     $_SESSION['access_level'] = $res[0]['access_level'];
     $_SESSION['avatar'] = $res[0]['avatar'];
