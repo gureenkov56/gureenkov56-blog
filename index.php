@@ -33,6 +33,11 @@ if (count($res) > 2 || !empty($_GET)) {
         require __DIR__ . '/views/login.php';
         die();
     }
+
+    if (strpos($request, 'reg') !== false) {
+        require __DIR__ . '/views/reg.php';
+        die();
+    }
 }
 
 // route without GET params
@@ -43,6 +48,9 @@ switch ($request) {
         break;
     case '/login':
         require __DIR__ . '/views/login.php';
+        break;
+    case '/reg':
+        require __DIR__ . '/views/reg.php';
         break;
     case '/admin':
         require __DIR__ . '/views/admin/admin.php';
