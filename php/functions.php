@@ -8,8 +8,17 @@ function pre($var) {
 }
 
 // for getting one or some string WITHOUT ARGUMENTS
-function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '10') {
+function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '10', $where_params = []) {
     $query_string = "SELECT $select FROM $from";
+    if (!empty($where_params)) {
+        $query_string .= " WHERE";
+        foreach ($where_params as $key => $value) {
+            $query_string .= " `$key` = '$value' AND";
+        }
+
+        // remove ' AND' on the end
+        $query_string = substr($query_string, 0, -4);
+    }
     if ($order_by) $query_string .= " ORDER BY $order_by";
     if ($order) $query_string .= " $order";
     if ($limit) $query_string .= " LIMIT $limit";
@@ -74,7 +83,7 @@ function pdo_insert_prepare($table, $params) {
     $query_string = substr($query_string, 0, -2);
 
     $query_string .= ")";
-    
+
     global $pdo;
     $stmt = $pdo->prepare($query_string);
     $stmt->execute($params);
