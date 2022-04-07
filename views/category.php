@@ -1,5 +1,6 @@
 <?php
-include_once "modules/header-main.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
+
 
 // category
 global $categories;
@@ -10,6 +11,8 @@ foreach ($categories as $key => $value) {
         break;
     }
 }
+
+include_once "modules/header-main.php";
 
 // posts
 $posts_of_category = pdo_prepare_execute(['in_category' => $category['id']]);

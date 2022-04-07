@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
 
 ?>
 
@@ -11,7 +11,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../styles/style.css">
-    <title>GUREENKOV56</title>
+    <title><?php echo $category['category-name'] ?? 'GUREENKOV56' ?></title>
 </head>
 
 <body>
