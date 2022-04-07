@@ -1,9 +1,9 @@
-<div class="folder hide" id="folderTemplate">
+<div class="folder hide-me hide" id="folderPosts">
 
     <div class="windows__header">
         <span class="windows__header__name">
             <img src="../../img/admin/folder-icon.png" alt="folder-icon">
-        <span id="windowName">Posts</span>
+            <span id="windowName">Posts</span>
         </span>
         <div class="windows__header__btn_wrapper">
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">_</button>
@@ -58,8 +58,11 @@
                     <img src="../../img/admin/textfile-icon.png" alt="text-file">
                     <div class="fileinfo__wrapper" title="TEST TITLE">
                         <div class="fileinfo__title"></div>
-                        <div class="fileinfo__status_pub"></div>
-                        <div class="fileinfo__views">Просмотры: <span class="views_count"></span></div>
+                        <div class="fileinfo__status_pub">Date</div>
+                        <div class="d-flex">
+                            <div class="fileinfo__views">Просмотры: <span class="views_count"></span></div>
+                            <div class="fileinfo__status">Статус: <span class="draft_or_pub"></span></div>
+                        </div>
                     </div>
                 </div>
 

@@ -257,7 +257,7 @@ body {
 }
 
 .windows__folder__body__right__file {
-  width: 250px;
+  width: 350px;
   height: 80px;
   display: flex;
   cursor: pointer;
@@ -271,14 +271,19 @@ body {
 .fileinfo__title {
   font-size: 0.8rem;
   white-space: nowrap;
-  max-width: 182px;
+  max-width: 250px;
   overflow: hidden;
 }
 
 .fileinfo__status_pub,
-.fileinfo__views {
+.fileinfo__views,
+.fileinfo__status {
   color: grey;
   font-size: 0.7rem;
+}
+
+.fileinfo__status {
+  padding-left: 10px;
 }
 
 /************
@@ -365,7 +370,7 @@ body {
 }
 
 .editor__wrapper {
-    height: 88%;
+    height: 90%;
     padding: 10px;
     overflow-y: scroll;
 }
@@ -476,6 +481,7 @@ body {
     rgb(69, 120, 230) 100%
   );
 
+  z-index: 99999;
   display: flex;
   justify-content: space-between;
 }

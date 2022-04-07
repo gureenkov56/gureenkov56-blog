@@ -17,6 +17,10 @@
     display: none;
 }
 
+.d-flex {
+    display: flex;
+}
+
 
 /* Class for components */
 .windows__header {

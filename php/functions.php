@@ -7,7 +7,7 @@ function pre($var) {
     echo '</pre>';
 }
 
-// for getting one or some string WITHOUT ARGUMENTS
+// for getting one or some string WITHOUT ARGUMENTS by user
 function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '10', $where_params = []) {
     $query_string = "SELECT $select FROM $from";
     if (!empty($where_params)) {

@@ -19,7 +19,7 @@ if ($_SESSION['access_level'] !== 'admin') {
 <body>
     <div id="app">
     <?php
-        include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/folder.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/folder-posts.php';
         include $_SERVER['DOCUMENT_ROOT'] . '/views/admin/text-editor.php';
     ?>
 

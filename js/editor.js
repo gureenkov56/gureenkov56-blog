@@ -200,9 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
     text = text.replaceAll('class=""', '');
     text = text.replaceAll(' >', '>');
 
-    console.log(text);
-
-
     let formData = new FormData();
     formData.append('title', document.querySelector('#SEOtitle').value);
     formData.append('description', document.querySelector('#SEOdescription').value);
@@ -213,12 +210,17 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append('preview_img', addTitleImg.querySelector('img').getAttribute('src').split('/post/').pop());
     formData.append('level_access', document.getElementById('accessLevel').value);
 
-    fetch(`${window.location.origin}/api/upload-post`, {
-      method: 'post',
-      body: formData
-    })
-      .then(res => res.json())
-      .then(res => console.log(res))
+    if (editor.dataset.id === 'new') {
+      fetch(`${window.location.origin}/api/upload-post`, {
+        method: 'post',
+        body: formData
+      })
+        .then(res => res.json())
+        .then(res => console.log(res))
+    } else {
+      // update post
+    }
+
   })
 
 
