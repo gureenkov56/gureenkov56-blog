@@ -144,11 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
   closeImgModal.forEach(closeBtn => {
     closeBtn.addEventListener('click', () => {
       modalImgWrapper.style.display = 'none';
+      let inputs = modalImgWrapper.querySelectorAll('input');
+      inputs.forEach(inp => inp.value = '');
     })
   });
 
   saveNewImg.addEventListener('click', () => {
-    const img = clickedFigure.querySelector('img');
+    let img = clickedFigure.querySelector('img');
     img.setAttribute('alt', alt.value);
 
     if (description.value) {
@@ -166,6 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
         img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
       });
 
+    let inputs = modalImgWrapper.querySelectorAll('input');
+    inputs.forEach(inp => inp.value = '');
     modalImgWrapper.style.display = 'none';
   })
 
@@ -184,18 +188,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   savePostBtn.addEventListener('click', () => {
     let text = '';
-    contentEditables.forEach(el => {
+    let editorElementsAll = document.querySelectorAll('#editor > *');
+    console.log(editorElementsAll);
+    editorElementsAll.forEach(el => {
       el.removeAttribute('contenteditable');
+      el.classList.remove('oneStepBeforeRemove');
+      el.classList.remove('active');
+
       text += el.outerHTML;
     })
-    text = text.replace('active', '');
-    text = text.replaceAll('oneStepBeforeRemove', '');
     text = text.replaceAll('class=""', '');
+    text = text.replaceAll(' >', '>');
 
     console.log(text);
 
 
     let formData = new FormData();
+    formData.append('title', document.querySelector('#SEOtitle').value);
+    formData.append('description', document.querySelector('#SEOdescription').value);
     formData.append('h1', document.querySelector('#h1').innerHTML);
     formData.append('text', text);
     formData.append('pub_status', document.getElementById('pubStatus').value);
@@ -211,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => console.log(res))
   })
 
-  
+
 
   // TODO:
   // Открытие поста, обновление поста, показ постов для разных доступов, показ фрагментов для разных доступов

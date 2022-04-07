@@ -5,6 +5,8 @@ use function PHPSTORM_META\type;
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
 
 $params = [
+	'title' => $_POST['title'],
+	'description' => $_POST['description'],
 	'h1' => $_POST['h1'],
 	'text' => $_POST['text'],
 	'pub_status' => $_POST['pub_status'],

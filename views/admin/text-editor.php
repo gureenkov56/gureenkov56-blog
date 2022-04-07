@@ -72,15 +72,16 @@
         <div class="editor__seo__wrapper">
             <div>
                 <label for="title">SEO TITLE</label> <br />
-                <input type="text" id="title">
+                <input type="text" id="SEOtitle">
             </div>
             <div>
                 <label for="title">SEO DESCRIPTION</label> <br />
-                <input type="text" id="description">
+                <input type="text" id="SEOdescription">
             </div>
         </div>
     </div>
 
+    <!--modal-->
     <div class="modal-img-wrapper">
         <div id="imgModal">
             <div class="windows__header">
