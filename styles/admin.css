@@ -437,10 +437,16 @@ body {
   padding: 0;
 }
 
-#editor figcaption{
+#editor figcaption {
   max-width: 700px;
   margin: 0 auto;
   padding: 0;
+}
+
+.editor__seo__wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 #addElement > span:hover {

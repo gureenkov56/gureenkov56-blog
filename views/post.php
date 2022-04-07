@@ -1,5 +1,6 @@
 <?php
-include_once "modules/header-post.php";
+
+require $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
 
 $res = $pdo->prepare("SELECT * FROM `posts` WHERE `id` = ? LIMIT 1");
 $res->execute([$_GET['id']]);
@@ -7,6 +8,8 @@ $post = $res->fetch(PDO::FETCH_ASSOC);
 
 // views +1 counter
 pdo_update('posts', ['views' => $post['views'] + 1], ['id' => $post['id']]);
+
+include_once "modules/header-post.php";
 ?>
 
 <article class="post">
@@ -17,6 +20,7 @@ pdo_update('posts', ['views' => $post['views'] + 1], ['id' => $post['id']]);
     <?=$post['text'] ?>
 
 </article>
+
 <?php
 include_once "modules/footer.php"
 ?>

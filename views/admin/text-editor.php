@@ -60,13 +60,24 @@
             </div>
         </div>
 
-        <h1 id="h1" contenteditable='true'>Заголовок</h1>
+        <h1 id="h1" contenteditable='true'>H1</h1>
+
         <div id="editor">
             <p contenteditable='true'>Start</p>
 
             <blockquote contenteditable='true'>Blockquote</Blockquote>
             </blockquote>
+        </div>
 
+        <div class="editor__seo__wrapper">
+            <div>
+                <label for="title">SEO TITLE</label> <br />
+                <input type="text" id="title">
+            </div>
+            <div>
+                <label for="title">SEO DESCRIPTION</label> <br />
+                <input type="text" id="description">
+            </div>
         </div>
     </div>
 

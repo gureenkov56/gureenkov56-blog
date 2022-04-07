@@ -3,6 +3,8 @@
   2. Create new paragraph after ENTER
   3. Create new element
   4. Adding new img and close modal
+  5. Title image
+  6. Save post
 
 
 */
@@ -208,6 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.json())
       .then(res => console.log(res))
   })
+
+  
 
   // TODO:
   // Открытие поста, обновление поста, показ постов для разных доступов, показ фрагментов для разных доступов
