@@ -125,12 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
    ****************************************/
 
   function openEditor(id) {
-    if (id) {
+    textEditor.classList.remove('hide');
+    textEditor.style.zIndex = lastZIndex;
+    textEditor.dataset.id = id;
+    lastZIndex++;
+
+    if (id !== 'create') {
       //open editor with post
-      textEditor.classList.remove('hide');
-      textEditor.dataset.id = id;
-      textEditor.style.zIndex = lastZIndex;
-      lastZIndex++;
 
       let bodyGet = {
         'select': '*',
@@ -142,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch(`${window.location.origin}/api/posts?` + new URLSearchParams(bodyGet))
         .then(res => res.json())
         .then(res => {
+          console.log(res);
           // set id for editor
           document.querySelector('.text_editor .windows__header__name > span').innerHTML = 'ID' + res[0].id + ' ' + res[0].h1;
 
@@ -163,19 +165,37 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById('SEOdescription').value = res[0].description;
 
           // main img
-          // draft or pub
-          // category
-          // access level
-        })
+          addTitleImg.querySelector('img').setAttribute('src', window.location.origin + '/img/post/' + res[0].preview_img);
 
+          // draft or pub
+          document.getElementById('pubStatus').value = res[0].pub_status;
+
+          // category
+          document.getElementById('category').value = res[0].in_category;
+
+          // access level
+          document.getElementById('accessLevel').value = res[0].level_access;
+
+        })
     } else {
-      textEditor.classList.remove('hide');
-      textEditor.dataset.id = 'new';
+      document.querySelector('.text_editor .windows__header__name > span').innerHTML = 'Новый пост';
+      document.getElementById('h1').innerHTML = 'h1';
+      editor.innerHTML = '<p contenteditable="true">Start</p>';
+
+      document.getElementById('SEOtitle').value = "";
+      document.getElementById('SEOdescription').value = "";
+      addTitleImg.querySelector('img').setAttribute('src', window.location.origin + '/img/admin/new-img.jpg');
+
+      document.getElementById('pubStatus').value = 'draft';
+      document.getElementById('category').value = '3';
+      document.getElementById('accessLevel').value = 'closest';
+
+
     }
   }
 
   // create new post
-  createNewPost.addEventListener('click', openEditor);
+  createNewPost.addEventListener('click', () => openEditor('create'));
 
   /**********
    * EDITOR *
@@ -188,8 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
   5. Title image
   6. Save post
   7. Open exist post
-
-
 */
 
   function refreshContentEditablesListeners() {

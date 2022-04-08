@@ -37,7 +37,7 @@
                 <div>
                     <select name="access-level" id="accessLevel" class='cat_select'>
                         <option value="all" selected>All</option>
-                        <option value="middle">middle</option>
+                        <option value="middle">Middle</option>
                         <option value="closest">Closest</option>
                     </select>
                 </div>
