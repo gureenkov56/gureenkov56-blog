@@ -383,16 +383,20 @@ document.addEventListener("DOMContentLoaded", () => {
     text = text.replaceAll(' >', '>');
 
     let formData = new FormData();
+
+    formData.append('id', textEditor.dataset.id);
     formData.append('title', document.querySelector('#SEOtitle').value);
     formData.append('description', document.querySelector('#SEOdescription').value);
     formData.append('h1', document.querySelector('#h1').innerHTML);
     formData.append('text', text);
     formData.append('pub_status', document.getElementById('pubStatus').value);
     formData.append('in_category', document.getElementById('category').value);
-    formData.append('preview_img', addTitleImg.querySelector('img').getAttribute('src').split('/post/').pop());
+    formData.append('preview_img', addTitleImg.querySelector('img').getAttribute('src').split('/').pop());
     formData.append('level_access', document.getElementById('accessLevel').value);
 
-    if (editor.dataset.id === 'new') {
+
+    if (textEditor.dataset.id === 'create') {
+      // upload new post
       fetch(`${window.location.origin}/api/upload-post`, {
         method: 'post',
         body: formData
@@ -401,6 +405,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => console.log(res))
     } else {
       // update post
+      fetch(`${window.location.origin}/api/update-post`, {
+        method: 'post',
+        body: formData
+      })
+        .then(res => res.json())
+        .then(res => console.log(res))
     }
 
   })

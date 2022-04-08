@@ -86,9 +86,32 @@ function pdo_insert_prepare($table, $params) {
 
     global $pdo;
     $stmt = $pdo->prepare($query_string);
-    $stmt->execute($params);
+    $res = $stmt->execute($params);
+    echo $res ? json_encode('SUCCESS CREATE POST') : json_encode('ERROR CREATE POST');
+}
 
-    echo json_encode($query_string);
+// update one string
+function pdo_update_prepare($table, $set_params, $id) {
+    if (!$id) {
+        return 'Error: "where" is empty';
+        exit();
+    }
+
+    $query_string = "UPDATE `$table` SET ";
+
+    foreach ($set_params as $key => $value) {
+        $query_string .= "`$key` =  :$key, ";
+    }
+
+    // remove ", " on the end
+    $query_string = substr($query_string, 0, -2);
+
+    $query_string .= " WHERE id = $id";
+
+    global $pdo;
+    $stmt = $pdo->prepare($query_string);
+    $res = $stmt->execute($set_params);
+    echo $res ? json_encode('SUCCESS UPDATE POST') : json_encode('ERROR UPDATE POST');
 }
 
 // for header-main and header-post

@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
 
 $params = [
