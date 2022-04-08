@@ -23,7 +23,7 @@
                 </div>
                 <div class="windows__folder__body__left__menuWrapper__body">
                     <ul>
-                        <li>Создать новый пост</li>
+                        <li id="createNewPost">Создать новый пост</li>
                         <li>Опубликовать пост</li>
                         <li>Категории</li>
                     </ul>

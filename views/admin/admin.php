@@ -86,6 +86,5 @@ if ($_SESSION['access_level'] !== 'admin') {
         </div>
     </div>
     <script src="../../js/admin.js"></script>
-    <script src="../../js/editor.js"></script>
 </body>
 </html>
