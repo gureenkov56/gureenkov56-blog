@@ -7,7 +7,7 @@
         <div class="windows__header__btn_wrapper">
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">_</button>
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">□</button>
-            <button class="windows__header__btn windows_red_btn hover_light active_darker">×</button>
+            <button class="windows__header__btn windows_red_btn hover_light active_darker close-btn">×</button>
         </div>
     </div>
 
@@ -82,7 +82,7 @@
     </div>
 
     <!--modal-->
-    <div class="modal-img-wrapper">
+    <div class="modal-img-wrapper hide-me hide">
         <div id="imgModal">
             <div class="windows__header">
                 <span class="windows__header__name">
@@ -90,7 +90,7 @@
                     Изменить картинку
                 </span>
                 <div class="windows__header__btn_wrapper">
-                    <button class="windows__header__btn windows_red_btn hover_light active_darker close-img-modal">×</button>
+                    <button class="windows__header__btn windows_red_btn hover_light active_darker close-img-modal close-btn">×</button>
                 </div>
             </div>
 

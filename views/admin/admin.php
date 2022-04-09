@@ -85,6 +85,7 @@ if ($_SESSION['access_level'] !== 'admin') {
             </div>
         </div>
     </div>
+    <?php include_once 'windows-xp-alert.php' ?>
     <script src="../../js/admin.js"></script>
 </body>
 </html>

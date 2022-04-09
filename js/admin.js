@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     textEditor = document.querySelector('.text_editor'),
     createNewPost = document.getElementById('createNewPost'),
     editor = document.getElementById('editor'),
-    windowsRedBtn = document.querySelectorAll(".windows_red_btn"),
     modalImgWrapper = document.querySelector('.modal-img-wrapper'),
     closeImgModal = document.querySelectorAll('.close-img-modal'),
     saveNewImg = document.getElementById('saveNewImg'),
@@ -49,12 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     lastZIndex++;
   });
 
-  windowsRedBtn.forEach((redBtn) => {
-    redBtn.addEventListener("click", () => {
-      redBtn.parentElement.parentElement.classList.remove("show");
-    });
-  });
-
 
 
   // click for open folder
@@ -66,11 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshFiles();
   })
 
-  const closeWindowBtn = document.querySelectorAll(".windows_red_btn");
+  const closeWindowBtn = document.querySelectorAll(".close-btn");
 
-  closeWindowBtn.forEach((redBtn) => {
-    redBtn.addEventListener("click", () => {
-      redBtn.closest(".hide-me").classList.add('hide');
+  closeWindowBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      console.log('click');
+      btn.closest(".hide-me").classList.add('hide');
+      console.log('btn.closest(".hide-me")', btn.closest(".hide-me"));
     });
   });
 
@@ -307,7 +302,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let allImg = document.querySelectorAll('#editor > figure');
     allImg.forEach(el => {
       el.addEventListener('click', () => {
-        modalImgWrapper.style.display = 'flex';
+        console.log('click');
+        modalImgWrapper.classList.remove('hide');
         clickedFigure = el;
       })
     })
@@ -317,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeImgModal.forEach(closeBtn => {
     closeBtn.addEventListener('click', () => {
-      modalImgWrapper.style.display = 'none';
       let inputs = modalImgWrapper.querySelectorAll('input');
       inputs.forEach(inp => inp.value = '');
     })

@@ -8,7 +8,7 @@
         <div class="windows__header__btn_wrapper">
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">_</button>
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">□</button>
-            <button class="windows__header__btn windows_red_btn hover_light active_darker">×</button>
+            <button class="windows__header__btn windows_red_btn hover_light active_darker close_btn">×</button>
         </div>
     </div>
 
@@ -24,8 +24,8 @@
                 <div class="windows__folder__body__left__menuWrapper__body">
                     <ul>
                         <li id="createNewPost">Создать новый пост</li>
-                        <li>Опубликовать пост</li>
-                        <li>Категории</li>
+                        <li class="disable-link">Опубликовать пост</li>
+                        <li class="disable-link">Категории</li>
                     </ul>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     <img src="../../img/admin/folder-leftmenu-icon.png" alt="hider-icon">
                 </div>
                 <div class="windows__folder__body__left__menuWrapper__body">
-                    <ul>
+                    <ul class="disable-link">
                         <li>Категории</li>
                         <li>Не опубликованные</li>
                         <li>Корзина</li>
