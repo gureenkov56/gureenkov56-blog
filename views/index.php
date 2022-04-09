@@ -1,6 +1,6 @@
 <?php
 include_once "modules/header-main.php";
-$posts_query = pdo_query('*', 'posts', 'id', 'DESC', 3);
+$posts_query = pdo_query('*', 'posts', 'id', 'DESC', 5, ['pub_status' => 'pub']);
 $posts = [];
 foreach ($posts_query as $one_post) {
     $posts[] = $one_post;

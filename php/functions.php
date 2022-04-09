@@ -7,9 +7,18 @@ function pre($var) {
     echo '</pre>';
 }
 
-// for getting one or some string WITHOUT ARGUMENTS
-function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '10') {
+// for getting one or some string WITHOUT ARGUMENTS by user
+function pdo_query($select = '*', $from = 'posts', $order_by = '', $order = '', $limit = '10', $where_params = []) {
     $query_string = "SELECT $select FROM $from";
+    if (!empty($where_params)) {
+        $query_string .= " WHERE";
+        foreach ($where_params as $key => $value) {
+            $query_string .= " `$key` = '$value' AND";
+        }
+
+        // remove ' AND' on the end
+        $query_string = substr($query_string, 0, -4);
+    }
     if ($order_by) $query_string .= " ORDER BY $order_by";
     if ($order) $query_string .= " $order";
     if ($limit) $query_string .= " LIMIT $limit";
@@ -53,7 +62,7 @@ function pdo_update($table = 'posts', $params = [], $where = []) {
 }
 
 // insert with params by user
-// INSERT INTO `users` (`id`, `login`, `password`, `access_level`, `avatar`) VALUES (NULL, 'new', 'new', 'standart', '');
+
 function pdo_insert_prepare($table, $params) {
     $query_string = "INSERT INTO `$table` (";
 
@@ -74,10 +83,33 @@ function pdo_insert_prepare($table, $params) {
     $query_string = substr($query_string, 0, -2);
 
     $query_string .= ")";
-    
+
     global $pdo;
     $stmt = $pdo->prepare($query_string);
     $stmt->execute($params);
+}
+
+// update one string
+function pdo_update_prepare($table, $set_params, $id) {
+    if (!$id) {
+        return 'Error: "where" is empty';
+        exit();
+    }
+
+    $query_string = "UPDATE `$table` SET ";
+
+    foreach ($set_params as $key => $value) {
+        $query_string .= "`$key` =  :$key, ";
+    }
+
+    // remove ", " on the end
+    $query_string = substr($query_string, 0, -2);
+
+    $query_string .= " WHERE id = $id";
+
+    global $pdo;
+    $stmt = $pdo->prepare($query_string);
+    $stmt->execute($set_params);
 }
 
 // for header-main and header-post

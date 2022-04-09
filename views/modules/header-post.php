@@ -1,6 +1,4 @@
-<?php
-require $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
-?>
+
 
 <!doctype html>
 <html lang="ru">
@@ -10,7 +8,8 @@ require $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../styles/style.css">
-    <title>Пост</title>
+    <title><?= $post['title'] ?></title>
+    <meta name="description" content="<?= $post['description'] ?>">
 </head>
 <body>
 

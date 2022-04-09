@@ -1,5 +1,6 @@
 <?php
-include_once "modules/header-main.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
+
 
 // category
 global $categories;
@@ -10,6 +11,8 @@ foreach ($categories as $key => $value) {
         break;
     }
 }
+
+include_once "modules/header-main.php";
 
 // posts
 $posts_of_category = pdo_prepare_execute(['in_category' => $category['id']]);
@@ -31,6 +34,24 @@ foreach ($posts_of_category as $post_of_cat) { ?>
 <?php
 }
 ?>
+</section>
+
+<section class="posts-of-category last-for_mobile">
+    <div class="posts-of-category__wrapper">
+
+        <?php
+        foreach ($posts_of_category as $post_of_cat) {?>
+            <div class="post-of-category__item-wrapper">
+                <a href="/post/<?=$post_of_cat['id'] ?>">
+                    <div class="posts-of-category__item" style="background-image:url('../img/post/<?=$post_of_cat['preview_img']?>');"></div>
+                    <h5><?=$post_of_cat['h1']?></h5>
+                </a>
+            </div>
+
+            <?php
+        }
+        ?>
+    </div>
 </section>
 
 <?php
