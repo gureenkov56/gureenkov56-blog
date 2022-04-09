@@ -47,7 +47,7 @@
         </div>
         <div class="windows__folder__body__right">
             <div class="windows__folder__body__right__wrapper__counter">
-                Показано <span id="postsCountVuew">5</span> из <span id="postsCountTotal">??</span> файлов
+                Показано <span id="postsCountVuew">all</span> из <span id="postsCountTotal">Х</span> файлов
             </div>
 
             <div class="windows__folder__body__right__wrapper">

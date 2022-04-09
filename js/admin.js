@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     uploadImgForm = document.getElementById('uploadImgForm'),
     addTitleImg = document.getElementById('addTitleImg'),
     savePostBtn = document.getElementById('savePostBtn'),
-    btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]');
+    btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]'),
+    windowsFolderBodyRightWrapper = folderPosts.querySelector(".windows__folder__body__right__wrapper"),
+    contentItemTemplate = folderPosts.querySelector(".windows__folder__body__right__file");
 
   let contentEditables = editor.querySelectorAll('[contenteditable]'),
     lastZIndex = 1,
@@ -53,48 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+
+
   // click for open folder
   folderPostsIcon.addEventListener('click', () => {
-    console.log('click');
     folderPosts.classList.remove('hide');
     folderPosts.style.zIndex = lastZIndex;
     lastZIndex++;
 
-    let windowsFolderBodyRightWrapper = folderPosts.querySelector(".windows__folder__body__right__wrapper");
-    let contentItemTemplate = folderPosts.querySelector(".windows__folder__body__right__file");
-
-    windowsFolderBodyRightWrapper.innerHTML = "";
-
-    fetch(
-      `${window.location.origin}/api/posts?` +
-      new URLSearchParams({
-        select: "id, h1, pub_date, views, pub_status",
-        from: "posts",
-        orderBy: "pub_date",
-        order: "DESC",
-        limit: "5",
-      })
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        data.forEach((contentItem) => {
-          let newContentDOM = contentItemTemplate.cloneNode(true);
-          let h1 = contentItem.h1;
-          if (h1.length > 30) {
-            h1 = h1.slice(0, 30) + '...';
-          }
-          newContentDOM.querySelector(".fileinfo__title").innerHTML = h1;
-          newContentDOM.querySelector(".fileinfo__status_pub").innerHTML = contentItem.pub_date;
-          newContentDOM.querySelector(".views_count").innerHTML = contentItem.views;
-          newContentDOM.querySelector('.draft_or_pub').innerHTML = contentItem.pub_status;
-          newContentDOM.dataset.id = contentItem.id;
-
-
-          windowsFolderBodyRightWrapper.appendChild(newContentDOM);
-        });
-
-        refreshFiles();
-      });
+    refreshFiles();
   })
 
   const closeWindowBtn = document.querySelectorAll(".windows_red_btn");
@@ -110,13 +79,36 @@ document.addEventListener("DOMContentLoaded", () => {
    *******************************/
 
   function refreshFiles() {
-    let allFiles = document.querySelectorAll('.windows__folder__body__right__file');
+    windowsFolderBodyRightWrapper.innerHTML = "";
 
-    allFiles.forEach(file => {
-      file.addEventListener('click', (event) => {
-        openEditor(file.dataset.id);
+    fetch(
+      `${window.location.origin}/api/posts?` +
+      new URLSearchParams({
+        select: "id, h1, pub_date, views, pub_status",
+        from: "posts",
+        orderBy: "pub_date",
+        order: "DESC",
+        //limit: "5",
       })
-    })
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((contentItem) => {
+          let newContentDOM = contentItemTemplate.cloneNode(true);
+          let h1 = contentItem.h1;
+          if (h1.length > 30) {
+            h1 = h1.slice(0, 30) + '...';
+          }
+          newContentDOM.querySelector(".fileinfo__title").innerHTML = h1;
+          newContentDOM.querySelector(".fileinfo__status_pub").innerHTML = contentItem.pub_date;
+          newContentDOM.querySelector(".views_count").innerHTML = contentItem.views;
+          newContentDOM.querySelector('.draft_or_pub').innerHTML = contentItem.pub_status;
+          newContentDOM.dataset.id = contentItem.id;
+          newContentDOM.addEventListener('click', () => openEditor(newContentDOM.dataset.id));
+
+          windowsFolderBodyRightWrapper.appendChild(newContentDOM);
+        });
+      });
   }
 
 
@@ -365,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   /****************
-   * 6. Save post *
+   * 6. Save post & update *
    ****************/
 
   savePostBtn.addEventListener('click', () => {
@@ -410,13 +402,15 @@ document.addEventListener("DOMContentLoaded", () => {
         body: formData
       })
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res);
+          refreshFiles();
+        })
     }
-
   })
 
   // TODO:
-  // Открытие поста, обновление поста, показ постов для разных доступов, показ фрагментов для разных доступов
+  // Показ постов для разных доступов, показ фрагментов для разных доступов
 
 
 
