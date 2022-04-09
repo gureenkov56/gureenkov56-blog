@@ -301,9 +301,6 @@ body {
 }
 
 .editor__controllers {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap-reverse;
   padding: 20px 10px;
   max-width: 1000px;
   margin: 0 auto;
@@ -448,11 +445,6 @@ body {
   padding: 0;
 }
 
-.editor__seo__wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 10px;
-}
 
 #addElement > span:hover {
   text-decoration: underline;
@@ -572,6 +564,24 @@ body {
   cursor: pointer;
 }
 
+.editor__finish {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.editor__finish > * {
+  padding: 5px;
+}
+
+
+.finish_btn {
+  width: 155px;
+}
+
 /* Alert */
 
 .alert-wrapper {
@@ -585,7 +595,8 @@ body {
   background-color: #FFFDE1;
 
   border-radius: 8px;
-  border: 1x solid black;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px rgb(63, 63, 63);
 }
 
 .alert-wrapper > h4 {
@@ -615,10 +626,6 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  .editor__controllers {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
 }
 
 

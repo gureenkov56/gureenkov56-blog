@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     uploadImgForm = document.getElementById('uploadImgForm'),
     addTitleImg = document.getElementById('addTitleImg'),
     savePostBtn = document.getElementById('savePostBtn'),
+    alertWrapper = document.querySelector('.alert-wrapper'),
+    alertHeaderText = document.getElementById('alert__header-text'),
+    alertMsg = alertWrapper.querySelector('p'),
     btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]'),
     windowsFolderBodyRightWrapper = folderPosts.querySelector(".windows__folder__body__right__wrapper"),
     contentItemTemplate = folderPosts.querySelector(".windows__folder__body__right__file");
@@ -175,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById('pubStatus').value = 'draft';
       document.getElementById('category').value = '3';
-      document.getElementById('accessLevel').value = 'closest';
+      document.getElementById('accessLevel').value = 'admin';
 
 
     }
@@ -183,6 +186,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // create new post
   createNewPost.addEventListener('click', () => openEditor('create'));
+
+  /*****************
+   * X. Alert show *
+   *****************/
+
+  function showAlert(title = "", msg = "") {
+    alertWrapper.classList.remove('hide');
+    if (title) alertHeaderText.innerHTML = title;
+    if (msg) alertMsg.innerHTML = msg;
+
+
+    setTimeout(() => {
+      alertWrapper.classList.add('hide');
+    }, 4000);
+  }
 
   /**********
    * EDITOR *
@@ -335,11 +353,16 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.json())
       .then(imgname => {
         img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
-      });
+        showAlert('Картинка загружена');
+      })
+      .catch((err) => {
+        console.log(err);
+        showAlert('Ошибка! Картинка не загружена', 'Подробная информация в консоли');
+      })
 
     let inputs = modalImgWrapper.querySelectorAll('input');
     inputs.forEach(inp => inp.value = '');
-    modalImgWrapper.style.display = 'none';
+    modalImgWrapper.classList.add('hide');
   })
 
   /******************
@@ -347,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
    ******************/
 
   addTitleImg.addEventListener('click', () => {
-    modalImgWrapper.style.display = 'flex';
+    modalImgWrapper.classList.remove('hide');
     clickedFigure = addTitleImg;
   })
 
@@ -388,18 +411,27 @@ document.addEventListener("DOMContentLoaded", () => {
         method: 'post',
         body: formData
       })
-        .then(res => res.json())
-        .then(res => console.log(res))
+        .then(() => {
+          refreshFiles();
+          showAlert('Пост успешно загружен');
+        })
+        .catch(err => {
+          console.log(err);
+          showAlert('Ошибка! Пост не загружен', 'Подробная информация в консоли');
+        })
     } else {
       // update post
       fetch(`${window.location.origin}/api/update-post`, {
         method: 'post',
         body: formData
       })
-        .then(res => res.json())
-        .then(res => {
-          console.log(res);
+        .then(() => {
           refreshFiles();
+          showAlert('Пост успешно обновлен');
+        })
+        .catch(err => {
+          console.log(err);
+          showAlert('Ошибка обновления поста!', 'Подробная информация в консоли');
         })
     }
   })

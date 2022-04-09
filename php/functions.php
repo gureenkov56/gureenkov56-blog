@@ -86,8 +86,7 @@ function pdo_insert_prepare($table, $params) {
 
     global $pdo;
     $stmt = $pdo->prepare($query_string);
-    $res = $stmt->execute($params);
-    echo $res ? json_encode('SUCCESS CREATE POST') : json_encode('ERROR CREATE POST');
+    $stmt->execute($params);
 }
 
 // update one string
@@ -110,8 +109,7 @@ function pdo_update_prepare($table, $set_params, $id) {
 
     global $pdo;
     $stmt = $pdo->prepare($query_string);
-    $res = $stmt->execute($set_params);
-    echo $res ? json_encode('SUCCESS UPDATE POST') : json_encode('ERROR UPDATE POST');
+    $stmt->execute($set_params);
 }
 
 // for header-main and header-post
