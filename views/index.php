@@ -2,24 +2,36 @@
 include_once "modules/header-main.php";
 $posts_query = pdo_query('*', 'posts', 'id', 'DESC', 5, ['pub_status' => 'pub']);
 $posts = [];
+$user_access = (empty($_SESSION)) ? 1 : $_SESSION['access_level'];
+
 foreach ($posts_query as $one_post) {
-    $posts[] = $one_post;
+    if ($user_access == 3 || $user_access == 'admin') {
+        // 3 or admin
+        $posts[] = $one_post;
+    } elseif ($one_post['level_access'] <= $user_access) {
+        // 2 or 1
+        $posts[] = $one_post;
+    }
 }
 ?>
 
 <section class="last_posts">
     <?php
-    foreach ($posts as $post) { ?>
-        <a href="post/<?=$post['id'] ?>">
-            <div class="last_posts__item" style="background-image:url('../img/post/<?=$post['preview_img']?>');">
+    foreach ($posts as $post) {
+    ?>
+        <!--access_level 3-->
+        <a href="post/<?= $post['id'] ?>">
+            <div class="last_posts__item" style="background-image:url('../img/post/<?= $post['preview_img'] ?>');">
                 <div class="last_posts__item__gradient"></div>
-                <h3 href="post.php" class="last_posts__item__title"><?=$post['h1']?></h3>
-<!--                <div class="last_posts__item__category">-->
-<!--                    <a href="/cat/" class="last_posts__item__category__name">Путешествия</a>-->
-<!--                </div>-->
+                <h3 href="post.php" class="last_posts__item__title">
+                    <?php if ($post['level_access'] > 1) : ?>
+                        <span>⭐ </span>
+                    <?php endif; ?>
+                    <?= $post['h1'] ?>
+                </h3>
             </div>
         </a>
-        <?php
+    <?php
     }
     ?>
 
@@ -30,15 +42,20 @@ foreach ($posts_query as $one_post) {
     <div class="posts-of-category__wrapper">
 
         <?php
-        foreach ($posts as $post) {?>
+        foreach ($posts as $post) { ?>
             <div class="post-of-category__item-wrapper">
-                <a href="post/<?=$post['id'] ?>">
-                    <div class="posts-of-category__item" style="background-image:url('../img/post/<?=$post['preview_img']?>');"></div>
-                    <h5><?=$post['h1']?></h5>
+                <a href="post/<?= $post['id'] ?>">
+                    <div class="posts-of-category__item" style="background-image:url('../img/post/<?= $post['preview_img'] ?>');"></div>
+                    <h5>
+                        <?php if ($post['level_access'] > 1) : ?>
+                            <span class="post__mobile_star">⭐ </span>
+                        <?php endif; ?>
+                        <?= $post['h1'] ?>
+                    </h5>
                 </a>
             </div>
 
-            <?php
+        <?php
         }
         ?>
     </div>

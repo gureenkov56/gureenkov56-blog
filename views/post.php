@@ -14,12 +14,23 @@ include_once "modules/header-post.php";
 
 <article class="post">
     <div class="post__titleBlock">
-        <h1><?=$post['h1'] ?></h1>
-        <img src="../img/post/<?=$post['preview_img'] ?>" alt="" class="post__mainImage">
+        <h1><?= $post['h1'] ?></h1>
+        <img src="../img/post/<?= $post['preview_img'] ?>" alt="" class="post__mainImage">
     </div>
-    <?=$post['text'] ?>
+    <?php if($post['level_access'] > 1) : ?>
+    <div class="post__access-msg">
+        <input type="text" id="inputForKaomoji" hidden>
+        <span>⭐</span>Пост для своих<span>⭐</span>
+        <p id="japanKaomoji">( ಠ ͜ʖ ಠ)</p>
+
+        <p id="copyKaomoji">Скопировать kaomoji</p>
+    </div>
+    <?php endif; ?>
+    <?= $post['text'] ?>
 
 </article>
+
+<script src="/js/post.js"></script>
 
 <?php
 include_once "modules/footer.php"
