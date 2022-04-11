@@ -27,6 +27,21 @@
     display: flex;
 }
 
+.overflow_hidden{
+    overflow: hidden;
+}
+
+.show-me-slow {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.opacity_0 {
+    opacity: 0;
+}
+
+
+
 
 /* Class for components */
 .windows__header {
