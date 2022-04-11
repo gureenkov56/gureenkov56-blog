@@ -91,7 +91,7 @@ function pdo_insert_prepare($table, $params) {
 
 // update one string
 function pdo_update_prepare($table, $set_params, $id) {
-    if (!$id) {
+    if ( empty($id) ) {
         return 'Error: "where" is empty';
         exit();
     }
@@ -105,7 +105,10 @@ function pdo_update_prepare($table, $set_params, $id) {
     // remove ", " on the end
     $query_string = substr($query_string, 0, -2);
 
-    $query_string .= " WHERE id = $id";
+    foreach ($id as $key => $value) {
+        $query_string .= " WHERE `$key` = '$value'";
+        break;
+    }
 
     global $pdo;
     $stmt = $pdo->prepare($query_string);
