@@ -21,7 +21,7 @@
         <p class='footer__username'><?= $_SESSION['login'] ?></p>
 
         <?php if ($_SESSION['access_level'] > 1) : ?>
-            <div class="footer__access-msg">⭐ Доступен дополнительный контент</div>
+            <div class="footer__access-msg"> <span>⭐</span>Доступен дополнительный контент</div>
         <?php endif; ?>
 
         <?php if ($_SESSION['access_level'] === 'admin') : ?>

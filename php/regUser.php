@@ -15,7 +15,7 @@ if (empty($res)) {
 
 	pdo_insert_prepare('users', $params);
 	$_SESSION['login'] = $_POST['login'];
-	$_SESSION['access_level'] = 'all';
+	$_SESSION['access_level'] = '1';
 	$_SESSION['avatar'] = $new_avatar;
 	header('Location: /');
 } else {

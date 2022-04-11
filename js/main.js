@@ -13,8 +13,8 @@ const mobileMenu = document.querySelector("#mobileMenu"),
     burgerElemThird = document.querySelector("#burgerElemThird"),
     modalChangeAvatarItems = document.querySelectorAll(".modal__change-avatar > *"),
     modalNewAvatar = document.getElementById('modalNewAvatar'),
-    uploadAvatarForm = document.getElementById('uploadAvatarForm')
-avatars = document.querySelectorAll('.footer__avatar'),
+    uploadAvatarForm = document.getElementById('uploadAvatarForm'),
+    avatars = document.querySelectorAll('.footer__avatar'),
     footerEditBtn = document.getElementById('footerEditBtn'),
     modalBg = document.getElementById('modalBg'),
     modalCloseBtn = document.getElementById('modalCloseBtn'),
@@ -59,7 +59,7 @@ modalBg.addEventListener('click', (event) => {
 
 saveProfileEdit.addEventListener('click', () => {
     modalBg.classList.add('hide');
-    document.body.classList.remove('overflow_hidden')
+    document.body.classList.remove('overflow_hidden');
 })
 
 modalChangeAvatarItems.forEach(el => {
