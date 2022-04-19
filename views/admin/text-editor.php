@@ -77,9 +77,9 @@
                 </div>
                 <div>
                     <select name="category" id="category" class='cat_select'>
-                        <option value="1" selected>Путешествия</option>
-                        <option value="2">Коддинг</option>
-                        <option value="3">Другое</option>
+                        <option value="1" selected>Коддинг</option>
+                        <option value="2">Поток</option>
+                        <option value="3">Еще</option>
                     </select>
                 </div>
                 <div>
