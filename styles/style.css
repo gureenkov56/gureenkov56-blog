@@ -344,11 +344,9 @@ footer > a {
 }
 
 .post__access-msg {
-    background-color: rgb(137, 137, 137);
     max-width: 250px;
-    color: white;
     border-radius: 6px;
-    margin: 10px auto;
+    margin: 30px auto 0 auto;
     padding: 3px;
     text-align: center;
 }
@@ -366,7 +364,6 @@ footer > a {
 
 #copyKaomoji {
     font-size: .7rem;
-    color: #ffffff;
     cursor: pointer;
     padding: 0;
     margin: 0;
