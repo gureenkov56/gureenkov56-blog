@@ -8,7 +8,7 @@
         <div class="windows__header__btn_wrapper">
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">_</button>
             <button class="windows__header__btn windows_blue_btn hover_light active_darker">□</button>
-            <button class="windows__header__btn windows_red_btn hover_light active_darker close_btn">×</button>
+            <button class="windows__header__btn windows_red_btn hover_light active_darker close-btn">×</button>
         </div>
     </div>
 
