@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404</title>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    404
-<a href="/">GO HOME</a>
-
+    <div id="pageNotFound">
+        <p>Опс, походу такой странички нет, кореш.</p> <p>Давай, вставай и <br/><a href="/">пошли домой</a>,<br/> хватит тут тусоваться.</p>
+    </div>
 </body>
 </html>

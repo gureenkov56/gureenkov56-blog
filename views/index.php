@@ -38,7 +38,7 @@ foreach ($posts_query as $one_post) {
 </section>
 
 <section class="posts-of-category last-for_mobile">
-    <h1>Последние посты</h1>
+    <h1>Первые посты</h1>
     <div class="posts-of-category__wrapper">
 
         <?php

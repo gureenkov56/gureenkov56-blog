@@ -65,6 +65,7 @@ switch ($request) {
     case '/admin':
         require __DIR__ . '/views/admin/admin.php';
         break;
+    case '/404':
     default:
         require __DIR__ . '/views/404.php';
 }
