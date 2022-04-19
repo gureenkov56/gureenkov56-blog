@@ -6,6 +6,8 @@ $res = $pdo->prepare("SELECT * FROM `posts` WHERE `id` = ? LIMIT 1");
 $res->execute([$_GET['id']]);
 $post = $res->fetch(PDO::FETCH_ASSOC);
 
+if ( empty($post) ) header("Location: /404");
+
 // views +1 counter
 pdo_update('posts', ['views' => $post['views'] + 1], ['id' => $post['id']]);
 

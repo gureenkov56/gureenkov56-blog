@@ -12,6 +12,8 @@ foreach ($categories as $key => $value) {
     }
 }
 
+if ( !isset($category) ) header("Location: /404");
+
 include_once "modules/header-main.php";
 
 // posts

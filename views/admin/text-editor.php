@@ -63,9 +63,9 @@
             <div class="finish_btn">
                 <div>
                     <select name="access-level" id="accessLevel" class='cat_select'>
-                        <option value="all">All</option>
-                        <option value="middle">Middle</option>
-                        <option value="closest">Closest</option>
+                        <option value="1">All</option>
+                        <option value="2">Middle</option>
+                        <option value="3">Closest</option>
                         <option value="admin" selected>Admin</option>
                     </select>
                 </div>
