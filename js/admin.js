@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let contentEditables = editor.querySelectorAll('[contenteditable]'),
     lastZIndex = 1,
-    clickedFigure = null;
+    clickedImg = null;
 
   // listener for click out of some blocks
   document.addEventListener("click", (event) => {
@@ -287,11 +287,18 @@ document.addEventListener("DOMContentLoaded", () => {
         newElement.classList.add('post__full_width_img');
 
         const imgNew = document.createElement('img');
-        const descriptionUnderImg = document.createElement('figcaption');
         imgNew.setAttribute('src', '../../img/admin/new-img.jpg');
+
+        const descriptionUnderImg = document.createElement('figcaption');
+
+        const removeMeBtn = document.createElement('button');
+        removeMeBtn.type = "button";
+        removeMeBtn.classList.add('removeMeBtn');
+        removeMeBtn.innerHTML = "DELETE";
 
         newElement.append(imgNew);
         newElement.append(descriptionUnderImg);
+        newElement.append(removeMeBtn);
         if (activeBlock) activeBlock.classList.remove('active');
       }
 
@@ -317,12 +324,18 @@ document.addEventListener("DOMContentLoaded", () => {
    *************************/
 
   function addListenerForEditorImg() {
-    let allImg = document.querySelectorAll('#editor > figure');
+    let allImg = document.querySelectorAll('figure > img');
     allImg.forEach(el => {
       el.addEventListener('click', () => {
-        console.log('click');
         modalImgWrapper.classList.remove('hide');
-        clickedFigure = el;
+        clickedImg = el;
+      })
+    })
+
+    const removeMeBtns = document.querySelectorAll('.removeMeBtn');
+    removeMeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.remove();
       })
     })
   }
@@ -337,11 +350,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   saveNewImg.addEventListener('click', () => {
-    let img = clickedFigure.querySelector('img');
-    img.setAttribute('alt', alt.value);
+    clickedImg.setAttribute('alt', alt.value);
 
     if (description.value) {
-      let figcaption = clickedFigure.querySelector('figcaption');
+      let figcaption = clickedImg.parentElement.querySelector('figcaption');
       figcaption.innerHTML = description.value;
     }
 
@@ -352,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then(res => res.json())
       .then(imgname => {
-        img.setAttribute('src', window.location.origin + '/img/post/' + imgname);
+        clickedImg.setAttribute('src', window.location.origin + '/img/post/' + imgname);
         showAlert('Картинка загружена');
       })
       .catch((err) => {
@@ -371,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addTitleImg.addEventListener('click', () => {
     modalImgWrapper.classList.remove('hide');
-    clickedFigure = addTitleImg;
+    clickedImg = addTitleImg.querySelector('img');
   })
 
   /****************
