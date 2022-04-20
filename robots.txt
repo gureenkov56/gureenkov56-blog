@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /views/admin
+Disallow: /views/login.php
+Disallow: /views/reg.php
+Disallow: /views/404.php
+
+Host: https://gureenkov56.ru

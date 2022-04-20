@@ -12,6 +12,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/php/functions.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../styles/style.css">
     <title><?php echo $category['category-name'] ?? 'GUREENKOV56' ?></title>
+    <meta name="description" content="Сколько можно еще клепать блоги? И каждый блог уникальный и такой особенный. Да, да...">
 </head>
 
 <body>
