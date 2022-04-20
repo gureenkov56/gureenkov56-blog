@@ -212,7 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
   4. Adding new img and close modal
   5. Title image
   6. Save post
-  7. Open exist post
 */
 
   function refreshContentEditablesListeners() {
@@ -291,14 +290,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const descriptionUnderImg = document.createElement('figcaption');
 
-        const removeMeBtn = document.createElement('button');
-        removeMeBtn.type = "button";
-        removeMeBtn.classList.add('removeMeBtn');
-        removeMeBtn.innerHTML = "DELETE";
-
         newElement.append(imgNew);
         newElement.append(descriptionUnderImg);
-        newElement.append(removeMeBtn);
         if (activeBlock) activeBlock.classList.remove('active');
       }
 
@@ -332,11 +325,19 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
-    const removeMeBtns = document.querySelectorAll('.removeMeBtn');
-    removeMeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.parentElement.remove();
+    const allFigure = document.querySelectorAll('figure');
+
+    allFigure.forEach(figure => {
+      const removeMeBtn = document.createElement('button');
+      removeMeBtn.type = "button";
+      removeMeBtn.classList.add('removeMeBtn');
+      removeMeBtn.innerHTML = "DELETE";
+
+      removeMeBtn.addEventListener('click', () => {
+        removeMeBtn.parentElement.remove();
       })
+
+      figure.append(removeMeBtn);
     })
   }
 
@@ -386,15 +387,17 @@ document.addEventListener("DOMContentLoaded", () => {
     clickedImg = addTitleImg.querySelector('img');
   })
 
-  /****************
+  /*************************
    * 6. Save post & update *
-   ****************/
+   *************************/
 
   savePostBtn.addEventListener('click', () => {
     let text = '';
+
+    document.querySelectorAll('.removeMeBtn').forEach(el => el.remove());
+
     let editorElementsAll = document.querySelectorAll('#editor > *');
-    console.log(editorElementsAll);
-    editorElementsAll.forEach(el => {
+    editorElementsAll.forEach((el, idx) => {
       el.removeAttribute('contenteditable');
       el.classList.remove('oneStepBeforeRemove');
       el.classList.remove('active');
