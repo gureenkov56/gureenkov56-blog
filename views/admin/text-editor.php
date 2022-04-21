@@ -16,10 +16,8 @@
             <div class="controller_add">
                 <div>Добавить</div>
                 <div class="controllers_add__wrapper">
-                    <div data-element="p">PARAGRAPH</div>
-                    <div data-element="blockquote">BLOCKQUOTE</div>
-                </div>
-                <div class="controllers_add__wrapper">
+                    <div data-element="p">&lt;p&gt;</div>
+                    <div data-element="blockquote">" "</div>
                     <div data-element="h2">H2</div>
                     <div data-element="h3">H3</div>
                     <div data-element="h4">H4</div>
@@ -27,11 +25,15 @@
                     <div data-element="h6">H6</div>
                     <div data-element="img">IMG</div>
                 </div>
+                <div class="controller_fragments">
+                    <div>Фрагменты access_level</div>
+                    <div class="fragments_add__wrapper">
+                        <div data-fragment="==access_level=1 start==fragment==access_level=1 end==">1</div>
+                        <div data-fragment="==access_level=2 start==fragment==access_level=2 end==">2</div>
+                        <div data-fragment="==access_level=3 start==fragment==access_level=3 end==">3</div>
+                    </div>
+                </div>
             </div>
-
-
-
-
         </div>
 
         <h1 id="h1" contenteditable='true'>H1</h1>
@@ -87,45 +89,45 @@
                 </div>
             </div>
 
-            </div>
-
-        </div>
-
-        <!--modal-->
-        <div class="modal-img-wrapper hide-me hide">
-            <div id="imgModal">
-                <div class="windows__header">
-                    <span class="windows__header__name">
-                        <img src="../../img/admin/folder-icon.png" alt="folder-icon">
-                        Изменить картинку
-                    </span>
-                    <div class="windows__header__btn_wrapper">
-                        <button class="windows__header__btn windows_red_btn hover_light active_darker close-img-modal close-btn">×</button>
-                    </div>
-                </div>
-
-                <div class="imgModal-inner-wrapper">
-
-                    <form enctype="multipart/form-data" method="POST" id="uploadImgForm">
-                        <input type="file" name="uploadimg" id="uploadImg" accept=".jpg, .jpeg, .png">
-                    </form>
-
-                    <div>
-                        <label for="alt">alt*</label>
-                        <input type="text" id="alt">
-                    </div>
-
-                    <div>
-                        <label for="description">Подпись</label>
-                        <input type="text" id="description">
-                    </div>
-
-                    <button id="saveNewImg">Сохранить</button>
-                    <button class="close-img-modal">Отменить</button>
-
-                </div>
-
-            </div>
         </div>
 
     </div>
+
+    <!--modal-->
+    <div class="modal-img-wrapper hide-me hide">
+        <div id="imgModal">
+            <div class="windows__header">
+                <span class="windows__header__name">
+                    <img src="../../img/admin/folder-icon.png" alt="folder-icon">
+                    Изменить картинку
+                </span>
+                <div class="windows__header__btn_wrapper">
+                    <button class="windows__header__btn windows_red_btn hover_light active_darker close-img-modal close-btn">×</button>
+                </div>
+            </div>
+
+            <div class="imgModal-inner-wrapper">
+
+                <form enctype="multipart/form-data" method="POST" id="uploadImgForm">
+                    <input type="file" name="uploadimg" id="uploadImg" accept=".jpg, .jpeg, .png">
+                </form>
+
+                <div>
+                    <label for="alt">alt*</label>
+                    <input type="text" id="alt">
+                </div>
+
+                <div>
+                    <label for="description">Подпись</label>
+                    <input type="text" id="description">
+                </div>
+
+                <button id="saveNewImg">Сохранить</button>
+                <button class="close-img-modal">Отменить</button>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
