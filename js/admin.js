@@ -318,11 +318,11 @@ document.addEventListener("DOMContentLoaded", () => {
    * 4. Create fragment *
    **********************/
 
-   fragmentsAddBtns.forEach(fragmentAddBtn => {
+  fragmentsAddBtns.forEach(fragmentAddBtn => {
     fragmentAddBtn.addEventListener('click', () => {
       alert(fragmentAddBtn.dataset.fragment);
     })
-   })
+  })
 
   /*************************
    * 4. Additional new img *
@@ -419,6 +419,21 @@ document.addEventListener("DOMContentLoaded", () => {
     text = text.replaceAll('class=""', '');
     text = text.replaceAll(' >', '>');
 
+    // fragment min access_level
+    let minFragmentAccessLevel = 0;
+
+    if (text.includes("==access_level=3 start==")) {
+      minFragmentAccessLevel = 3;
+    }
+
+    if (text.includes("==access_level=2 start==")) {
+      minFragmentAccessLevel = 2;
+    }
+
+    if (text.includes("==access_level=1 start==")) {
+      minFragmentAccessLevel = 1;
+    }
+
     let formData = new FormData();
 
     formData.append('id', textEditor.dataset.id);
@@ -430,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append('in_category', document.getElementById('category').value);
     formData.append('preview_img', addTitleImg.querySelector('img').getAttribute('src').split('/').pop());
     formData.append('level_access', document.getElementById('accessLevel').value);
+    formData.append('min_fragment_level_access', minFragmentAccessLevel);
 
 
     if (textEditor.dataset.id === 'create') {
