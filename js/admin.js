@@ -24,8 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     alertWrapper = document.querySelector('.alert-wrapper'),
     alertHeaderText = document.getElementById('alert__header-text'),
     alertMsg = alertWrapper.querySelector('p'),
-    btnsForCreateElement = document.querySelectorAll('.controller_add [data-element]'),
+    btnsForCreateElement = document.querySelectorAll('.controllers_add__wrapper [data-element]'),
     windowsFolderBodyRightWrapper = folderPosts.querySelector(".windows__folder__body__right__wrapper"),
+    fragmentsAddBtns = document.querySelectorAll('.fragments_add__wrapper [data-fragment]'),
     contentItemTemplate = folderPosts.querySelector(".windows__folder__body__right__file");
 
   let contentEditables = editor.querySelectorAll('[contenteditable]'),
@@ -209,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /*
   2. Create new paragraph after ENTER
   3. Create new element
+  4. Create fragments
   4. Adding new img and close modal
   5. Title image
   6. Save post
@@ -312,6 +314,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  /**********************
+   * 4. Create fragment *
+   **********************/
+
+  fragmentsAddBtns.forEach(fragmentAddBtn => {
+    fragmentAddBtn.addEventListener('click', () => {
+      alert(fragmentAddBtn.dataset.fragment);
+    })
+  })
+
   /*************************
    * 4. Additional new img *
    *************************/
@@ -407,6 +419,21 @@ document.addEventListener("DOMContentLoaded", () => {
     text = text.replaceAll('class=""', '');
     text = text.replaceAll(' >', '>');
 
+    // fragment min access_level
+    let minFragmentAccessLevel = 0;
+
+    if (text.includes("==access_level=3 start==")) {
+      minFragmentAccessLevel = 3;
+    }
+
+    if (text.includes("==access_level=2 start==")) {
+      minFragmentAccessLevel = 2;
+    }
+
+    if (text.includes("==access_level=1 start==")) {
+      minFragmentAccessLevel = 1;
+    }
+
     let formData = new FormData();
 
     formData.append('id', textEditor.dataset.id);
@@ -418,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append('in_category', document.getElementById('category').value);
     formData.append('preview_img', addTitleImg.querySelector('img').getAttribute('src').split('/').pop());
     formData.append('level_access', document.getElementById('accessLevel').value);
+    formData.append('min_fragment_level_access', minFragmentAccessLevel);
 
 
     if (textEditor.dataset.id === 'create') {
@@ -449,6 +477,8 @@ document.addEventListener("DOMContentLoaded", () => {
           showAlert('Ошибка обновления поста!', 'Подробная информация в консоли');
         })
     }
+
+    savePostBtn.closest('.hide-me').classList.add('hide');
   })
 
   // TODO:

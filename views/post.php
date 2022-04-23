@@ -8,6 +8,36 @@ $post = $res->fetch(PDO::FETCH_ASSOC);
 
 if ( empty($post) ) header("Location: /404");
 
+// filter fragments
+
+$post_content = $post['text'];
+
+if (empty($_SESSION) ) {
+    $regular_for_clean = '/==access_level=1 start==.*.==access_level=1 end==|==access_level=2 start==.*.==access_level=2 end==|==access_level=3 start==.*.==access_level=3 end==/';
+} elseif ($_SESSION['access_level'] === '1') {
+    $regular_for_clean = '/==access_level=2 start==.*.==access_level=2 end==|==access_level=3 start==.*.==access_level=3 end==/';
+    $regular_for_open_span = '/==access_level=1 start==/';
+    $regular_for_close_span = '/==access_level=1 end==/';
+} elseif ($_SESSION['access_level'] === '2') {
+    $regular_for_clean = '/==access_level=3 start==.*.==access_level=3 end==/';
+    $regular_for_open_span = '/==access_level=1 start==|==access_level=2 start==/';
+    $regular_for_close_span = '/==access_level=1 end==|==access_level=2 end==/';
+} elseif ($_SESSION['access_level'] === 'admin' || $_SESSION['access_level'] === '3') {
+    $regular_for_open_span = '/==access_level=1 start==|==access_level=2 start==|==access_level=3 start==/';
+    $regular_for_close_span = '/==access_level=1 end==|==access_level=2 end==|==access_level=3 end==/';
+}
+
+if ( isset($regular_for_clean) ) {
+    $post_content = preg_replace($regular_for_clean, "", $post_content);
+}
+
+if ( isset($regular_for_open_span) && isset($regular_for_close_span) ) {
+    $post_content = preg_replace($regular_for_open_span, "<span class='fragment'>", $post_content);
+    $post_content = preg_replace($regular_for_close_span, "</span>", $post_content);
+}
+
+
+
 // views +1 counter
 pdo_update('posts', ['views' => $post['views'] + 1], ['id' => $post['id']]);
 
@@ -28,7 +58,7 @@ include_once "modules/header-post.php";
         <p id="copyKaomoji">Скопировать kaomoji</p>
     </div>
     <?php endif; ?>
-    <?= $post['text'] ?>
+    <?= $post_content ?>
 
 </article>
 

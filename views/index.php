@@ -2,10 +2,10 @@
 include_once "modules/header-main.php";
 $posts_query = pdo_query('*', 'posts', 'id', 'DESC', 5, ['pub_status' => 'pub']);
 $posts = [];
-$user_access = (empty($_SESSION)) ? 1 : $_SESSION['access_level'];
+$user_access = (empty($_SESSION)) ? 0 : $_SESSION['access_level'];
 
 foreach ($posts_query as $one_post) {
-    if ($user_access == 3 || $user_access == 'admin') {
+    if ($user_access === 3 || $user_access === 'admin') {
         // 3 or admin
         $posts[] = $one_post;
     } elseif ($one_post['level_access'] <= $user_access) {
@@ -19,12 +19,14 @@ foreach ($posts_query as $one_post) {
     <?php
     foreach ($posts as $post) {
     ?>
-        <!--access_level 3-->
         <a href="post/<?= $post['id'] ?>">
             <div class="last_posts__item" style="background-image:url('../img/post/<?= $post['preview_img'] ?>');">
                 <div class="last_posts__item__gradient"></div>
                 <h3 href="post.php" class="last_posts__item__title">
-                    <?php if ($post['level_access'] > 1) : ?>
+                    <?php if (
+                        $user_access > 0 && ($post['level_access'] > 0 || $post['min_fragment_level_access'] > 0 && $post['min_fragment_level_access'] <= $user_access) ||
+                        $user_access === 'admin' && ($post['level_access'] > 0 || $post['min_fragment_level_access'] > 0)
+                    ) : ?>
                         <span>⭐ </span>
                     <?php endif; ?>
                     <?= $post['h1'] ?>
