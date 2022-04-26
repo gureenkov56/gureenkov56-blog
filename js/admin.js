@@ -67,9 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeWindowBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
-      console.log('click');
       btn.closest(".hide-me").classList.add('hide');
-      console.log('btn.closest(".hide-me")', btn.closest(".hide-me"));
     });
   });
 
@@ -134,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch(`${window.location.origin}/api/posts?` + new URLSearchParams(bodyGet))
         .then(res => res.json())
         .then(res => {
-          console.log(res);
           // set id for editor
           document.querySelector('.text_editor .windows__header__name > span').innerHTML = 'ID' + res[0].id + ' ' + res[0].h1;
 

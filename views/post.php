@@ -49,7 +49,7 @@ include_once "modules/header-post.php";
         <h1><?= $post['h1'] ?></h1>
         <img src="../img/post/<?= $post['preview_img'] ?>" alt="" class="post__mainImage">
     </div>
-    <?php if($post['level_access'] > 1) : ?>
+    <?php if($post['level_access'] > 0) : ?>
     <div class="post__access-msg">
         <input type="text" id="inputForKaomoji" hidden>
         <span>⭐</span>Пост для своих<span>⭐</span>

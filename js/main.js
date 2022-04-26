@@ -38,38 +38,37 @@ document.querySelector("#mobileBurger").addEventListener('click', () => {
 /*****************************
  * 3. Modal change user info *
  *****************************/
-footerEditBtn.addEventListener('click', () => {
+if (footerEditBtn) footerEditBtn.addEventListener('click', () => {
     modalBg.classList.remove('hide');
     document.body.classList.add('overflow_hidden')
 })
 
-modalCloseBtn.addEventListener('click', (event) => {
+
+if (modalCloseBtn) modalCloseBtn.addEventListener('click', (event) => {
     event.stopPropagation();
     modalBg.classList.add('hide');
     document.body.classList.remove('overflow_hidden')
 })
 
-modalBg.addEventListener('click', (event) => {
-    console.log(event.composedPath().includes(modalContainer));
+if (modalBg) modalBg.addEventListener('click', (event) => {
     if (!event.composedPath().includes(modalContainer)) {
         modalBg.classList.add('hide');
         document.body.classList.remove('overflow_hidden');
     }
 })
 
-saveProfileEdit.addEventListener('click', () => {
+if (saveProfileEdit) saveProfileEdit.addEventListener('click', () => {
     modalBg.classList.add('hide');
     document.body.classList.remove('overflow_hidden');
 })
 
-modalChangeAvatarItems.forEach(el => {
+if (modalChangeAvatarItems) modalChangeAvatarItems.forEach(el => {
     el.addEventListener('click', () => {
         modalNewAvatar.click();
     })
 })
 
-modalNewAvatar.addEventListener('change', () => {
-    console.log('change');
+if (modalNewAvatar) modalNewAvatar.addEventListener('change', () => {
 
     fetch('/php/api/upload-avatar.php', {
         method: "POST",
@@ -77,7 +76,6 @@ modalNewAvatar.addEventListener('change', () => {
     })
         .then(res => res.json())
         .then(res => {
-            console.log('res', res);
             avatars.forEach(avatar => avatar.setAttribute('src', `/img/users/${res}`));
         })
 })
