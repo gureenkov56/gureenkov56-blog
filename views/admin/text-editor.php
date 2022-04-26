@@ -65,10 +65,10 @@
             <div class="finish_btn">
                 <div>
                     <select name="access-level" id="accessLevel" class='cat_select'>
-                        <option value="1">All</option>
+                        <option value="0">Гости</option>
+                        <option value="1">Авторизованные</option>
                         <option value="2">Middle</option>
-                        <option value="3">Closest</option>
-                        <option value="admin" selected>Admin</option>
+                        <option value="3" selected>Closest</option>
                     </select>
                 </div>
                 <div>
