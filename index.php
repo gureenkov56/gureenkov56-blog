@@ -22,6 +22,7 @@ if (strpos($request, '/api/update-post') !== false) {
     die();
 }
 
+
 // separate string to array
 $res = explode('/', $request);
 

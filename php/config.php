@@ -5,12 +5,9 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/php/login-and-pass-for-prod.php';
-global $mode, $user_name_prod, $pass_prod;
-
-$host = 'localhost';
-$user_name = ($mode === 'prod') ? $user_name_prod : 'root';
-$pass = ($mode === 'prod') ? $pass_prod : 'root';
+$host = 'nvgurew2.beget.tech';
+$user_name = 'nvgurew2_g56';
+$pass = 'FSdSC0%n';
 $bd_name = 'nvgurew2_g56';
 $charset = 'utf8';
 
