@@ -26,15 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         footerRegBtn = document.querySelector('.footer__reg-btn'),
         footerLoginBtn = document.querySelector('.footer__login-btn'),
+
         authModalWrapper = document.querySelector('.auth-modal__wrapper'),
         authModal = document.querySelector('.auth-modal'),
-        regModalWrapper = document.querySelector('.reg-modal__wrapper'),
-        regModal = document.querySelector('.reg-modal'),
         authModalCloseBtn = document.getElementById('authModalCloseBtn'),
-        regModalCloseBtn = document.getElementById('regModalCloseBtn'),
         authModalForm = document.getElementById('authModalForm'),
         authLogin = document.getElementById('authLogin'),
-        authPassword = document.getElementById('authPassword')
+        authPassword = document.getElementById('authPassword'),
+        authError = authModalForm.querySelector('.modal__error-span'),
+
+        regModalWrapper = document.querySelector('.reg-modal__wrapper'),
+        regModal = document.querySelector('.reg-modal'),
+        regModalCloseBtn = document.getElementById('regModalCloseBtn'),
+        regModalForm = document.getElementById('regModalForm'),
+        regError = regModalForm.querySelector('.modal__error-span'),
+        regName = regModalForm.querySelector('#regName'),
+        regLogin = regModalForm.querySelector('#regLogin'),
+        regPassword = regModalForm.querySelector('#regPassword')
         ;
 
     /*************************
@@ -166,19 +174,20 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // hide error after input
-    authLogin.addEventListener('input', () => showOrHideErrorInModal('hide', authModalForm));
-    authPassword.addEventListener('input', () => showOrHideErrorInModal('hide', authModalForm));
+    authLogin.addEventListener('input', () => showOrHideErrorInModal('hide', authModalForm, authError));
+    authPassword.addEventListener('input', () => showOrHideErrorInModal('hide', authModalForm, authError));
 
     // auth send request
     authModalForm.addEventListener('submit', event => {
         event.preventDefault();
 
+
         // validate
         if (authLogin.value.length === 0) {
-            showOrHideErrorInModal('show', authModalForm, "Заполните все поля", authLogin);
+            showOrHideErrorInModal('show', authModalForm, authError, "Заполните все поля", authLogin);
             return;
         } else if (authPassword.value.length === 0) {
-            showOrHideErrorInModal('show', authModalForm, "Заполните все поля", authPassword);
+            showOrHideErrorInModal('show', authModalForm, authError, "Заполните все поля", authPassword);
             return;
         }
 
@@ -199,25 +208,69 @@ document.addEventListener("DOMContentLoaded", () => {
                     location = '/admin';
                 } else
                 if (res === 'Неверный логин') {
-                    showOrHideErrorInModal('show', authModalForm, res, authLogin);
+                    showOrHideErrorInModal('show', authModalForm, authError, res, authLogin);
                 } else
                 if (res === 'Неверный пароль') {
-                    showOrHideErrorInModal('show', authModalForm, res, authPassword);
+                    showOrHideErrorInModal('show', authModalForm, authError, res, authPassword);
                 }
             })
     })
 
-    function showOrHideErrorInModal(showOrHide, form, errorText, errorInput) {
+    // hide error after input
+    regModalForm.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', () => showOrHideErrorInModal('hide', regModalForm, regError));
+    })
 
-        console.log("showOrHideErrorInModal");
-        const errorDiv = form.querySelector('.auth-modal__error-span');
+    // reg send request
+    regModalForm.addEventListener('submit', event => {
+        event.preventDefault();
+        console.log('submit regModalForm');
+
+        if (regName.value.length === 0) {
+            showOrHideErrorInModal('show', regModalForm, regError, "Заполните имя", regName);
+            return;
+        } else
+        if (regLogin.value.length === 0) {
+            showOrHideErrorInModal('show', regModalForm, regError, "Заполните логин", regLogin);
+            return;
+        } else
+        if (regPassword.value.length === 0) {
+            showOrHideErrorInModal('show', regModalForm, regError, "Заполните пароль", regPassword);
+            return;
+        }
+
+        const regForm = new FormData();
+        regForm.append('name', regName.value);
+        regForm.append('login', regLogin.value);
+        regForm.append('password', regPassword.value);
+
+        fetch('../php/api/reg.php', {
+            method: "POST",
+            body: regForm,
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res === 'Логин существует') {
+                    showOrHideErrorInModal('show', regModalForm, regError, res, regLogin);
+                } else
+                if (res === 'success') {
+                    regError.style.color = "green";
+                    showOrHideErrorInModal('show', regModalForm, regError, "Успех!");
+
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1300);
+                }
+            })
+    })
 
 
+    function showOrHideErrorInModal(showOrHide, form, errorDiv, errorText, errorInput) {
         if (showOrHide === 'show') {
             errorDiv.innerHTML = errorText;
             errorDiv.style.height = "1.5rem";
 
-            errorInput.classList.add('red-error-border');
+            if (errorInput) errorInput.classList.add('red-error-border');
         } else {
             errorDiv.style.height = "0";
             form.querySelectorAll('input').forEach(input => {

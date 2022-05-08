@@ -49,7 +49,10 @@ foreach ($posts_query as $one_post) {
                 <a href="post/<?= $post['id'] ?>">
                     <div class="posts-of-category__item" style="background-image:url('../img/post/<?= $post['preview_img'] ?>');"></div>
                     <h5>
-                        <?php if ($post['level_access'] > 1) : ?>
+                        <?php if (
+                            $user_access > 0 && ($post['level_access'] > 0 || $post['min_fragment_level_access'] > 0 && $post['min_fragment_level_access'] <= $user_access) ||
+                            $user_access === 'admin' && ($post['level_access'] > 0 || $post['min_fragment_level_access'] > 0)
+                        ) : ?>
                             <span class="post__mobile_star">⭐ </span>
                         <?php endif; ?>
                         <?= $post['h1'] ?>

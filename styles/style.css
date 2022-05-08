@@ -524,7 +524,7 @@ footer > a {
     height: 30px;
 }
 
-.auth-modal__error-span {
+.modal__error-span {
     color: red;
     text-align: center;
 

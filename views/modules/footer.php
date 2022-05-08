@@ -14,7 +14,10 @@
             <img class="footer__avatar" src="../../img/users/<?= $avatar ?>" alt="avatar">
         </div>
 
-        <p class='footer__username'><?= $_SESSION['login'] ?></p>
+        <p class='footer__username'>
+            <?= $_SESSION['name'] ?> <br />
+            <?= $_SESSION['login'] ?>
+        </p>
 
         <?php if ($_SESSION['access_level'] > 1) : ?>
             <div class="footer__access-msg"> <span>⭐</span>Доступен дополнительный контент</div>
@@ -105,7 +108,7 @@
                     <input type="password" id="authPassword" placeholder="Пароль">
                 </div>
 
-                <div class="auth-modal__error-span">
+                <div class="modal__error-span">
                     <span>Заполните все поля</span>
                 </div>
 
@@ -117,7 +120,7 @@
     </div>
     <!--auth modal end-->
 
-    <!--auth modal start-->
+    <!--reg modal start-->
     <div class="reg-modal__wrapper">
         <div class="reg-modal">
             <div class="reg-modal__close-btn">
@@ -125,20 +128,30 @@
             </div>
             <h2>Регистрация</h2>
 
-            <div class="input-label__wrapper">
-                <input type="text" id="createLogin" placeholder="Логин">
-            </div>
+            <form autocomplete="off" id="regModalForm">
+                <div class="input-label__wrapper">
+                    <input type="text" id="regName" placeholder="Имя" autocomplete="off">
+                </div>
 
-            <div class="input-label__wrapper">
-                <input type="password" id="createPassword" placeholder="Пароль">
-            </div>
+                <div class="input-label__wrapper">
+                    <input type="text" id="regLogin" placeholder="Логин" autocomplete="off">
+                </div>
 
-            <button class="reg-modal__login-btn">
-                Зарегистрироваться
-            </button>
+                <div class="input-label__wrapper">
+                    <input type="password" id="regPassword" placeholder="Пароль" autocomplete="off">
+                </div>
+
+                <div class="modal__error-span">
+                    <span>Заполните все поля</span>
+                </div>
+
+                <button class="reg-modal__login-btn" type="submit">
+                    Зарегистрироваться
+                </button>
+            </form>
         </div>
     </div>
-    <!--auth modal end-->
+    <!--reg modal end-->
 
 </footer>
 
