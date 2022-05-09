@@ -1,30 +1,35 @@
 <?php
-require_once 'functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/functions.php';
+
+
 
 $res = pdo_prepare_execute(['login' => $_POST['login']], '*', 'users');
 
 if (empty($res)) {
-    header('Location: /login?result=Ошибка в логине.<br /> Отгадай сначала его, потом пароль.');
+	echo json_encode('Неверный логин');
     $_SESSION = [];
     exit();
 }
 elseif ( password_verify($_POST['pass'], $res[0]['password']) ) {
     $_SESSION['login'] = $res[0]['login'];
+    $_SESSION['name'] = $res[0]['name'];
     $_SESSION['access_level'] = $res[0]['access_level'];
     $_SESSION['avatar'] = $res[0]['avatar'];
 
     if ($_SESSION['access_level'] === 'admin') {
-        header('Location: /admin');
+        echo json_encode('admin');
         exit();
     } else {
-        header('Location: /');
+		echo json_encode('OK');
         exit();
     }
 
 } else {
-    header('Location: /login.php?result=Неверный пароль.<br /> Но правильный логин - это уже 50% успеха.');
+	echo json_encode('Неверный пароль');
     $_SESSION = [];
 }
+
+
 
 
 

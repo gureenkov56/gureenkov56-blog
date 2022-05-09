@@ -1,11 +1,7 @@
 <footer>
     <?php if (empty($_SESSION)) : ?>
-        <a href="/login">
-            <button class="footer__login-btn">Войти</button>
-        </a>
-        <a href="/reg">
-            <button class="footer__reg-btn">Reg</button>
-        </a>
+        <button class="footer__login-btn">Войти</button>
+        <button class="footer__reg-btn">Reg</button>
     <?php else : ?>
         <?php
         if ($_SESSION['avatar']) {
@@ -18,7 +14,10 @@
             <img class="footer__avatar" src="../../img/users/<?= $avatar ?>" alt="avatar">
         </div>
 
-        <p class='footer__username'><?= $_SESSION['login'] ?></p>
+        <p class='footer__username'>
+            <?= $_SESSION['name'] ?> <br />
+            <?= $_SESSION['login'] ?>
+        </p>
 
         <?php if ($_SESSION['access_level'] > 1) : ?>
             <div class="footer__access-msg"> <span>⭐</span>Доступен дополнительный контент</div>
@@ -91,6 +90,69 @@
     <a href="https://www.instagram.com/gureenkov56/">
         <img src="../../img/icons/instagam-icon.png" alt="instagram" class="footer__icons">
     </a>
+
+    <!--auth modal start-->
+    <div class="auth-modal__wrapper">
+        <div class="auth-modal">
+            <div class="auth-modal__close-btn">
+                <button class="modal__close-btn" id="authModalCloseBtn">×</button>
+            </div>
+            <h2>Вход</h2>
+
+            <form id="authModalForm">
+                <div class="input-label__wrapper">
+                    <input type="text" id="authLogin" placeholder="Логин">
+                </div>
+
+                <div class="input-label__wrapper">
+                    <input type="password" id="authPassword" placeholder="Пароль">
+                </div>
+
+                <div class="modal__error-span">
+                    <span>Заполните все поля</span>
+                </div>
+
+                <button class="auth-modal__login-btn" type="submit">
+                    Вход
+                </button>
+            </form>
+        </div>
+    </div>
+    <!--auth modal end-->
+
+    <!--reg modal start-->
+    <div class="reg-modal__wrapper">
+        <div class="reg-modal">
+            <div class="reg-modal__close-btn">
+                <button class="modal__close-btn" id="regModalCloseBtn">×</button>
+            </div>
+            <h2>Регистрация</h2>
+
+            <form autocomplete="off" id="regModalForm">
+                <div class="input-label__wrapper">
+                    <input type="text" id="regName" placeholder="Имя" autocomplete="off">
+                </div>
+
+                <div class="input-label__wrapper">
+                    <input type="text" id="regLogin" placeholder="Логин" autocomplete="off">
+                </div>
+
+                <div class="input-label__wrapper">
+                    <input type="password" id="regPassword" placeholder="Пароль" autocomplete="off">
+                </div>
+
+                <div class="modal__error-span">
+                    <span>Заполните все поля</span>
+                </div>
+
+                <button class="reg-modal__login-btn" type="submit">
+                    Зарегистрироваться
+                </button>
+            </form>
+        </div>
+    </div>
+    <!--reg modal end-->
+
 </footer>
 
 

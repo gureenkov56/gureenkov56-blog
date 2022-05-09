@@ -210,7 +210,6 @@ nav > ul > li > a{
 }
 
 .post-of-category__item-wrapper {
-    max-width: 170px;
     margin: 20px;
 }
 
@@ -454,7 +453,86 @@ footer > a {
     display: inline-block;
 }
 
+.auth-modal__wrapper,
+.reg-modal__wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    /*animate*/
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all .5s;
+}
+
+.auth-modal,
+.reg-modal {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    padding: 10px;
+    width: 300px;
+    position: relative;
+    cursor: default;
+
+    /*animate*/
+    margin-top: 200px;
+    transition: all .5s;
+    opacity: 0;
+}
+
+.auth-modal__wrapper input,
+.reg-modal__wrapper input {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.auth-modal__login-btn,
+.reg-modal__login-btn {
+    background-color: white;
+    color: #3c76ff;
+    border: 1px solid #3c76ff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 10px;
+
+    cursor: pointer;
+}
+
+.auth-modal__close-btn,
+.reg-modal__close-btn {
+    position: absolute;
+    right: 0;
+}
+
+.auth-modal__close-btn > button,
+.reg-modal__close-btn > button {
+    height: 30px;
+}
+
+.modal__error-span {
+    color: red;
+    text-align: center;
+
+    overflow: hidden;
+    height: 0;
+
+    transition: .5s all;
+}
 
 /*mobile*/
 
