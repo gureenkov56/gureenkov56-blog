@@ -62,6 +62,11 @@ include_once "modules/header-post.php";
 
 </article>
 
+<?php include_once "modules/reactions.php" ?>
+
+<script>
+    const post_id = <?= $_GET['id'] ?>;
+</script>
 <script src="/js/post.js"></script>
 
 <?php

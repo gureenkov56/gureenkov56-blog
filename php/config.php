@@ -9,7 +9,7 @@ $host = 'nvgurew2.beget.tech';
 $user_name = 'nvgurew2_g56';
 $pass = 'FSdSC0%n';
 $bd_name = 'nvgurew2_g56';
-$charset = 'utf8';
+$charset = 'utf8mb4';
 
 // PDO
 $dsn = "mysql:host=$host;dbname=$bd_name;charset=$charset";

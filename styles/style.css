@@ -534,6 +534,32 @@ footer > a {
     transition: .5s all;
 }
 
+.reactions__wrapper {
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.reaction__item {
+    background-color: #f6f6f6;
+    padding: 6px 10px;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    line-height: 2.2rem;
+    white-space: nowrap;
+}
+
+.reaction__emoji {
+    font-size: 1.2rem;
+}
+
+.reaction__count {
+    color: #6c6c6c;
+}
+
 /*mobile*/
 
 .header__mobileburger{
