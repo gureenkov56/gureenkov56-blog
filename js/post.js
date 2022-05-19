@@ -51,13 +51,54 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * 3. Reactions *
 	 ****************/
 
+	const reactionArray = {
+		'reactionLike'			: {
+			activeColor: '#fddb53',
+			symbol: '👍'
+		},
+		'reactionFire'			: {
+			activeColor: '#ffba8b',
+			symbol: '🔥'
+		},
+		'reactionDislike'		: {
+			activeColor: '#fddb53',
+			symbol: '👎'
+		},
+		'reactionSmilingShit'	: {
+			activeColor: '#fddb53',
+			symbol: '💩'
+		},
+		'reactionBrainExplosion': {
+			activeColor: '#fddb53',
+			symbol: '🤯'
+		},
+		'reactionHeart'			: {
+			activeColor: '#ffb7b7',
+			symbol: '❤️'
+		},
+		'reactionShock'			: {
+			activeColor: '#fddb53',
+			symbol: '😱'
+		},
+		'reactionSad'			: {
+			activeColor: '#fddb53',
+			symbol: '😢'
+		},
+		'reactionAngry'			: {
+			activeColor: '#f5a93f',
+			symbol: '🤬'
+		},
+
+	}
+
 	if (reactionItem) {
 		reactionItem.forEach(reaction => {
 
+			reaction.querySelector('.reaction__emoji').innerHTML = reactionArray[reaction.id]['symbol'];
+
 			if ( localStorage.getItem(reaction.id + "ForPostID=" + post_id) ) {
 				reaction.classList.add('active');
-				const color = reaction.dataset.activeColor;
-				reaction.style.backgroundColor = color;
+				reaction.style.backgroundColor = reactionArray[reaction.id]['activeColor'];
 			}
 
 			reaction.addEventListener('click', () => {
@@ -76,10 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				const reactionCount = reaction.querySelector('.reaction__count');
 
 				if (!reaction.classList.contains('active')) {
-					const color = reaction.dataset.activeColor;
-
 					reaction.classList.add('active');
-					reaction.style.backgroundColor = color;
+					reaction.style.backgroundColor = reactionArray[reaction.id]['activeColor'];
 					reactionCount.innerHTML = Number(reactionCount.innerHTML) + 1;
 					localStorage.setItem(reaction.id + "ForPostID=" + post_id, 1);
 				} else {
@@ -100,8 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					method: "POST",
 					body: formdata,
 				})
-				.then(res => res.json())
-				.then(res => console.log(res));
+
 
 			})
 		})

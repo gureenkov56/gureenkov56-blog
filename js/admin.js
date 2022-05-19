@@ -451,7 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: 'post',
         body: formData
       })
-        .then(() => {
+        .then((res) => {
           refreshFiles();
           showAlert('Пост успешно загружен');
         })
@@ -477,11 +477,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     savePostBtn.closest('.hide-me').classList.add('hide');
   })
-
-  // TODO:
-  // Показ постов для разных доступов, показ фрагментов для разных доступов
-
-
-
 
 });

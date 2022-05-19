@@ -87,6 +87,9 @@ function pdo_insert_prepare($table, $params) {
     global $pdo;
     $stmt = $pdo->prepare($query_string);
     $stmt->execute($params);
+    
+    // return ID inserted row
+    return $pdo->lastInsertId();
 }
 
 // update one string
