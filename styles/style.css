@@ -218,7 +218,8 @@ nav > ul > li > a{
 }
 
 .post-of-category__item-wrapper {
-    margin: 20px;
+    padding: 20px;
+    width: 190px;
 }
 
 .posts-of-category__item {
