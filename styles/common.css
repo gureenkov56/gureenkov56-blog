@@ -17,6 +17,10 @@
     display: none !important;
 }
 
+.space-wrap-nowrap {
+    white-space: nowrap;
+}
+
 .disable-link {
     color: grey;
     cursor: not-allowed !important;

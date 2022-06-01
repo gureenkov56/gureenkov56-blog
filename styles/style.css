@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Open+Sans:wght@300&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400&family=Open+Sans:wght@300&family=Roboto&display=swap');
 @import url('/styles/common.css');
 
 html, body{
@@ -8,6 +8,14 @@ html, body{
 
 h1, h2, h3, h4{
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.post h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    color: #d2d2d2;
+    font-weight: 400;
 }
 
 body{
