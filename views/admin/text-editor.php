@@ -1,4 +1,4 @@
-<div class="text_editor hide hide-me">
+<div class="text_editor hide-me">
     <div class="windows__header">
         <span class="windows__header__name">
             <img src="../../img/admin/folder-icon.png" alt="folder-icon">
@@ -37,6 +37,7 @@
         </div>
 
         <h1 id="h1" contenteditable='true'>H1</h1>
+
 
         <div id="editor">
             <p contenteditable='true'>Start</p>

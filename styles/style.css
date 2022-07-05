@@ -18,6 +18,18 @@ h1, h2, h3, h4{
     font-weight: 400;
 }
 
+.post h3 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    color: #d2d2d2;
+    font-weight: 400;
+}
+
+.post ul,
+.post ol {
+    padding-inline-start: 40px;
+}
+
 body{
     /*font-family: 'Open Sans', sans-serif;*/
     font-family: 'Roboto', sans-serif;
@@ -649,7 +661,7 @@ footer > a {
 
 /* post */
 
-.post > p, blockquote, h1, h2, h3, h4{
+.post > p, h1, h2, h3, h4, h5, blockquote, iframe, ul, ol {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -657,7 +669,12 @@ footer > a {
     padding-left: 10px;
 }
 
-p, blockquote{
+iframe {
+    display: block;
+    padding: 0;
+}
+
+p, blockquote, ul, ol{
     font-size: 1.3rem;
 }
 
@@ -668,10 +685,14 @@ blockquote{
     border-radius: 5px;
 }
 
-p{
+p, ul, ol {
     margin-top: 3rem;
     color: #595b5b;
     line-height: 2rem;
+}
+
+ul, ol {
+    margin-top: 0;
 }
 
 .post__titleBlock{
