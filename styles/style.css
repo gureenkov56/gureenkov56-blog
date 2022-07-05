@@ -54,6 +54,7 @@ header{
 
 nav > ul {
     margin-bottom: 9px;
+    margin-top: .5rem;
 }
 
 nav > ul > li{
@@ -66,6 +67,7 @@ nav > ul > li{
 nav > ul > li > a{
     color: black;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
 /* header for post */
