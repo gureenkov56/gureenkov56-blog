@@ -18,6 +18,18 @@ h1, h2, h3, h4{
     font-weight: 400;
 }
 
+.post h3 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    color: #d2d2d2;
+    font-weight: 400;
+}
+
+.post ul,
+.post ol {
+    padding-inline-start: 40px;
+}
+
 body{
     /*font-family: 'Open Sans', sans-serif;*/
     font-family: 'Roboto', sans-serif;
@@ -42,6 +54,7 @@ header{
 
 nav > ul {
     margin-bottom: 9px;
+    margin-top: .5rem;
 }
 
 nav > ul > li{
@@ -54,6 +67,7 @@ nav > ul > li{
 nav > ul > li > a{
     color: black;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
 /* header for post */
@@ -204,6 +218,53 @@ nav > ul > li > a{
     text-decoration: none;
     padding: 3px 10px;
     margin: 0;
+}
+
+/* pet-project */
+.home-projects {
+    max-width: 1270px;
+    margin: 0 auto;
+}
+
+.home-projects h1 {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.home-projects > div {
+    display: flex;
+    justify-content: space-around;
+    overflow-x: scroll;
+}
+
+.home-projects a {
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.project {
+    margin: 20px;
+    width: 190px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.project h3 {
+    padding: 10px;
+    margin: 0;
+}
+
+.project p {
+    font-size: 0.83rem;
+    padding: 0 10px;
+    margin: 0;
+    line-height: 1.2rem;
+}
+
+#GTB {
+    background: #ccc url('../img/layout/go-to-bed.png') no-repeat center;
+    width: 190px;
+    height: 190px;
+    border-radius: 20px;
 }
 
 /* Category of posts + mobile index */
@@ -649,7 +710,7 @@ footer > a {
 
 /* post */
 
-.post > p, blockquote, h1, h2, h3, h4{
+.post > p, h1, h2, h3, h4, h5, blockquote, iframe, ul, ol {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -657,7 +718,12 @@ footer > a {
     padding-left: 10px;
 }
 
-p, blockquote{
+iframe {
+    display: block;
+    padding: 0;
+}
+
+p, blockquote, ul, ol{
     font-size: 1.3rem;
 }
 
@@ -668,10 +734,14 @@ blockquote{
     border-radius: 5px;
 }
 
-p{
+p, ul, ol {
     margin-top: 3rem;
     color: #595b5b;
     line-height: 2rem;
+}
+
+ul, ol {
+    margin-top: 0;
 }
 
 .post__titleBlock{
@@ -798,6 +868,10 @@ p{
     h1{
         margin-right: 10px;
         margin-left: 10px;
+    }
+
+    .home-projects > div {
+        justify-content: normal;
     }
 }
 

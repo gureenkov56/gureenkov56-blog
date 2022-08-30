@@ -478,4 +478,5 @@ document.addEventListener("DOMContentLoaded", () => {
     savePostBtn.closest('.hide-me').classList.add('hide');
   })
 
+
 });
