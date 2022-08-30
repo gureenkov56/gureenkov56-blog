@@ -47,7 +47,7 @@ include_once "modules/header-post.php";
 <article class="post">
     <div class="post__titleBlock">
         <h1><?= $post['h1'] ?></h1>
-        <img src="../img/post/<?= $post['preview_img'] ?>" alt="" class="post__mainImage">
+        <img src="https://gureenkov56.ru/img/post/<?= $post['preview_img'] ?>" alt="" class="post__mainImage">
     </div>
     <?php if($post['level_access'] > 0) : ?>
     <div class="post__access-msg">

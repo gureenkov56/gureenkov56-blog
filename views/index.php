@@ -20,7 +20,7 @@ foreach ($posts_query as $one_post) {
     foreach ($posts as $post) {
     ?>
         <a href="post/<?= $post['id'] ?>">
-            <div class="last_posts__item" style="background-image:url('../img/post/<?= $post['preview_img'] ?>');">
+            <div class="last_posts__item" style="background-image:url('https://gureenkov56.ru/img/post/<?= $post['preview_img'] ?>');">
                 <div class="last_posts__item__gradient"></div>
                 <h3 href="post.php" class="last_posts__item__title">
                     <?php if (
@@ -63,6 +63,19 @@ foreach ($posts_query as $one_post) {
         <?php
         }
         ?>
+    </div>
+</section>
+
+<section class="home-projects">
+    <h1>Проекты</h1>
+    <div>
+        <a href="https://go-to-bed.ru/">
+            <div class="project">
+                <div class="project__img" id="GTB"></div>
+                <h3>Go-To-Bed.ru</h3>
+                <p>Время правильного сна</p>
+            </div>
+        </a>
     </div>
 </section>
 

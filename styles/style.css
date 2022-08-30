@@ -220,6 +220,53 @@ nav > ul > li > a{
     margin: 0;
 }
 
+/* pet-project */
+.home-projects {
+    max-width: 1270px;
+    margin: 0 auto;
+}
+
+.home-projects h1 {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.home-projects > div {
+    display: flex;
+    justify-content: space-around;
+    overflow-x: scroll;
+}
+
+.home-projects a {
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.project {
+    margin: 20px;
+    width: 190px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.project h3 {
+    padding: 10px;
+    margin: 0;
+}
+
+.project p {
+    font-size: 0.83rem;
+    padding: 0 10px;
+    margin: 0;
+    line-height: 1.2rem;
+}
+
+#GTB {
+    background: #ccc url('../img/layout/go-to-bed.png') no-repeat center;
+    width: 190px;
+    height: 190px;
+    border-radius: 20px;
+}
+
 /* Category of posts + mobile index */
 
 .posts-of-category__wrapper {
@@ -821,6 +868,10 @@ ul, ol {
     h1{
         margin-right: 10px;
         margin-left: 10px;
+    }
+
+    .home-projects > div {
+        justify-content: normal;
     }
 }
 
