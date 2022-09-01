@@ -378,7 +378,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showAlert('Картинка загружена');
       })
       .catch((err) => {
-        console.log(err);
         showAlert('Ошибка! Картинка не загружена', 'Подробная информация в консоли');
       })
 
