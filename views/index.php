@@ -47,7 +47,7 @@ foreach ($posts_query as $one_post) {
         foreach ($posts as $post) { ?>
             <div class="post-of-category__item-wrapper">
                 <a href="post/<?= $post['id'] ?>">
-                    <div class="posts-of-category__item" style="background-image:url('../img/post/<?= $post['preview_img'] ?>');"></div>
+                    <div class="posts-of-category__item" style="background-image:url('https://gureenkov56.ru/img/post/<?= $post['preview_img'] ?>');"></div>
                     <h5>
                         <?php if (
                             $user_access > 0 && ($post['level_access'] > 0 || $post['min_fragment_level_access'] > 0 && $post['min_fragment_level_access'] <= $user_access) ||
