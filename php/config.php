@@ -7,7 +7,7 @@ ini_set('display_startup_errors', 1);
 
 $host = 'nvgurew2.beget.tech';
 $user_name = 'nvgurew2_g56';
-$pass = 'FSdSC0%n';
+$pass = 'test';
 $bd_name = 'nvgurew2_g56';
 $charset = 'utf8mb4';
 
