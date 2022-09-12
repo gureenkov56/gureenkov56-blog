@@ -67,7 +67,7 @@
 <!--                <p>Загрузка...</p>-->
 <!--            </div>-->
 <!--            <div class="story__counter">-->
-<!--                -->
+<!---->
 <!--            </div>-->
 <!--            <div class="story__togglers">-->
 <!--                <div class="back">-->

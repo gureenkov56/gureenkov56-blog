@@ -157,7 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		const divStoryProgress = document.createElement('div');
 		divStoryProgress.classList.add('story__progress')
 
-		window.addEventListener('scroll', function() {
+		document.addEventListener('touchmove', initJsStories);
+
+		window.addEventListener('scroll', initJsStories);
+
+		function initJsStories() {
+			// todo: * Здесь на каждый скролл очень много кода. Возможно оптимизация
 			let windowbottomPosition = pageYOffset + document.documentElement.clientHeight;
 
 			jsStories.forEach(jsStory => {
@@ -201,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					}
 				}
 			})
-		});
+		}
 
 		// todo: * Здесь можно написать одну функцию переключения картинок вперед и назад. Запускать её автоматически по таймеру или вручную при переключении
 
@@ -265,21 +270,23 @@ document.addEventListener('DOMContentLoaded', () => {
 				jsStoriesTimer = setInterval(() => autoToggleImageInCarousel(jsStory), 7000)
 			})
 		})
-	}
 
-	function autoToggleImageInCarousel(jsStory) {
-		let activeIdx = jsStory.querySelector('img.active').dataset.index;
-		jsStory.querySelector('img.active').classList.remove('active');
-		jsStory.querySelector(`[data-progress-index='${activeIdx}']`).innerHTML = '';
-		jsStory.querySelector(`[data-progress-index='${activeIdx}']`).classList.add('done');
+		function autoToggleImageInCarousel(jsStory) {
+			let activeIdx = jsStory.querySelector('img.active').dataset.index;
+			jsStory.querySelector('img.active').classList.remove('active');
+			jsStory.querySelector(`[data-progress-index='${activeIdx}']`).innerHTML = '';
+			jsStory.querySelector(`[data-progress-index='${activeIdx}']`).classList.add('done');
 
-		activeIdx++;
-		if (activeIdx == jsStory.querySelectorAll('img[data-index]').length) {
-			activeIdx = 0;
-			jsStory.querySelectorAll('[data-progress-index]').forEach(el => el.classList.remove('done'));
+			activeIdx++;
+			if (activeIdx == jsStory.querySelectorAll('img[data-index]').length) {
+				activeIdx = 0;
+				jsStory.querySelectorAll('[data-progress-index]').forEach(el => el.classList.remove('done'));
+			}
+			jsStory.querySelector(`[data-index='${activeIdx}']`).classList.add('active');
+			jsStory.querySelector(`[data-progress-index='${activeIdx}']`).appendChild(divStoryProgress);
 		}
-		jsStory.querySelector(`[data-index='${activeIdx}']`).classList.add('active');
-		jsStory.querySelector(`[data-progress-index='${activeIdx}']`).appendChild(divStoryProgress);
 	}
+
+
 
 })
