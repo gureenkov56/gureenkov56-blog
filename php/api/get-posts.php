@@ -8,8 +8,6 @@ $order = $_GET['order'] ?? '';
 $limit = $_GET['limit'] ?? '';
 $where_params = $_GET['params'] ?? [];
 
-
-
 $getData = pdo_query($select, $from, $order_by, $order, $limit, $where_params);
 $result = [];
 

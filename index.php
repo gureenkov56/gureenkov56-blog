@@ -74,6 +74,10 @@ switch ($request) {
         require __DIR__ . '/preview-projects/currency-api-vue/index.html';
         break;
 
+    case '/preview-projects/burger-shop':
+        require __DIR__ . '/preview-projects/burger-shop/index.html';
+        break;
+
     case '/404':
     default:
         require __DIR__ . '/views/404.php';
