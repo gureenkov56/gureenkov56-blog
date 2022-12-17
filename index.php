@@ -79,7 +79,10 @@ switch ($request) {
         break;
 
     case '/404':
-    default:
         require __DIR__ . '/views/404.php';
+        break;
+
+    default:
+        require __DIR__ . '/views/index.php';
 }
 ?>

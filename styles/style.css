@@ -770,10 +770,40 @@ ul, ol {
     border-radius: 5px;
 }
 
-.post__full_width_img{
+figure {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #595b5b;
+    text-align: center;
+}
+
+figure > figcaption {
+    margin-top: 1rem;
+}
+
+figure > iframe {
+    display: block;
     width: 100%;
+}
+
+figure > img {
+    max-width: 100%;
+}
+
+ul.numbers {
+    list-style-type: decimal;
+}
+
+ul.dialog {
+    list-style-type:"– ";
+}
+
+.post__full_width_img{
+    max-width: 100%;
     height: auto;
     margin: 10px 0;
+    padding: 0;
     text-align: center;
     color: #595b5b;
 }
