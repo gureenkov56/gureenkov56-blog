@@ -1,7 +1,7 @@
 <footer>
     <?php if (empty($_SESSION)) : ?>
-        <button class="footer__login-btn">Войти</button>
-        <button class="footer__reg-btn">Reg</button>
+        <button class="footer__login-btn" hidden>Войти</button>
+        <button class="footer__reg-btn" hidden>Reg</button>
     <?php else : ?>
         <?php
         if ($_SESSION['avatar']) {

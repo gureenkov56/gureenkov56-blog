@@ -78,6 +78,10 @@ switch ($request) {
         require __DIR__ . '/preview-projects/burger-shop/index.html';
         break;
 
+    case '/preview-projects/facts-shuffle/':
+        require __DIR__ . '/preview-projects/facts-shuffle/index.html';
+        break;
+
     case '/404':
         require __DIR__ . '/views/404.php';
         break;

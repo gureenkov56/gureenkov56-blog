@@ -25,6 +25,13 @@ h1, h2, h3, h4{
     font-weight: 400;
 }
 
+.post h4 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    color: #d2d2d2;
+    font-weight: 400;
+}
+
 .post ul,
 .post ol {
     padding-inline-start: 40px;
@@ -925,6 +932,21 @@ ul.dialog {
 .story__togglers > .back:hover,
 .story__togglers > .next:hover {
     opacity: 1;
+}
+
+.scroll-lib {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+}
+
+.scroll-lib__item {
+    display: block;
+    width: 60%;
+    min-width: 300px;
+    object-fit: contain;
 }
 
 @keyframes progress {
