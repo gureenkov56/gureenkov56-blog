@@ -1,0 +1,26 @@
+@import "variables";
+@import "mixins";
+
+header {
+  @include full-width-containers;
+
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  :first-child {
+    //visibility: hidden;
+  }
+
+  > div {
+    flex: 1;
+  }
+
+  .center {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: $color-headers;
+  }
+}

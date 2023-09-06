@@ -6,11 +6,15 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="frontend/css/main.css">
     <title>Главная</title>
 </head>
 <body>
-<header>HEADER</header>
-<?php include 'backend/views/' . $content_view; ?>
+
+<?php require_once 'parts/header.php'; ?>
+<main>
+    <?php require_once 'backend/views/' . $content_view; ?>
+</main>
 <footer>FOOTER</footer>
 </body>
 </html>
