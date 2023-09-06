@@ -2,10 +2,9 @@
 
 class Model_Portfolio extends Model
 {
-    public function get_data()
+    public function get_data(): array
     {
         return array(
-
             array(
                 'Year' => '2012',
                 'Site' => 'http://DunkelBeer.ru',
@@ -16,7 +15,6 @@ class Model_Portfolio extends Model
                 'Site' => 'http://ZopoMobile.ru',
                 'Description' => 'Русскоязычный каталог китайских телефонов компании Zopo на базе Android OS и аксессуаров к ним.'
             ),
-            // todo
         );
     }
 }

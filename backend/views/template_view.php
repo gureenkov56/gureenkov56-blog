@@ -1,3 +1,7 @@
+<?php
+/* @var string $content_view */
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +10,7 @@
 </head>
 <body>
 <header>HEADER</header>
-<?php include 'application/views/' . $content_view; ?>
+<?php include 'backend/views/' . $content_view; ?>
 <footer>FOOTER</footer>
 </body>
 </html>
