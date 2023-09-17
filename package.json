@@ -20,5 +20,9 @@
   "dependencies": {
     "gulp-typescript": "^6.0.0-alpha.1",
     "typescript": "^5.2.2"
+  },
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6"
   }
 }

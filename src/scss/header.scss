@@ -9,18 +9,162 @@ header {
   padding-top: 3rem;
   padding-bottom: 3rem;
 
-  :first-child {
-    //visibility: hidden;
-  }
-
   > div {
     flex: 1;
   }
 
-  .center {
+  :first-child {
+
+    .navigation {
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    .menu-toggler {
+      position: relative;
+      @media screen and (min-width: 500px) {
+        display: none;
+      }
+
+      #menu {
+        cursor: pointer;
+        border: 0;
+        background-color: transparent;
+
+        > div {
+          height: 3px;
+          background-color: $color-elements;
+        }
+
+        :nth-child(1) {
+          width: 25px;
+          margin-top: 2px;
+        }
+
+        :nth-child(2) {
+          
+          width: 30px;
+          margin-top: 5px;
+          height: 3.5px;
+          visibility: visible;
+          opacity: 100%;
+          border-radius: 0;
+          transition: opacity 1s,
+                  border-radius 1s 1s,
+                  width 1s 1s;
+        }
+
+        :nth-child(3) {
+          width: 22px;
+          margin-top: 5px;
+          
+        }
+
+        &.active {
+          :nth-child(1) {
+            animation: show-menu-top-item 1s forwards;
+          }
+
+          @keyframes show-menu-top-item  {
+            0%   { width: 25px; transform: rotate(0);}
+            70%  { width: 3px; border-radius: 3px; transform: rotate(0);}
+            71%  { width: 3px;  transform: rotate(45deg);}
+            100% { width: 30px; border-radius: 0; transform: rotate(45deg) translate(8px, 3.5px);}
+          }
+  
+          :nth-child(2) {
+            width: 3px;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: 3px;
+            transition: 
+              width .5s,
+              border-radius .5s,
+              opacity .5s .5s,
+              visibility .5s .5s;
+          }
+  
+          :nth-child(3) {
+            animation: show-menu-bottom-item 1s forwards;
+          }
+
+          @keyframes show-menu-bottom-item  {
+            0%   { width: 22px; transform: rotate(0);}
+            30%  { width: 3px; border-radius: 3px; transform: rotate(0);}
+            71%  { width: 3px;  transform: rotate(-45deg);}
+            100% { width: 30px; border-radius: 0; transform: rotate(-45deg) translate(8px, -3.5px);}
+          }
+        }
+
+        &.inactive {
+          :nth-child(1) {
+            animation: default-top-item 1s forwards;
+          }
+
+          @keyframes default-top-item  {
+            0%   { width: 30px; border-radius: 0; transform: rotate(45deg) translate(8px, 3.5px);}
+            30%  { width: 3px;  transform: rotate(45deg);}
+            31%  { width: 3px; border-radius: 3px; transform: rotate(0);}
+            100% { width: 25px; transform: rotate(0);}
+          }
+
+          :nth-child(2) {
+            width: 30px;
+            visibility: visible;
+            opacity: 1;
+            border-radius: 0;
+            transition: 
+              visibility .4s,
+              opacity .4s,
+              border-radius .5s .5s,
+              width .5s .5s;
+          }
+
+          :nth-child(3) {
+            animation: default-bottom-item 1s forwards;
+          }
+
+          @keyframes default-bottom-item  {
+            0%   { width: 30px; border-radius: 0; transform: rotate(-45deg) translate(8px, -3.5px);}
+            70%  { width: 3px;  transform: rotate(-45deg);}
+            71%  { width: 3px; border-radius: 3px; transform: rotate(0);}
+            100% { width: 22px; transform: rotate(0);}
+          }
+
+        }
+      }
+    }
+  }
+
+  #center {
+    position: relative;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
     color: $color-headers;
+
+    > div {
+      position: absolute;
+      left: 0;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #menuTitle {
+      transform: translateX(-50%) scaleY(0);
+    }
+
+    &.is-show-menu{
+      #centerContent {
+        transition: transform .5s;
+        transform: translateX(-50%) scaleY(0);
+      }
+
+      #menuTitle {
+        transition: transform .5s .5s;
+        transform: translateX(-50%) scaleY(1);
+      }
+    }
   }
 }

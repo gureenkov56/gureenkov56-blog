@@ -15,6 +15,6 @@
 <main>
     <?php require_once 'backend/views/' . $content_view; ?>
 </main>
-<footer>FOOTER</footer>
+<?php require_once 'parts/footer.php' ?>
 </body>
 </html>

@@ -13,12 +13,10 @@ function js() {
     return src('src/ts/*.ts')
         .pipe(ts({
             noImplicitAny: true,
-
-            outDir: 'frontend/js/',
-            target: 'ES5'
+            target: 'es6',
         }))
         .pipe(uglify())
-        .pipe(dest('frontend/js'))
+        .pipe(dest('frontend/js/'))
 }
 
 function css() {
@@ -27,7 +25,7 @@ function css() {
         .pipe(dest('frontend/css/'))
 }
 function startwatch() {
-    watch('src/ts/*.js', js)
+    watch('src/ts/*.ts', js)
     watch('src/scss/*.scss', css)
 }
 
