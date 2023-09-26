@@ -13,11 +13,9 @@
     </div>
 
     <div id="center">
-        <div id="centerContent">
-            ДОМ
-        </div>
-        <div id="menuTitle">
-            MENU
+        <div id="centerHeader">
+            <div id="pageTitle">ДОМ</div>
+            <div id="menu">MENU</div>
         </div>
     </div>
 
