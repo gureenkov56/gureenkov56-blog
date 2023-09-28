@@ -1,7 +1,7 @@
 <header>
     <div>
         <div class="navigation">
-            вернуться
+            <!-- вернуться -->
         </div>
         <div class="menu-toggler">
             <button id="menu">
