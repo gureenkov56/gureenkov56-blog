@@ -10,5 +10,8 @@
     <main>
         <?php require_once 'backend/views/' . $content_view; ?>
     </main>
-    <aside>aside left</aside>
+    <aside>
+        <!-- TODO: Post ID here and page scroller to top  -->
+        <!-- aside right -->
+    </aside>
 </section>
