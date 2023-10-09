@@ -6,9 +6,8 @@
   display: flex;
   gap: 8rem;
 
-  > * {
+  >* {
     flex: 1;
-    // background-color: #fac;
   }
 
   main {
@@ -37,12 +36,42 @@
 
         .icons {
           margin-top: 1rem;
+
           img {
             max-width: 17px;
             cursor: pointer;
             margin-right: 20px;
           }
 
+        }
+      }
+    }
+  }
+
+  .right-sidebar {
+    section {
+      position: relative;
+      height: 100%;
+      text-align: right;
+
+      .short-info {
+        font-weight: bold;
+        font-size: 1.3rem;
+        color: $color-headers;
+
+      }
+
+      button {
+        position: fixed;
+        bottom: 40px;
+        border: 0;
+        background-color: transparent;
+        margin-left: -50px;
+
+        div {
+          transform: rotate(-90deg);
+          margin-bottom: 30px;
+          color: $color-headers;
         }
       }
     }

@@ -10,8 +10,8 @@
     <main>
         <?php require_once 'backend/views/' . $content_view; ?>
     </main>
-    <aside>
+    <aside class="right-sidebar">
         <!-- TODO: Post ID here and page scroller to top  -->
-        <!-- aside right -->
+        <?php require_once 'right_sidebar.php'; ?>
     </aside>
 </section>
