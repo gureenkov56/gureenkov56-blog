@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp watch": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +20,9 @@
   "dependencies": {
     "gulp-typescript": "^6.0.0-alpha.1",
     "typescript": "^5.2.2"
+  },
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6"
   }
 }
