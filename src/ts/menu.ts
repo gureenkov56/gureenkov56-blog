@@ -1,4 +1,4 @@
-export default function menulog() {
+export default function mobileMenuStarter() {
     const menuBtn = document.getElementById('menu');
     const centerHeader = document.getElementById('centerHeader')!
 

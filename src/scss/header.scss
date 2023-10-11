@@ -16,14 +16,14 @@ header {
   :first-child {
 
     .navigation {
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: $mobile-width) {
         display: none;
       }
     }
 
     .menu-toggler {
       position: relative;
-      @media screen and (min-width: 500px) {
+      @media screen and (min-width: $mobile-width) {
         display: none;
       }
 

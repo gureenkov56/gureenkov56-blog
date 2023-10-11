@@ -1,4 +1,4 @@
-<header>
+<header id='topBlock'>
     <div>
         <div class="navigation">
             <!-- вернуться -->

@@ -19,7 +19,7 @@ async function js() {
         .pipe(dest('frontend/js/'))
 }
 
-function css() {
+async function css() {
     return src('src/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(dest('frontend/css/'))
