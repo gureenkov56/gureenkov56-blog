@@ -30,7 +30,7 @@ async function icons() {
         .pipe(dest('frontend/public/images/icons/'))
 }
 
-function startwatch() {
+async function startwatch() {
     watch('src/ts/*.ts', js)
     watch('src/scss/*.scss', css)
     watch('src/public/images/icons/*.*', icons)

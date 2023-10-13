@@ -1,0 +1,1 @@
+export const MOBILE_SCREEN_BREAKPOINT = 1200;

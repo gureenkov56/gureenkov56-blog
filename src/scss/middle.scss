@@ -17,7 +17,7 @@
     .post-preview {
       border-radius: 20px;
       box-shadow: 0 0 10px 5px #F3F3F3;
-      transition: transform 1s, box-shadow 1s;
+      transition: transform .5s, box-shadow .5s;
       margin-bottom: 2rem;
       &:hover {
         box-shadow: 0 0 30px 20px #F3F3F3;
@@ -34,6 +34,7 @@
         
         .title-and-label {
           display: flex;
+          gap: 1rem;
           align-items: start;
           h3 {
             font-weight: 400;
@@ -114,16 +115,19 @@
         width: 30px;
         margin: 0 auto;
         
-
-        
         opacity: 1;
         visibility: visible;
-        transition: opacity 1s;
+        transition: visibility 0.3s linear,opacity 0.3s linear;
 
         &.hidden {
           visibility: hidden;
           opacity: 0;
         }
+
+        // &.show {
+        //   visibility: visible;
+        //   opacity: 1;
+        // }
 
         div {
           width: 2rem;
