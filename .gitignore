@@ -12,3 +12,4 @@
 /php/config.php
 /frontend/
 /node_modules/
+/backend/credentials.php
