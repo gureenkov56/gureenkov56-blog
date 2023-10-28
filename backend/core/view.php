@@ -9,6 +9,7 @@ class View {
             extract($data);
         }
 
+        // $content_view используется внутри $template_view
         include 'backend/views/'.$template_view;
     }
 }
