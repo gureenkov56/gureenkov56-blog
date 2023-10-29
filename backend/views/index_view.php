@@ -1,24 +1,23 @@
 <?php
 /* @var $data */
-print_r($data);
-$count = [1,2,3];
-foreach ($count as $post) :
+// print_r($data);
+foreach ($data as $post) :
 ?>
-<a href="">
+<a href="/post/<?=$post['id'] ?>">
     <div class="post-preview">
+        TODO: title image
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/1200px-Moench_2339.jpg" alt="">
         <div class="post-preview__text">
             <div class="title-and-label">
                 <h3>
-                    Автостопом до Малайзии или что делать после
-                    армии. Part I
+                    <?=$post['title'] ?>
                 </h3>
+                <?php if(false): ?>
                 <div>новьё</div>
+                <?php endif; ?>
             </div>
             <p>
-                Калининградская область, город Балтийск, военный полуживой
-                корабль. Меня отправляют в кубрик к новобранцам, чтобы
-                привлечь любого из них на кухню для помощи.
+                <?=$post['description'] ?>
             </p>
         </div>
     </div>

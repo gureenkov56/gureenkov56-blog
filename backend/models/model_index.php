@@ -3,8 +3,12 @@ class Model_Index extends Model
 {
     public function get_data() {
 
-        $data = 'Index page data from Model_Index';
+        $query = $GLOBALS['pdo']->query('SELECT `id`, `title`, `description`, `preview_img` FROM posts');
 
-        return $data;
+        while ($row = $query->fetch()) {
+            $data[] = $row;
+        }
+
+        return array_reverse($data);
     }
 }
