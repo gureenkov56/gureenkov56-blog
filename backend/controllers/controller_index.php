@@ -13,5 +13,7 @@ class Controller_Index extends Controller
         $data = $this->model->get_data();
         $this->view->generate('index_view.php', 'template_view.php', $data);
     }
+
+
 }
 

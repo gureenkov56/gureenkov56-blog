@@ -13,6 +13,12 @@ class Controller {
     function action_main()
     {
     }
+
+    function id($id)
+    {
+        $data = $this->model->get_data_by_id($id);
+        $this->view->generate('index_view.php', 'template_view.php', $data);
+    }
 }
 
 ?>
