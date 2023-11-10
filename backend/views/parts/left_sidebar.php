@@ -14,16 +14,16 @@
             попадает сюда.</p>
         <div class="icons">
             <a href="https://t.me/nikitagureenkov" target="_blank">
-                <img src="frontend/public/images/icons/icon-tg.svg" alt="telegram">
+                <img src="/frontend/public/images/icons/icon-tg.svg" alt="telegram">
             </a>
             <a href="https://github.com/gureenkov56" target="_blank">
-                <img src="frontend/public/images/icons/icon-github.svg" alt="github">
+                <img src="/frontend/public/images/icons/icon-github.svg" alt="github">
             </a>
             <a href="https://www.instagram.com/nikitagureenkov" target="_blank">
-                <img src="frontend/public/images/icons/icon-instagram.svg" alt="instagram">
+                <img src="/frontend/public/images/icons/icon-instagram.svg" alt="instagram">
             </a>
             <a href="https://vk.com/gureenkov56" target="_blank">
-                <img src="frontend/public/images/icons/icon-vk.svg" alt="vk">
+                <img src="/frontend/public/images/icons/icon-vk.svg" alt="vk">
             </a>
         </div>
     </div>

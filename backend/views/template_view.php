@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="frontend/css/main.css">
+    <link rel="stylesheet" href="/frontend/css/main.css">
     <title>Главная</title>
 </head>
 <body>
