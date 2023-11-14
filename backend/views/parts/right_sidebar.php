@@ -1,7 +1,13 @@
+<?php
+/* @var $data */
+?>
+
 <section>
+    <?php if (array_key_exists('id', $data)) : ?>
     <div class="short-info">
-        #31
+        <?= '#' . $data['id'];?>
     </div>
+    <?php endif; ?>
 
     <a href="#topBlock" id='upperToTop' class="hidden">
         <div>Наверх</div>

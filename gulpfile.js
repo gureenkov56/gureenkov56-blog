@@ -16,28 +16,28 @@ async function js() {
             target: 'es6',
         }))
         .pipe(uglify())
-        .pipe(dest('frontend/js/'))
+        .pipe(dest('./frontend/js/'))
 }
 
 async function css() {
     return src('src/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('frontend/css/'))
+        .pipe(dest('./frontend/css/'))
 }
 
-async function icons() {
-    return src('src/public/images/icons/*.*')
-        .pipe(dest('frontend/public/images/icons/'))
+async function images() {
+    return src('src/public/images/**/*.*')
+        .pipe(dest('./frontend/public/images/'))
 }
 
 async function startwatch() {
     watch('src/ts/*.ts', js)
     watch('src/scss/*.scss', css)
-    watch('src/public/images/icons/*.*', icons)
+    watch('src/public/images/**/*.*', images)
 }
 
 async function cleanFolder() {
-    return src('frontend/*')
+    return src('./frontend/*')
         .pipe(clean());
 }
 
@@ -49,7 +49,7 @@ task('default',
         parallel(
             css,
             js,
-            icons,
+            images,
         ),
         startwatch
     )
@@ -63,8 +63,8 @@ task('styles', css)
 // gulp js
 task('js', js)
 
-task('icons', icons)
+task('images', images)
 
 // gulp build
-task('build', series(cleanFolder, js, css, icons))
+task('build', series(cleanFolder, js, css, images))
 

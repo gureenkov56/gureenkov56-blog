@@ -14,7 +14,7 @@
 
     <div id="center">
         <div id="centerHeader">
-            <div id="pageTitle">ДОМ</div>
+            <div id="pageTitle"><a href="/">ДОМ</a></div>
             <div id="menu">MENU</div>
         </div>
     </div>

@@ -3,7 +3,7 @@ class Model_Index extends Model
 {
     public function get_data() {
 
-        $query = $GLOBALS['pdo']->query('SELECT `id`, `title`, `description`, `preview_img` FROM posts');
+        $query = $GLOBALS['pdo']->query('SELECT `id`, `SEO_title`, `SEO_description`, `description`, `h1`, `pre_text`, `preview_img` FROM `posts`');
 
         while ($row = $query->fetch()) {
             $data[] = $row;

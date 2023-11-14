@@ -8,7 +8,7 @@ foreach ($data as $post) :
         <div class="post-preview__text">
             <div class="title-and-label">
                 <h3>
-                    <?=$post['title'] ?>
+                    <?=$post['h1'] ?>
                 </h3>
                 <!--TODO: labels-->
                 <?php if(false): ?>
