@@ -30,8 +30,42 @@ body {
   footer {
     height: 5rem;
   }
+
+  button {
+    cursor: pointer;
+  }
+
+  // block about me
+  .about-me {
+    display: flex;
+    gap: 2rem;
+
+    .avatar {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 100px;
+    }
+
+    .text {
+      p {
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 300;
+      }
+
+      .icons {
+        margin-top: 1rem;
+
+        img {
+          max-width: 17px;
+          cursor: pointer;
+          margin-right: 20px;
+        }
+
+      }
+    }
+  }
 }
 
-button {
-  cursor: pointer;
-}
+
