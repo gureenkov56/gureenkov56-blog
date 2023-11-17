@@ -15,4 +15,10 @@ RewriteRule ^(frontend)($|/) - [L]
 RewriteRule .* index.php [L]
 Redirect /index /
 
+### redirect from http to https ###
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+### end redirect from http to https ###
+
 #ErrorDocument 404 /404.php

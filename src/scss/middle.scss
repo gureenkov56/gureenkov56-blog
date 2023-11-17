@@ -50,14 +50,14 @@
         }
 
         p {
-          font-weight: 200;
+          font-weight: 300;
           font-size: .9rem;
           margin-top: .5rem;
         }
       }
     }
 
-    // стили постов
+    // стили контента внутри поста
     > article {
 
       font-size: 1.1rem;
@@ -99,6 +99,29 @@
         }
       }
 
+      figure {
+        text-align: center;
+
+        figcaption {
+          color: $light-text;
+        }
+
+        iframe {
+          width: 100%;
+        }
+      }
+
+      blockquote {
+        background-color: #f5f5f5;
+        margin-top: 2rem;
+        padding: 2rem 1rem 2rem 1rem;
+      }
+
+      a {
+        color: #3c76ff;
+        text-decoration: underline;
+      }
+
       // TODO: .dialog, js-story story__wrapper
 
       .scroll-lib {
@@ -109,7 +132,7 @@
 
         > * {
           display: block;
-          max-width: 70%;
+          min-width: 70%;
           object-fit: contain;
         }
       }

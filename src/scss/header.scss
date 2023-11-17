@@ -27,14 +27,21 @@ header {
         display: none;
       }
 
-      #menu {
+      #menu-btn {
+        position: relative;
+        z-index: 100;
         cursor: pointer;
         border: 0;
         background-color: transparent;
 
-        > div {
+        > span {
+          display: block;
           height: 3px;
           background-color: $color-elements;
+
+          //&:last-child {
+          //  height: 4px;
+          //}
         }
 
         :nth-child(1) {
@@ -43,10 +50,8 @@ header {
         }
 
         :nth-child(2) {
-          
           width: 30px;
           margin-top: 5px;
-          height: 3.5px;
           visibility: visible;
           opacity: 100%;
           border-radius: 0;
@@ -58,7 +63,7 @@ header {
         :nth-child(3) {
           width: 22px;
           margin-top: 5px;
-          
+
         }
 
         &.active {
@@ -72,19 +77,19 @@ header {
             71%  { width: 3px;  transform: rotate(45deg);}
             100% { width: 30px; border-radius: 0; transform: rotate(45deg) translate(8px, 3.5px);}
           }
-  
+
           :nth-child(2) {
             width: 3px;
             visibility: hidden;
             opacity: 0;
             border-radius: 3px;
-            transition: 
+            transition:
               width .5s,
               border-radius .5s,
               opacity .5s .5s,
               visibility .5s .5s;
           }
-  
+
           :nth-child(3) {
             animation: show-menu-bottom-item 1s forwards;
           }
@@ -114,7 +119,7 @@ header {
             visibility: visible;
             opacity: 1;
             border-radius: 0;
-            transition: 
+            transition:
               visibility .4s,
               opacity .4s,
               border-radius .5s .5s,
@@ -135,6 +140,23 @@ header {
         }
       }
     }
+
+    #menu {
+      background-color: $bgc-color-light-theme;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      opacity: 0;
+      transition: height 1s, opacity 1s;
+
+      &.show {
+        opacity: 1;
+        height: 100vh;
+      }
+    }
   }
 
   #center {
@@ -151,12 +173,12 @@ header {
 
       > div {
         width: 100%;
-        
+
         position: absolute;
         top: 0;
       }
 
-      #menu {
+      #menuTitle {
         visibility: hidden;
         transform: scaleY(0);
       }
@@ -167,7 +189,7 @@ header {
           transition: transform .5s;
         }
 
-        #menu {
+        #menuTitle {
           visibility: visible;
           transform: scaleY(1);
           transition: transform .5s .5s;
@@ -188,9 +210,9 @@ header {
       }
     }
 
-    
 
-    
+
+
 
     // #centerHeader {
     //   transform: translateX(-50%) scaleY(0);
@@ -209,3 +231,4 @@ header {
     // }
   }
 }
+
