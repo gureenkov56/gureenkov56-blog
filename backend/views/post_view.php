@@ -11,4 +11,10 @@
     <?php endif ?>
     <img src="../../frontend/public/images/content/<?=$data['preview_img'] ?>" alt="">
     <?= $data['post_content'] ?>
+    <div>
+        likes: <?= $data['likes'] ?>
+    </div>
+    <div>
+        просмотров: <?= $data['views'] ?>
+    </div>
 </article>

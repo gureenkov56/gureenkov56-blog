@@ -15,7 +15,7 @@
     <title><?= (key_exists('SEO_title', $data)) ? $data['SEO_title'] : $GLOBALS['DEFAULT_SEO_TITLE']; ?></title>
 </head>
 <body>
-<?php require_once 'parts/header.php'; ?>
+<?php require_once 'parts/header/header.php'; ?>
 <?php require_once 'parts/middle.php' ?>
 <?php require_once 'parts/footer.php' ?>
 </body>
