@@ -1,6 +1,6 @@
 <?php
 /* @var $data */
-foreach ($data as $post) :
+foreach ($data['posts'] as $post) :
 ?>
 <a href="/post/<?=$post['id'] ?>">
     <div class="post-preview">

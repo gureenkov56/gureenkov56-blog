@@ -3,7 +3,7 @@
 //print_r($data);
 ?>
 <article>
-    <h1><?=$data['h1']?></h1>
+    <h1><?=$data['posts']['h1']?></h1>
     <?php if ($data['pre_text']) : ?>
     <blockquote class="pre-content">
         <?=$data['pre_text']?>
