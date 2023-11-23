@@ -37,6 +37,32 @@ body {
     cursor: pointer;
   }
 
+  .categories {
+    max-width: 360px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .category {
+    color: white;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 1rem;
+  }
+
+  h1.category {
+    position: relative;
+    z-index: -1;
+    margin-bottom: 3rem;
+    opacity: .8;
+  }
+
   // block about me
   .about-me {
     display: flex;
@@ -52,7 +78,7 @@ body {
     .text {
       p {
         margin-top: 10px;
-        font-size: 1rem;
+        font-size: .9rem;
         font-weight: 300;
       }
 
@@ -63,8 +89,8 @@ body {
           max-width: 17px;
           cursor: pointer;
           margin-right: 20px;
+          margin-bottom: 10px;
         }
-
       }
     }
   }

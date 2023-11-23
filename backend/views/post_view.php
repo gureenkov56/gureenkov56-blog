@@ -3,18 +3,18 @@
 //print_r($data);
 ?>
 <article>
-    <h1><?=$data['posts']['h1']?></h1>
-    <?php if ($data['pre_text']) : ?>
+    <h1><?=$data['content']['h1']?></h1>
+    <?php if ($data['content']['pre_text']) : ?>
     <blockquote class="pre-content">
-        <?=$data['pre_text']?>
+        <?=$data['content']['pre_text']?>
     </blockquote>
     <?php endif ?>
-    <img src="../../frontend/public/images/content/<?=$data['preview_img'] ?>" alt="">
-    <?= $data['post_content'] ?>
+    <img src="../../frontend/public/images/content/<?=$data['content']['preview_img'] ?>" alt="">
+    <?= $data['content']['post_content'] ?>
     <div>
-        likes: <?= $data['likes'] ?>
+        likes: <?= $data['content']['likes'] ?>
     </div>
     <div>
-        просмотров: <?= $data['views'] ?>
+        просмотров: <?= $data['content']['views'] ?>
     </div>
 </article>

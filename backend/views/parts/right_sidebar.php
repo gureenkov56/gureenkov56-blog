@@ -5,7 +5,7 @@
 <section>
     <?php if (array_key_exists('id', $data)) : ?>
     <div class="short-info">
-        <?= '#' . $data['id'];?>
+        <?= '#' . $data['content']['id'];?>
     </div>
     <?php endif; ?>
 

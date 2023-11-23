@@ -38,6 +38,7 @@ class Router
 
         $model_file = strtolower($model_name).'.php';
 
+
         $model_path = "backend/models/".$model_file;
         if(file_exists($model_path))
         {
@@ -64,6 +65,7 @@ class Router
         // создаем контроллер
         $controller = new $controller_name;
         $action = $action_name;
+
 
 
         if(method_exists($controller, $action))
