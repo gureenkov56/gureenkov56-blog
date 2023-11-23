@@ -3,7 +3,7 @@
 ?>
 
 <section>
-    <?php if (array_key_exists('id', $data)) : ?>
+    <?php if (array_key_exists('content', $data) && array_key_exists('id', $data['content'])) : ?>
     <div class="short-info">
         <?= '#' . $data['content']['id'];?>
     </div>

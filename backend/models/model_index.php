@@ -13,8 +13,6 @@ class Model_Index extends Model
             $data['content'] = array_reverse($data['content']);
         }
 
-        // нужен реверс массива постов
-
         $query = $GLOBALS['pdo']->query('SELECT * FROM `categories`');
 
         while ($row = $query->fetch()) {

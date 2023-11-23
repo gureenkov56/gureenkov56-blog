@@ -136,6 +136,33 @@
           object-fit: contain;
         }
       }
+
+      .post-statistic {
+        text-align: center;
+        .view-count {
+          color: $light-text;
+          font-size: .8rem;
+          margin-top: 1rem;
+        }
+
+        #likeBtn {
+          background-color: transparent;
+          border: .5px solid $light-text;
+          border-radius: 20px;
+          padding: 5px 10px;
+          font-size: inherit;
+          font-weight: inherit;
+
+          margin: 0 auto;
+
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+
+
     }
 
     .categories {
