@@ -14,6 +14,10 @@ class Router
         // получаем имя контроллера
         if ( !empty($routes[1]) )
         {
+            if ($routes[1] === 'api') {
+                (new Router)->api($routes);
+                return;
+            }
             $controller_name = $routes[1];
         }
 
@@ -96,5 +100,18 @@ class Router
     {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('Location:'.$host);
+    }
+
+    private function api($routes) {
+        include "backend/controllers/controller_api.php";
+        $controller_api = new Controller_Api();
+
+        if ($routes[2] === 'like-post' && is_numeric($routes[3])) {
+            $is_minus = false;
+            if (!empty($routes[4])) {
+                $is_minus = true;
+            }
+            $controller_api->set_like_to_post($routes[3], $is_minus);
+        }
     }
 }
