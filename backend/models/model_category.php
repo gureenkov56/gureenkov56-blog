@@ -3,15 +3,7 @@ class Model_Category extends Model
 {
     public function get_data_by_id($id) {
 
-        $query = $GLOBALS['pdo']->query('SELECT * FROM `posts` WHERE `category` = ' . $id);
         $data = [];
-        while ($row = $query->fetch()) {
-            $data['content'][] = $row;
-        }
-
-        if (key_exists('content', $data)) {
-            $data['content'] = array_reverse($data['content']);
-        }
 
         $query = $GLOBALS['pdo']->query('SELECT * FROM `categories`');
 
@@ -20,9 +12,22 @@ class Model_Category extends Model
             $data['categories'][$categoryId] = $row;
         }
 
+        if (!key_exists($id, $data['categories'])) {
+            (new Router())::ErrorPage404();
+        }
+
         $data['active_category'] = $data['categories'][$id];
 
-        $data['SEO_title'] = $data['active_category']['category-name'] . ' | Блог Никиты Гуреенкова';
+        $query = $GLOBALS['pdo']->query('SELECT * FROM `posts` WHERE `category` = ' . $id);
+        while ($row = $query->fetch()) {
+            $data['content'][] = $row;
+        }
+
+        if (key_exists('content', $data)) {
+            $data['content'] = array_reverse($data['content']);
+        }
+
+        $data['SEO_title'] = $data['categories'][$id]['category-name'] . ' | Блог Никиты Гуреенкова';
         $data['SEO_description'] = 'Посты из категории ' . $data['active_category']['category-name'] . ' в блоге Никиты Гуреенкова. You are welcome!';
 
         return $data;

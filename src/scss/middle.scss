@@ -100,6 +100,7 @@
       }
 
       figure {
+        margin: 3rem 0;
         text-align: center;
 
         figcaption {
@@ -139,6 +140,7 @@
 
       .post-statistic {
         text-align: center;
+        margin-top: 2rem;
         .view-count {
           color: $light-text;
           font-size: .8rem;

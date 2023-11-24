@@ -4,10 +4,14 @@ class Model_Post extends Model
 {
     public function get_data_by_id($id) {
         $query = $GLOBALS['pdo']->query('SELECT `id`, `h1`, `pre_text`, `preview_img`, `post_content`, `likes`, `views`, `SEO_title`, `SEO_description` FROM `posts` WHERE `id` = ' . $id);
+
         $data = [];
 
         $data['content'] = $query->fetch();
 
+        if (empty($data['content'])) {
+            (new Router())::ErrorPage404();
+        }
 
         $query = $GLOBALS['pdo']->query('SELECT * FROM `categories`');
 
