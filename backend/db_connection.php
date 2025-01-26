@@ -20,8 +20,9 @@ try {
     $pdo = new PDO($dsn, $USER_NAME, $PASSWORD, $option);
     $GLOBALS['pdo'] = $pdo;
 } catch(PDOException $e) {
-    Router::ErrorPage404();
-//    echo "Connection failed: " . $e->getMessage();
+//     Router::ErrorPage404();
+   echo "Connection failed: " . $e->getMessage();
+   die();
 }
 
 //function get_all_posts() {

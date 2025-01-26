@@ -92,8 +92,9 @@
       }
 
       ul {
-        padding-left: 1rem;
+        padding-left: 2rem;
         margin-top: .5rem;
+        margin-bottom: 2rem;
         li {
           margin-top: .5rem;
         }
@@ -123,11 +124,31 @@
         text-decoration: underline;
       }
 
+      table {
+        margin-bottom: 2rem;
+        border-collapse: collapse;
+
+        th {
+          font-weight: 500;
+        }
+
+        td, th {
+          padding: 7px 20px 7px 10px;
+          border: 1px solid #e7e7e7; 
+        }
+        
+        thead {
+          text-align: left;
+          background-color: #f5f5f5;
+          font-weight: 100;
+        }
+      }
+
       // TODO: .dialog, js-story story__wrapper
 
       .scroll-lib {
         display: flex;
-        gap: 1rem;
+        gap: 1rem; 
         max-width: 100%;
         overflow-x: scroll;
 
@@ -198,6 +219,7 @@
 
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 1rem;
         transform: translateX(50%);
         width: 30px;

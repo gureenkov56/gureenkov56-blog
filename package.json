@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp watch": "gulp"
+    "gulp watch": "gulp",
+    "gulp images": "gulp images",
+    "gulp styles": "gulp styles"
   },
   "author": "",
   "license": "ISC",
