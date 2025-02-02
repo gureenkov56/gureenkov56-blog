@@ -18,6 +18,7 @@ class Router
                 (new Router)->api($routes);
                 return;
             }
+
             $controller_name = $routes[1];
         }
 
@@ -114,28 +115,6 @@ class Router
             $controller_api->set_like_to_post($routes[3], $is_minus);
             exit();
         }
-
-//        if ($routes[2] === 'get-yclients-goods') {
-//            $creds = base64_encode('username:password');
-//            print_r($creds);
-//            $post_body = http_build_query([
-//                    'login' => 'gureenkov56@gmail.com',
-//                    'password' => 'G56$Yc2021'
-//            ]);
-//            $opts = [
-//                'http' => [
-//                    'method' => 'POST',
-//                    'Accept' => 'application/vnd.api.v2+json',
-//                    'header' => 'Content-type: application/x-www-form-urlencoded, Authorization: Bearer 4b3ejf6ra2ye6tfdnez5, User 5475',
-//                    'content' => $post_body
-//                ]
-//            ];
-//            $context = stream_context_create($opts);
-//            $url = 'https://api.yclients.com/api/v1/auth';
-//            $res = file_get_contents($url,false, $context);
-//            print_r($res);
-//            exit();
-//        }
 
         (new Router)->ErrorPage404();
     }
