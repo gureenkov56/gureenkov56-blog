@@ -14,8 +14,14 @@ class Router
         // получаем имя контроллера
         if ( !empty($routes[1]) )
         {
+            $router = new Router();
             if ($routes[1] === 'api') {
-                (new Router)->api($routes);
+                $router->api($routes);
+                return;
+            }
+
+            if ($routes[1] === 'service') {
+                $router->service($routes);
                 return;
             }
 
@@ -105,7 +111,7 @@ class Router
 
     private function api($routes) {
         include "backend/controllers/controller_api.php";
-        $controller_api = new Controller_Api();
+        $controller_api = new Controller_Api(); 
 
         if ($routes[2] === 'like-post' && is_numeric($routes[3])) {
             $is_minus = false;
@@ -117,5 +123,12 @@ class Router
         }
 
         (new Router)->ErrorPage404();
+    }
+
+    private function service($routes) {
+        include "backend/controllers/controller_login.php";
+        $controller_login = new Controller_Login();
+        $controller_login->login();
+        exit();
     }
 }

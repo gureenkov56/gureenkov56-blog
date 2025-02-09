@@ -1,5 +1,5 @@
 <?php
-
+// связывает данные из model с версткой их выводящей из view
 class Controller {
 
     public $model;

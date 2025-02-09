@@ -1,5 +1,5 @@
 <?php
-
+// view файлы содержат в себе верстку и выводят данные на страницу
 class View {
     function generate($content_view, $template_view, $data = null)
     {
