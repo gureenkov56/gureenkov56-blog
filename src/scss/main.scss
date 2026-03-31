@@ -82,7 +82,7 @@ body {
     .text {
       p {
         margin-top: 10px;
-        font-size: .9rem;
+        font-size: .8rem;
         font-weight: 300;
       }
 
@@ -90,11 +90,13 @@ body {
         margin-top: 1rem;
 
         a {
-          margin-right: 10px;
+          cursor: pointer;
           img {
             max-width: 17px;
-            cursor: pointer;
-            margin-bottom: 10px;
+          }
+
+          span {
+            font-size: .8rem;
           }
         }
       }
